@@ -1,0 +1,11 @@
+[package]
+name = "Schems"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+flate2 = "1.0.34"
+fastnbt = "2"
+serde = "1.0.214"
+regex = "1.11.1"
+serde_json = "1.0.132"

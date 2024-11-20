@@ -1,0 +1,390 @@
+DSE Messages
+Message
+"Info: Archive command: ['quartus_sh', '--ipc_json', '--archive', '-output', 'C:\\Users\\zwzol\\Documents\\Code\\FPGA-MCHPRS\\Quartus\\dse\\dse1\\FPGA-MCHPRS.qar', '-revision', 'FPGA-MCHPRS', 'C:/Users/zwzol/Documents/Code/FPGA-MCHPRS/Quartus/FPGA-MCHPRS.qpf']"
+Info: Archiving C:/Users/zwzol/Documents/Code/FPGA-MCHPRS/Quartus/FPGA-MCHPRS.qpf revision FPGA-MCHPRS ...
+Info: Job 1 : quartus_sh --ipc_json --flow compile FPGA-MCHPRS.qsf
+Info: Explorer server: http://localhost:58069 started.
+Info: Starting compile design only exploration
+Info: Revision: dse1_base will be compiled on compute node: Zanes_Desktop
+Info: Registering self with server http://localhost:58069/api/v1.0/broker/server/
+Info: Successfully registered with server.
+Info: Starting compilation quartus_sh --ipc_json --flow compile FPGA-MCHPRS.qsf
+Info: Sent timestamps successfully
+Info: Preparing to compile FPGA-MCHPRS ...
+Info: Downloading FPGA-MCHPRS.qar.sha256 ...
+Info: Finished download.
+Info: Verified dse/dse1/dse1_base\FPGA-MCHPRS.qar.sha256 exists.
+Info: Downloading FPGA-MCHPRS.qar ...
+Info: Finished download.
+Info: Verified dse/dse1/dse1_base\FPGA-MCHPRS.qar exists.
+Info: Download successful. Checksum matched expected value.
+"Info: Unarchive command: ['quartus_sh', '--restore', '-output', 'dse/dse1/dse1_base', 'dse/dse1/dse1_base\\FPGA-MCHPRS.qar']"
+Info: Downloading dse1_base.qsf ...
+Info: Finished download.
+Info: Verified C:\Users\zwzol\Documents\Code\FPGA-MCHPRS\Quartus\dse/dse1/dse1_base\FPGA-MCHPRS.qsf exists.
+Info: Downloading dse1_base.qpf ...
+Info: Finished download.
+Info: Verified dse/dse1/dse1_base\FPGA-MCHPRS.qpf exists.
+Info: Sent timestamps successfully
+Info: Sent timestamps successfully
+Info: *******************************************************************
+Info: Running Quartus Prime Shell
+Info: 	Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+Info: 	Processing started: Wed Nov  6 20:09:16 2024
+Info: Command: quartus_sh --flow compile FPGA-MCHPRS.qsf
+Info: Quartus(args): compile FPGA-MCHPRS.qsf
+Info: Project Name = C:/Users/zwzol/Documents/Code/FPGA-MCHPRS/Quartus/dse/dse1/dse1_base/FPGA-MCHPRS
+Info: Revision Name = FPGA-MCHPRS
+Info: *******************************************************************
+Info: Running Quartus Prime Signal Tap
+Info: 	Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+Info: 	Processing started: Wed Nov  6 20:09:17 2024
+Info: Command: quartus_stp FPGA-MCHPRS -c FPGA-MCHPRS
+"Info: Quartus Prime Signal Tap was successful. 0 errors, 0 warnings"
+Info: 	Peak virtual memory: 4558 megabytes
+Info: 	Processing ended: Wed Nov  6 20:09:17 2024
+Info: 	Elapsed time: 00:00:00
+Info: 	Total CPU time (on all processors): 00:00:00
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+Info: 	Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+Info: 	Processing started: Wed Nov  6 20:09:18 2024
+Info: Command: quartus_map --read_settings_files=off --write_settings_files=off FPGA-MCHPRS -c FPGA-MCHPRS
+Warning: Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info: Parallel compilation is enabled and will use 12 of the 12 processors detected
+"Info: Found 1 design units, including 1 entities, in source file verilog/sevseg_dec.v"
+Info: 	Found entity 1: sevseg_dec
+"Info: Found 1 design units, including 1 entities, in source file verilog/top.v"
+Info: 	Found entity 1: top
+"Info: Found 1 design units, including 1 entities, in source file verilog/clk_div.v"
+Info: 	Found entity 1: clk_div
+"Info: Found 1 design units, including 1 entities, in source file fclk.v"
+Info: 	Found entity 1: fclk
+"Info: Found 1 design units, including 1 entities, in source file fclk/fclk_0002.v"
+Info: 	Found entity 1: fclk_0002
+"Info: Elaborating entity ""top"" for the top level hierarchy"
+Warning: Verilog HDL assignment warning at top.v(23): truncated value with size 32 to match size of target (4)
+"Info: Elaborating entity ""fclk"" for hierarchy ""fclk:fclk"""
+"Info: Elaborating entity ""fclk_0002"" for hierarchy ""fclk:fclk|fclk_0002:fclk_inst"""
+"Info: Elaborating entity ""altera_pll"" for hierarchy ""fclk:fclk|fclk_0002:fclk_inst|altera_pll:altera_pll_i"""
+"Info: Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array ""wire_to_nowhere_64"" into its bus"
+"Info: Elaborated megafunction instantiation ""fclk:fclk|fclk_0002:fclk_inst|altera_pll:altera_pll_i"""
+"Info: Instantiated megafunction ""fclk:fclk|fclk_0002:fclk_inst|altera_pll:altera_pll_i"" with the following parameter:"
+"Info: 	Parameter ""fractional_vco_multiplier"" = ""false"""
+"Info: 	Parameter ""reference_clock_frequency"" = ""50.0 MHz"""
+"Info: 	Parameter ""operation_mode"" = ""direct"""
+"Info: 	Parameter ""number_of_clocks"" = ""1"""
+"Info: 	Parameter ""output_clock_frequency0"" = ""400.000000 MHz"""
+"Info: 	Parameter ""phase_shift0"" = ""0 ps"""
+"Info: 	Parameter ""duty_cycle0"" = ""50"""
+"Info: 	Parameter ""output_clock_frequency1"" = ""0 MHz"""
+"Info: 	Parameter ""phase_shift1"" = ""0 ps"""
+"Info: 	Parameter ""duty_cycle1"" = ""50"""
+"Info: 	Parameter ""output_clock_frequency2"" = ""0 MHz"""
+"Info: 	Parameter ""phase_shift2"" = ""0 ps"""
+"Info: 	Parameter ""duty_cycle2"" = ""50"""
+"Info: 	Parameter ""output_clock_frequency3"" = ""0 MHz"""
+"Info: 	Parameter ""phase_shift3"" = ""0 ps"""
+"Info: 	Parameter ""duty_cycle3"" = ""50"""
+"Info: 	Parameter ""output_clock_frequency4"" = ""0 MHz"""
+"Info: 	Parameter ""phase_shift4"" = ""0 ps"""
+"Info: 	Parameter ""duty_cycle4"" = ""50"""
+"Info: 	Parameter ""output_clock_frequency5"" = ""0 MHz"""
+"Info: 	Parameter ""phase_shift5"" = ""0 ps"""
+"Info: 	Parameter ""duty_cycle5"" = ""50"""
+"Info: 	Parameter ""output_clock_frequency6"" = ""0 MHz"""
+"Info: 	Parameter ""phase_shift6"" = ""0 ps"""
+"Info: 	Parameter ""duty_cycle6"" = ""50"""
+"Info: 	Parameter ""output_clock_frequency7"" = ""0 MHz"""
+"Info: 	Parameter ""phase_shift7"" = ""0 ps"""
+"Info: 	Parameter ""duty_cycle7"" = ""50"""
+"Info: 	Parameter ""output_clock_frequency8"" = ""0 MHz"""
+"Info: 	Parameter ""phase_shift8"" = ""0 ps"""
+"Info: 	Parameter ""duty_cycle8"" = ""50"""
+"Info: 	Parameter ""output_clock_frequency9"" = ""0 MHz"""
+"Info: 	Parameter ""phase_shift9"" = ""0 ps"""
+"Info: 	Parameter ""duty_cycle9"" = ""50"""
+"Info: 	Parameter ""output_clock_frequency10"" = ""0 MHz"""
+"Info: 	Parameter ""phase_shift10"" = ""0 ps"""
+"Info: 	Parameter ""duty_cycle10"" = ""50"""
+"Info: 	Parameter ""output_clock_frequency11"" = ""0 MHz"""
+"Info: 	Parameter ""phase_shift11"" = ""0 ps"""
+"Info: 	Parameter ""duty_cycle11"" = ""50"""
+"Info: 	Parameter ""output_clock_frequency12"" = ""0 MHz"""
+"Info: 	Parameter ""phase_shift12"" = ""0 ps"""
+"Info: 	Parameter ""duty_cycle12"" = ""50"""
+"Info: 	Parameter ""output_clock_frequency13"" = ""0 MHz"""
+"Info: 	Parameter ""phase_shift13"" = ""0 ps"""
+"Info: 	Parameter ""duty_cycle13"" = ""50"""
+"Info: 	Parameter ""output_clock_frequency14"" = ""0 MHz"""
+"Info: 	Parameter ""phase_shift14"" = ""0 ps"""
+"Info: 	Parameter ""duty_cycle14"" = ""50"""
+"Info: 	Parameter ""output_clock_frequency15"" = ""0 MHz"""
+"Info: 	Parameter ""phase_shift15"" = ""0 ps"""
+"Info: 	Parameter ""duty_cycle15"" = ""50"""
+"Info: 	Parameter ""output_clock_frequency16"" = ""0 MHz"""
+"Info: 	Parameter ""phase_shift16"" = ""0 ps"""
+"Info: 	Parameter ""duty_cycle16"" = ""50"""
+"Info: 	Parameter ""output_clock_frequency17"" = ""0 MHz"""
+"Info: 	Parameter ""phase_shift17"" = ""0 ps"""
+"Info: 	Parameter ""duty_cycle17"" = ""50"""
+"Info: 	Parameter ""pll_type"" = ""General"""
+"Info: 	Parameter ""pll_subtype"" = ""General"""
+"Info: Elaborating entity ""clk_div"" for hierarchy ""clk_div:divider"""
+Warning: Verilog HDL assignment warning at clk_div.v(13): truncated value with size 32 to match size of target (28)
+"Info: Elaborating entity ""sevseg_dec"" for hierarchy ""sevseg_dec:segs"""
+Info: Ignored 2 buffer(s)
+Info: 	Ignored 2 SOFT buffer(s)
+Warning: 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info: Timing-Driven Synthesis is running
+Info: Generated JSON formatted report files in C:/Users/zwzol/Documents/Code/FPGA-MCHPRS/Quartus/dse/dse1/dse1_base/db/FPGA-MCHPRS.map.json_files/
+Info: Generated JSON formatted report files in C:/Users/zwzol/Documents/Code/FPGA-MCHPRS/Quartus/dse/dse1/dse1_base/db/FPGA-MCHPRS.flow.json_files/
+"Info: Generating hard_block partition ""hard_block:auto_generated_inst"""
+"Info: 	Adding 5 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL"
+Warning: Design contains 6 input pin(s) that do not drive logic
+"Warning: 	No output dependent on input pin ""i_switches[0]"""
+"Warning: 	No output dependent on input pin ""i_switches[1]"""
+"Warning: 	No output dependent on input pin ""i_switches[2]"""
+"Warning: 	No output dependent on input pin ""i_switches[3]"""
+"Warning: 	No output dependent on input pin ""i_switches[4]"""
+"Warning: 	No output dependent on input pin ""i_switches[5]"""
+Info: Implemented 55 device resources after synthesis - the final resource count might be different
+Info: 	Implemented 8 input pins
+Info: 	Implemented 7 output pins
+Info: 	Implemented 39 logic cells
+Info: 	Implemented 1 PLLs
+Info: Generated JSON formatted report files in C:/Users/zwzol/Documents/Code/FPGA-MCHPRS/Quartus/dse/dse1/dse1_base/db/FPGA-MCHPRS.map.json_files/
+Info: Generated JSON formatted report files in C:/Users/zwzol/Documents/Code/FPGA-MCHPRS/Quartus/dse/dse1/dse1_base/db/FPGA-MCHPRS.flow.json_files/
+"Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 11 warnings"
+Info: 	Peak virtual memory: 4868 megabytes
+Info: 	Processing ended: Wed Nov  6 20:09:24 2024
+Info: 	Elapsed time: 00:00:06
+Info: 	Total CPU time (on all processors): 00:00:07
+Info: *******************************************************************
+Info: Running Quartus Prime Fitter
+Info: 	Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+Info: 	Processing started: Wed Nov  6 20:09:24 2024
+Info: Command: quartus_fit --read_settings_files=off --write_settings_files=off FPGA-MCHPRS -c FPGA-MCHPRS
+Info: qfit2_default_script.tcl version: #1
+Info: Project  = FPGA-MCHPRS
+Info: Revision = FPGA-MCHPRS
+Warning: Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info: Parallel compilation is enabled and will use 12 of the 12 processors detected
+"Info: Selected device 5CSEMA5F31C6 for design ""FPGA-MCHPRS"""
+Info: Low junction temperature is 0 degrees C
+Info: High junction temperature is 85 degrees C
+"Warning: LOCKED port on the PLL is not properly connected on instance ""fclk:fclk|fclk_0002:fclk_inst|altera_pll:altera_pll_i|general[0].gpll"". The LOCKED port on the PLL should be connected when the FBOUTCLK port is connected. Although it is unnecessary to connect the LOCKED signal, any logic driven off of an output clock of the PLL will not know when the PLL is locked and ready."
+"Info: Fitter is performing an Auto Fit compilation, which may decrease Fitter effort to reduce compilation time"
+Warning: Feature LogicLock is only available with a valid subscription license. You can purchase a software subscription to gain full access to this feature.
+Warning: Some pins have incomplete I/O assignments. Refer to the I/O Assignment Warnings report for details
+Info: Starting Fitter periphery placement operations
+Info: Promoted 1 clock (1 global)
+Info: 	fclk:fclk|fclk_0002:fclk_inst|altera_pll:altera_pll_i|outclk_wire[0]~CLKENA0 with 28 fanout uses global clock CLKCTRL_G4
+Info: Fitter periphery placement operations ending: elapsed time is 00:00:00
+"Warning: Synopsys Design Constraints File file not found: 'FPGA-MCHPRS.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design."
+Info: No user constrained generated clocks found in the design
+Info: No user constrained base clocks found in the design
+Info: The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
+Info: 	Cell: fclk|fclk_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL  from: refclkin  to: fbclk
+Info: 	Cell: fclk|fclk_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
+Info: 	Cell: fclk|fclk_inst|altera_pll_i|general[0].gpll~PLL_REFCLK_SELECT  from: clkin[0]  to: clkout
+"Info: No user constrained clock uncertainty found in the design. Calling ""derive_clock_uncertainty"""
+Info: Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Info: Timing requirements not specified -- quality metrics such as performance may be sacrificed to reduce compilation time.
+Info: Starting register packing
+Info: Finished register packing
+Info: Fitter preparation operations ending: elapsed time is 00:00:07
+Info: Fitter placement preparation operations beginning
+Info: The Fitter is using Advanced Physical Optimization.
+Info: Fitter placement preparation operations ending: elapsed time is 00:00:04
+Info: Fitter placement operations beginning
+Info: Fitter placement was successful
+Info: Fitter placement operations ending: elapsed time is 00:00:02
+Info: Fitter routing operations beginning
+Info: Router estimated average interconnect usage is 0% of the available device resources
+Info: 	Router estimated peak interconnect usage is 0% of the available device resources in the region that extends from location X78_Y0 to location X89_Y10
+Info: The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
+Info: 	Optimizations that may affect the design's routability were skipped
+Info: Fitter routing operations ending: elapsed time is 00:00:01
+Info: Total time spent on timing analysis during the Fitter is 0.32 seconds.
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Info: Fitter post-fit operations ending: elapsed time is 00:00:01
+Info: Generated suppressed messages file C:/Users/zwzol/Documents/Code/FPGA-MCHPRS/Quartus/dse/dse1/dse1_base/FPGA-MCHPRS.fit.smsg
+Info: Generated JSON formatted report files in C:/Users/zwzol/Documents/Code/FPGA-MCHPRS/Quartus/dse/dse1/dse1_base/db/FPGA-MCHPRS.fit.json_files/
+Info: Generated JSON formatted report files in C:/Users/zwzol/Documents/Code/FPGA-MCHPRS/Quartus/dse/dse1/dse1_base/db/FPGA-MCHPRS.flow.json_files/
+"Info: Quartus Prime Fitter was successful. 0 errors, 5 warnings"
+Info: 	Peak virtual memory: 7366 megabytes
+Info: 	Processing ended: Wed Nov  6 20:09:49 2024
+Info: 	Elapsed time: 00:00:25
+Info: 	Total CPU time (on all processors): 00:01:00
+Info: *******************************************************************
+Info: Running Quartus Prime Assembler
+Info: 	Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+Info: 	Processing started: Wed Nov  6 20:09:50 2024
+Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off FPGA-MCHPRS -c FPGA-MCHPRS
+Warning: Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info: Assembler is generating device programming files
+"Info: Quartus Prime Assembler was successful. 0 errors, 1 warning"
+Info: 	Peak virtual memory: 4879 megabytes
+Info: 	Processing ended: Wed Nov  6 20:09:54 2024
+Info: 	Elapsed time: 00:00:04
+Info: 	Total CPU time (on all processors): 00:00:03
+Info: Skipped module Power Analyzer due to the assignment FLOW_ENABLE_POWER_ANALYZER
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+Info: 	Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+Info: 	Processing started: Wed Nov  6 20:09:54 2024
+Info: Command: quartus_sta FPGA-MCHPRS -c FPGA-MCHPRS
+Info: qsta_default_script.tcl version: #1
+Warning: Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info: Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info: Low junction temperature is 0 degrees C
+Info: High junction temperature is 85 degrees C
+"Warning: Synopsys Design Constraints File file not found: 'FPGA-MCHPRS.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design."
+"Info: No user constrained generated clocks found in the design. Calling ""derive_pll_clocks -create_base_clocks"""
+Info: Deriving PLL clocks
+Info: 	create_clock -period 20.000 -waveform {0.000 10.000} -name i_clk i_clk
+Info: 	create_generated_clock -source {fclk|fclk_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|refclkin} -divide_by 2 -multiply_by 16 -duty_cycle 50.00 -name {fclk|fclk_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]} {fclk|fclk_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]}
+Info: 	create_generated_clock -source {fclk|fclk_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|vco0ph[0]} -duty_cycle 50.00 -name {fclk|fclk_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk} {fclk|fclk_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk}
+"Info: No user constrained base clocks found in the design. Calling ""derive_clocks -period 1.0"""
+Info: Deriving Clocks
+Info: 	create_clock -period 1.000 -name clk_div:divider|count[27] clk_div:divider|count[27]
+Info: The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
+Info: 	Cell: fclk|fclk_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL  from: refclkin  to: fbclk
+Info: 	Cell: fclk|fclk_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
+Info: 	Cell: fclk|fclk_inst|altera_pll_i|general[0].gpll~PLL_REFCLK_SELECT  from: clkin[0]  to: clkout
+"Info: No user constrained clock uncertainty found in the design. Calling ""derive_clock_uncertainty"""
+Info: Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow 1100mV 85C Model
+Warning: Timing requirements not met
+"Info: 	For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer."
+Info: Worst-case setup slack is -5.863
+Info: 	    Slack       End Point TNS Clock 
+Info: 	========= =================== =====================
+Info: 	   -5.863              -5.863 fclk|fclk_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+Info: 	   -1.099              -5.304 clk_div:divider|count[27] 
+Info: Worst-case hold slack is 0.211
+Info: 	    Slack       End Point TNS Clock 
+Info: 	========= =================== =====================
+Info: 	    0.211               0.000 fclk|fclk_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+Info: 	    0.637               0.000 clk_div:divider|count[27] 
+Info: No Recovery paths to report
+Info: No Removal paths to report
+Info: Worst-case minimum pulse width slack is -0.394
+Info: 	    Slack       End Point TNS Clock 
+Info: 	========= =================== =====================
+Info: 	   -0.394              -3.058 clk_div:divider|count[27] 
+Info: 	    0.556               0.000 fclk|fclk_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+Info: 	    1.250               0.000 fclk|fclk_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] 
+Info: 	    9.900               0.000 i_clk 
+Info: Analyzing Slow 1100mV 0C Model
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Info: The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
+Info: 	Cell: fclk|fclk_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL  from: refclkin  to: fbclk
+Info: 	Cell: fclk|fclk_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
+Info: 	Cell: fclk|fclk_inst|altera_pll_i|general[0].gpll~PLL_REFCLK_SELECT  from: clkin[0]  to: clkout
+Info: Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Warning: Timing requirements not met
+"Info: 	For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer."
+Info: Worst-case setup slack is -5.272
+Info: 	    Slack       End Point TNS Clock 
+Info: 	========= =================== =====================
+Info: 	   -5.272              -5.272 fclk|fclk_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+Info: 	   -1.105              -5.264 clk_div:divider|count[27] 
+Info: Worst-case hold slack is -0.257
+Info: 	    Slack       End Point TNS Clock 
+Info: 	========= =================== =====================
+Info: 	   -0.257              -0.257 fclk|fclk_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+Info: 	    0.579               0.000 clk_div:divider|count[27] 
+Info: No Recovery paths to report
+Info: No Removal paths to report
+Info: Worst-case minimum pulse width slack is -0.394
+Info: 	    Slack       End Point TNS Clock 
+Info: 	========= =================== =====================
+Info: 	   -0.394              -3.072 clk_div:divider|count[27] 
+Info: 	    0.511               0.000 fclk|fclk_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+Info: 	    1.250               0.000 fclk|fclk_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] 
+Info: 	    9.926               0.000 i_clk 
+Info: Analyzing Fast 1100mV 85C Model
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Info: The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
+Info: 	Cell: fclk|fclk_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL  from: refclkin  to: fbclk
+Info: 	Cell: fclk|fclk_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
+Info: 	Cell: fclk|fclk_inst|altera_pll_i|general[0].gpll~PLL_REFCLK_SELECT  from: clkin[0]  to: clkout
+Info: Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Warning: Timing requirements not met
+"Info: 	For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer."
+Info: Worst-case setup slack is -4.954
+Info: 	    Slack       End Point TNS Clock 
+Info: 	========= =================== =====================
+Info: 	   -4.954              -4.954 fclk|fclk_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+Info: 	   -0.319              -1.275 clk_div:divider|count[27] 
+Info: Worst-case hold slack is 0.185
+Info: 	    Slack       End Point TNS Clock 
+Info: 	========= =================== =====================
+Info: 	    0.185               0.000 fclk|fclk_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+Info: 	    0.314               0.000 clk_div:divider|count[27] 
+Info: No Recovery paths to report
+Info: No Removal paths to report
+Info: Worst-case minimum pulse width slack is 0.143
+Info: 	    Slack       End Point TNS Clock 
+Info: 	========= =================== =====================
+Info: 	    0.143               0.000 clk_div:divider|count[27] 
+Info: 	    0.806               0.000 fclk|fclk_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+Info: 	    1.250               0.000 fclk|fclk_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] 
+Info: 	    9.643               0.000 i_clk 
+Info: Analyzing Fast 1100mV 0C Model
+Info: The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
+Info: 	Cell: fclk|fclk_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL  from: refclkin  to: fbclk
+Info: 	Cell: fclk|fclk_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER  from: vco0ph[0]  to: divclk
+Info: 	Cell: fclk|fclk_inst|altera_pll_i|general[0].gpll~PLL_REFCLK_SELECT  from: clkin[0]  to: clkout
+Info: Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Warning: Timing requirements not met
+"Info: 	For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer."
+Info: Worst-case setup slack is -3.862
+Info: 	    Slack       End Point TNS Clock 
+Info: 	========= =================== =====================
+Info: 	   -3.862              -3.862 fclk|fclk_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+Info: 	   -0.256              -0.913 clk_div:divider|count[27] 
+Info: Worst-case hold slack is 0.178
+Info: 	    Slack       End Point TNS Clock 
+Info: 	========= =================== =====================
+Info: 	    0.178               0.000 fclk|fclk_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+Info: 	    0.265               0.000 clk_div:divider|count[27] 
+Info: No Recovery paths to report
+Info: No Removal paths to report
+Info: Worst-case minimum pulse width slack is 0.145
+Info: 	    Slack       End Point TNS Clock 
+Info: 	========= =================== =====================
+Info: 	    0.145               0.000 clk_div:divider|count[27] 
+Info: 	    0.794               0.000 fclk|fclk_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+Info: 	    1.250               0.000 fclk|fclk_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] 
+Info: 	    9.632               0.000 i_clk 
+Info: Design is not fully constrained for setup requirements
+Info: Design is not fully constrained for hold requirements
+Info: Generated JSON formatted report files in C:/Users/zwzol/Documents/Code/FPGA-MCHPRS/Quartus/dse/dse1/dse1_base/db/FPGA-MCHPRS.sta.json_files/
+Info: Generated JSON formatted report files in C:/Users/zwzol/Documents/Code/FPGA-MCHPRS/Quartus/dse/dse1/dse1_base/db/FPGA-MCHPRS.flow.json_files/
+"Info: Quartus Prime Timing Analyzer was successful. 0 errors, 6 warnings"
+Info: 	Peak virtual memory: 5263 megabytes
+Info: 	Processing ended: Wed Nov  6 20:09:58 2024
+Info: 	Elapsed time: 00:00:04
+Info: 	Total CPU time (on all processors): 00:00:02
+Info: Generated JSON formatted report files in C:/Users/zwzol/Documents/Code/FPGA-MCHPRS/Quartus/dse/dse1/dse1_base/db/FPGA-MCHPRS.sta.json_files/
+"Info: Quartus Prime Full Compilation was successful. 0 errors, 23 warnings"
+Info: Evaluation of Tcl script c:/intelfpga_lite/23.1std/quartus/common/tcl/internal/qsh_flow.tcl was successful
+"Info: Quartus Prime Shell was successful. 0 errors, 23 warnings"
+Info: 	Peak virtual memory: 4687 megabytes
+Info: 	Processing ended: Wed Nov  6 20:09:59 2024
+Info: 	Elapsed time: 00:00:43
+Info: 	Total CPU time (on all processors): 00:00:00
+Info: Compilation finished. 167 msgs
+Info: Processing keep results option: all
+Info: Completed exploration. Results: 1 passed; 0 failed.
+Info: Processing ended: Wed Nov 06 20:11:22 2024
+Info: Elapsed time: 0:02:14

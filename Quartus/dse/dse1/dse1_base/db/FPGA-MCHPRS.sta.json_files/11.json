@@ -1,0 +1,19 @@
+{
+	"title" : "Timing Analyzer||Slow 1100mV 85C Model||Slow 1100mV 85C Model Fmax Summary",
+	"data" : {
+		"data" : [
+			{
+				"0" : "424.45 MHz",
+				"1" : "424.45 MHz",
+				"2" : "fclk|fclk_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk",
+				"3" : ""
+			},
+			{
+				"0" : "476.42 MHz",
+				"1" : "476.42 MHz",
+				"2" : "clk_div:divider|count[27]",
+				"3" : ""
+			}
+		]
+	}
+}

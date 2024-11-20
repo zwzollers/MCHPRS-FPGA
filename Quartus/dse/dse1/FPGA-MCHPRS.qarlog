@@ -1,0 +1,26 @@
+Quartus Prime Archive log --	C:/Users/zwzol/Documents/Code/FPGA-MCHPRS/Quartus/dse/dse1/FPGA-MCHPRS.qarlog
+
+Archive:	C:/Users/zwzol/Documents/Code/FPGA-MCHPRS/Quartus/dse/dse1/FPGA-MCHPRS.qar
+Date:		Wed Nov  6 20:09:09 2024
+Quartus Prime		23.1std.1 Build 993 05/14/2024 SC Lite Edition
+
+	=========== Files Selected: ===========
+C:/Users/zwzol/Documents/Code/FPGA-MCHPRS/Quartus/FPGA-MCHPRS.dse
+C:/Users/zwzol/Documents/Code/FPGA-MCHPRS/Quartus/FPGA-MCHPRS.qpf
+C:/Users/zwzol/Documents/Code/FPGA-MCHPRS/Quartus/FPGA-MCHPRS.qsf
+C:/Users/zwzol/Documents/Code/FPGA-MCHPRS/Quartus/Verilog/clk_div.v
+C:/Users/zwzol/Documents/Code/FPGA-MCHPRS/Quartus/Verilog/sevseg_dec.v
+C:/Users/zwzol/Documents/Code/FPGA-MCHPRS/Quartus/Verilog/top.v
+C:/Users/zwzol/Documents/Code/FPGA-MCHPRS/Quartus/fclk.cmp
+C:/Users/zwzol/Documents/Code/FPGA-MCHPRS/Quartus/fclk.qip
+C:/Users/zwzol/Documents/Code/FPGA-MCHPRS/Quartus/fclk.sip
+C:/Users/zwzol/Documents/Code/FPGA-MCHPRS/Quartus/fclk.spd
+C:/Users/zwzol/Documents/Code/FPGA-MCHPRS/Quartus/fclk.v
+C:/Users/zwzol/Documents/Code/FPGA-MCHPRS/Quartus/fclk/fclk_0002.qip
+C:/Users/zwzol/Documents/Code/FPGA-MCHPRS/Quartus/fclk/fclk_0002.v
+C:/Users/zwzol/Documents/Code/FPGA-MCHPRS/Quartus/fclk_sim/fclk.vo
+c:/intelfpga_lite/23.1std/quartus/bin64/assignment_defaults.qdf
+	======= Total: 15 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.

@@ -1,5 +1,6 @@
 use fastnbt::{ByteArray, IntArray};
 use std::borrow::Cow;
+use std::collections::HashSet;
 use flate2::read::GzDecoder;
 use serde::Deserialize;
 use std::io::Read;
@@ -8,6 +9,7 @@ use std::collections::HashMap;
 use crate::items::AttributeValueType;
 use crate::items::ItemAttributes;
 use crate::graph::CompMode;
+use crate::graph::Link;
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone)]
 pub enum Direction
@@ -136,6 +138,36 @@ pub struct RedSchem
 
 impl RedSchem
 {
+    pub fn search(&self, pos: usize)
+    {
+        let searches: HashSet<usize> = HashSet::new();
+        let done = false;
+
+        while !done
+        {
+            done = true;
+
+        }
+
+    }
+    fn bfs(&self, leafs: Vec<(usize,u8)>, weight: u8, searches: &HashSet<usize>) -> Vec<(usize, u8)>
+    {
+        let connections: Vec<(usize, u8)> = Vec::new();
+
+        let new_leafs: Vec<(usize, u8)> = Vec::new();
+
+        self.bfs(new_leafs, weight+1, searches);
+    }
+    fn get_adjacent_connections(&self, pos: usize) -> Vec<usize>
+    {
+        let ad: Vec<usize> = Vec::new();
+        
+    }
+    fn get_block_relative(&self, pos:usize, x:usize, y:usize, z:usize) -> &RBlock
+    {
+        let area = self.len * self.wid;
+
+    }
     pub fn is_supported (pos: usize, schem: &RedSchem) -> bool
     {
         let area: usize = schem.wid as usize * schem.len as usize;

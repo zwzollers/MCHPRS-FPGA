@@ -23,23 +23,22 @@ impl<'a> Graph<'a>
     {
         let mut graph: Graph = Graph{nodes: Vec::new(), links: Vec::new()};
 
-        let mut checked_nodes: HashMap<usize, &Node> = HashMap::new();
+        let mut node_positions: HashMap<usize, Node> = HashMap::new();
         let mut i: usize = 0;
 
         for b in &schem.block_array
         {
-            if (!checked_nodes.contains_key(i))
+            match Node::from_block(*b, i, schem)
             {
-                match Node::from_block(*b, i, schem)
-                {
-                    Some(n) =>
-                    {
-                        let n.get_connections();
-                    }
-                    None => ()
-                };
-            }
+                Some(n) => {node_positions.insert(i, n);}
+                None => ()
+            };
             i += 1;
+        }
+        for (pos, node) in node_positions.into_iter()
+        {
+            let mut links: Vec<(usize, u8)> = Vec::new();
+            schem.search(pos, 0, &mut links);
         }
         graph
     }
@@ -48,8 +47,6 @@ impl<'a> Graph<'a>
 struct Node<'a>
 {
     block: NBlock,
-    
-    pos: usize,
 
     inputs: Vec<&'a Link<'a>>,
     outputs: Vec<&'a Link<'a>>
@@ -57,14 +54,6 @@ struct Node<'a>
 
 impl<'a> Node<'a>
 {
-    fn get_connections(&self) -> Vec<(usize, u8)>
-    {
-        let connections: Vec<(usize, u8)> = Vec::new();
-        let weight: u8 = 0;
-
-        connections
-        
-    }
     fn from_block(block: u16, pos: usize, schem: &RedSchem) -> Option<Node<'a>>
     {
         match RedSchem::is_supported(pos, schem)
@@ -73,7 +62,7 @@ impl<'a> Node<'a>
             {
                 match NBlock::from_rblock(&schem.unified_palette[block as usize])
                 {
-                    Some(nblock) => Some(Node{block: nblock, pos: pos, inputs: Vec::new(), outputs: Vec::new()}),
+                    Some(nblock) => Some(Node{block: nblock, inputs: Vec::new(), outputs: Vec::new()}),
                     None => None
                 }
             }
@@ -123,7 +112,7 @@ enum LinkType
 }
 
 #[derive(Debug)]
-struct Link<'a>
+pub struct Link<'a>
 {
     ty: LinkType,
 

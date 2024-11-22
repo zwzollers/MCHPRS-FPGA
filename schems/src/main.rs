@@ -8,7 +8,7 @@ mod graph;
 fn main() 
 {
     let mut start = Instant::now();
-    let schem = schem::SchemData::from_file("./test3.schem");
+    let schem = schem::SchemData::from_file("./test4.schem");
 
     println!("Loading Schem Took: {:?}", start.elapsed());
     
@@ -22,10 +22,12 @@ fn main()
 
     println!("Parsing Schem Took: {:?}", start.elapsed());
 
+    println!("{r_schem:#?}");
+
     start = Instant::now();
     let nodes = graph::Graph::from_redschem(&r_schem);
 
     println!("Building Graph Took: {:?}", start.elapsed());
 
-    //println!("{nodes:#?}");
+    println!("{nodes:#?}");
 }

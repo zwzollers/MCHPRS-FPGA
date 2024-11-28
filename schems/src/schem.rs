@@ -24,7 +24,7 @@ pub enum Direction
 
 impl Direction
 {
-    fn from_str(facing: &str, face: Option<&str>) -> Self 
+    fn from_str(facing: &str, face: Option<&str>, reverse: bool) -> Self 
     {
         match face
         {
@@ -32,10 +32,10 @@ impl Direction
             {
                 match facing
                 {
-                    "north" => Direction::North,
-                    "east" => Direction::East,
-                    "south" => Direction::South,
-                    "west" => Direction::West,
+                    "north" => if !reverse {Direction::North} else {Direction::South},
+                    "east" => if !reverse {Direction::East} else {Direction::West},
+                    "south" => if !reverse {Direction::South} else {Direction::North},
+                    "west" => if !reverse {Direction::West} else {Direction::East},
                     _ => panic!("not a valid direction")
                 }
             }
@@ -48,6 +48,32 @@ impl Direction
                     _ => panic!("not a valid direction")
                 }
             }
+        }
+    }
+    pub fn from_offset(arr: [i32; 3]) -> Direction
+    {
+        match arr
+        {
+            _ if arr[0] == 1  => Direction::East,
+            _ if arr[0] == -1 => Direction::West,
+            _ if arr[2] == 1  => Direction::South,
+            _ if arr[2] == -1 => Direction::North,
+            _ if arr[1] == 1  => Direction::Up,
+            _ if arr[1] == -1 => Direction::Down,
+            _ => panic!("bad boy choose a better direction")
+
+        }
+    }
+    pub fn to_offset(&self) -> [i32; 3]
+    {
+        match self
+        {
+            Direction::North => [0,0,-1],
+            Direction::East =>  [1,0,0],
+            Direction::South => [0,0,1],
+            Direction::West =>  [-1,0,0],
+            Direction::Up =>    [0,1,0],
+            Direction::Down =>  [0,-1,0],
         }
     }
 }
@@ -102,20 +128,20 @@ impl RBlock
                     "redstone" =>RBlock::Redstone,
                     "repeater" =>RBlock::Repeater { 
                         delay: p["delay"].as_number() as u8, 
-                        dir: Direction::from_str(p["facing"].as_string(), None), 
+                        dir: Direction::from_str(p["facing"].as_string(), None, true), 
                         state: p["powered"].as_string() == "true" },
                     "comparator" =>RBlock::Comparator { 
                         mode: if p["mode"].as_string() == "compare" {CompMode::Compare } else {CompMode::Subtract}, 
-                        dir: Direction::from_str(p["facing"].as_string(), None), 
+                        dir: Direction::from_str(p["facing"].as_string(), None, true), 
                         state: entity.unwrap()["state"].as_number() as u8 },
                     "torch" =>RBlock::Torch { 
                         dir: Direction::Down, 
                         state: p["lit"].as_string() == "false" },
                     "w_torch" =>RBlock::Torch { 
-                        dir: Direction::from_str(p["facing"].as_string(), None), 
+                        dir: Direction::from_str(p["facing"].as_string(), None, false), 
                         state: p["lit"].as_string() == "false" },
                     "lever" =>RBlock::Lever { 
-                        dir: Direction::from_str(p["facing"].as_string(), Some(p["face"].as_string())),
+                        dir: Direction::from_str(p["facing"].as_string(), Some(p["face"].as_string()), false),
                         state: p["powered"].as_string() == "true"},
                     "lamp" =>RBlock::Lamp,
                     _ => RBlock::Air
@@ -124,6 +150,45 @@ impl RBlock
             None => RBlock::Air
         }
     }
+    pub fn is_node(&self) -> bool
+    {
+        match self
+        {
+            RBlock::Comparator { mode:_, dir:_, state:_ } |
+            RBlock::Lamp |
+            RBlock::Lever { dir:_, state:_  } |
+            RBlock::Repeater { delay:_, dir:_, state:_ } |
+            RBlock::Torch { dir:_, state:_ } => true,
+            _ => false
+        }
+    }
+    pub fn is_solid(&self) -> bool
+    {
+        match self
+        {
+            RBlock::Solid |
+            RBlock::SContainer { ss:_ } |
+            RBlock::Target => true,
+            _ => false
+        }
+    }
+    pub fn is_transparent(&self) -> bool
+    {
+        match self
+        {
+            RBlock::Transparent |
+            RBlock::TContainer { ss:_ } => true,
+            _ => false
+        }
+    }
+}
+
+#[derive(Debug)]
+pub struct Size
+{
+    pub len: u16,
+    pub wid: u16,
+    pub hth: u16
 }
 
 #[derive(Debug)]
@@ -131,59 +196,11 @@ pub struct RedSchem
 {
     pub block_array: Vec<u16>,
     pub unified_palette: Vec<RBlock>,
-    pub len: u16,
-    pub wid: u16,
-    pub hth: u16
+    pub size: Size
 }
 
 impl RedSchem
 {
-    pub fn search(&self, pos: usize)
-    {
-        let searches: HashSet<usize> = HashSet::new();
-        let done = false;
-
-        while !done
-        {
-            done = true;
-
-        }
-
-    }
-    fn bfs(&self, leafs: Vec<(usize,u8)>, weight: u8, searches: &HashSet<usize>) -> Vec<(usize, u8)>
-    {
-        let connections: Vec<(usize, u8)> = Vec::new();
-
-        let new_leafs: Vec<(usize, u8)> = Vec::new();
-
-        self.bfs(new_leafs, weight+1, searches);
-    }
-    fn get_adjacent_connections(&self, pos: usize) -> Vec<usize>
-    {
-        let ad: Vec<usize> = Vec::new();
-        
-    }
-    fn get_block_relative(&self, pos:usize, x:usize, y:usize, z:usize) -> &RBlock
-    {
-        let area = self.len * self.wid;
-
-    }
-    pub fn is_supported (pos: usize, schem: &RedSchem) -> bool
-    {
-        let area: usize = schem.wid as usize * schem.len as usize;
-        if pos < area
-        {
-            false
-        }
-        else 
-        {
-            match schem.unified_palette[schem.block_array[pos-area] as usize]
-            {
-                RBlock::Transparent | RBlock::Solid | RBlock::SContainer {ss:_} | RBlock::TContainer {ss:_} => true,
-                _ => false
-            }
-        }
-    }
     pub fn from_schem(data: SchemData, attr: &ItemAttributes) -> RedSchem
     {
         let palette = data.get_parsed_palette();
@@ -246,7 +263,16 @@ impl RedSchem
             i += 1;
             lower_byte = None;
         }
-        RedSchem{block_array: block_array, unified_palette: unified_palette, wid: data.width, len: data.length, hth: data.height}
+        RedSchem{block_array: block_array, unified_palette: unified_palette, size: Size{wid: data.width, len: data.length, hth: data.height}}
+    }
+    pub fn get_block(&self, index: Option<usize>) -> &RBlock
+    {
+        match index
+        {
+            Some(idx) => self.unified_palette.get(self.block_array[idx] as usize).unwrap(),
+            None => &RBlock::Air
+        }
+        
     }
 }
 

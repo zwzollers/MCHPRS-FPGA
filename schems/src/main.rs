@@ -22,12 +22,12 @@ fn main()
 
     println!("Parsing Schem Took: {:?}", start.elapsed());
 
-    println!("{r_schem:#?}");
+    //println!("{r_schem:#?}");
 
     start = Instant::now();
     let nodes = graph::Graph::from_redschem(&r_schem);
 
     println!("Building Graph Took: {:?}", start.elapsed());
 
-    println!("{nodes:#?}");
+    //println!("{nodes:#?}");
 }

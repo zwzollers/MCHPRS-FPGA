@@ -4,7 +4,7 @@ use std::io::prelude::*;
 
 
 
-pub fn generate_verilog(graph: &Graph, filename: &str)
+pub fn generate_verilog(graph: &Graph, path: &str)
 {
     let mut input_count = 0;
     let mut output_count = 0;
@@ -40,7 +40,7 @@ pub fn generate_verilog(graph: &Graph, filename: &str)
         }
     }
     verilog.push_str("endmodule");
-    let mut file = File::create("/home/zwzollers/Documents/GIT/MCHPRS-FPGA/Quartus/Verilog/redstone.v").unwrap();
+    let mut file = File::create(path).unwrap();
     file.write_all(verilog.as_bytes());
 
 }

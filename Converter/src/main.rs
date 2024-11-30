@@ -9,7 +9,7 @@ mod assembler;
 fn main() 
 {
     let mut start = Instant::now();
-    let schem = schem::SchemData::from_file("./test11.schem");
+    let schem = schem::SchemData::from_file("./test_schems/test11.schem");
 
     println!("Loading Schem Took: {:?}", start.elapsed());
 
@@ -35,7 +35,7 @@ fn main()
     //println!("{graph:#?}");
 
     start = Instant::now();
-    assembler::generate_verilog(&graph, "output.v");
+    assembler::generate_verilog(&graph, "./../Quartus/Verilog/redstone.v");
 
     println!("Generating Verilog Took: {:?}", start.elapsed());
 }

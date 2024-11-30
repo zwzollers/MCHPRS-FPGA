@@ -1,6 +1,5 @@
 use fastnbt::{ByteArray, IntArray};
 use std::borrow::Cow;
-use std::collections::HashSet;
 use flate2::read::GzDecoder;
 use serde::Deserialize;
 use std::io::Read;
@@ -9,7 +8,6 @@ use std::collections::HashMap;
 use crate::items::AttributeValueType;
 use crate::items::ItemAttributes;
 use crate::graph::CompMode;
-use crate::graph::Link;
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone)]
 pub enum Direction

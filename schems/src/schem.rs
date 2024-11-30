@@ -135,13 +135,13 @@ impl RBlock
                         dir: Direction::from_str(p["facing"].as_string(), None, true), 
                         state: entity.unwrap()["state"].as_number() as u8 },
                     "torch" =>RBlock::Torch { 
-                        dir: Direction::Down, 
+                        dir: Direction::Up, 
                         state: p["lit"].as_string() == "false" },
                     "w_torch" =>RBlock::Torch { 
                         dir: Direction::from_str(p["facing"].as_string(), None, false), 
                         state: p["lit"].as_string() == "false" },
                     "lever" =>RBlock::Lever { 
-                        dir: Direction::from_str(p["facing"].as_string(), Some(p["face"].as_string()), false),
+                        dir: Direction::from_str(p["facing"].as_string(), Some(p["face"].as_string()), true),
                         state: p["powered"].as_string() == "true"},
                     "lamp" =>RBlock::Lamp,
                     _ => RBlock::Air
@@ -168,6 +168,7 @@ impl RBlock
         {
             RBlock::Solid |
             RBlock::SContainer { ss:_ } |
+            RBlock::Lamp |
             RBlock::Target => true,
             _ => false
         }

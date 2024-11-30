@@ -4,13 +4,16 @@ use std::time::Instant;
 mod items;
 mod schem;
 mod graph;
+mod assembler;
 
 fn main() 
 {
     let mut start = Instant::now();
-    let schem = schem::SchemData::from_file("./test4.schem");
+    let schem = schem::SchemData::from_file("./test11.schem");
 
     println!("Loading Schem Took: {:?}", start.elapsed());
+
+    //println!("{schem:#?}");
     
     start = Instant::now();
     let attr = items::ItemAttributes::from_file("./ItemAttributes.json");
@@ -25,9 +28,14 @@ fn main()
     //println!("{r_schem:#?}");
 
     start = Instant::now();
-    let nodes = graph::Graph::from_redschem(&r_schem);
+    let graph = graph::Graph::from_redschem(&r_schem);
 
     println!("Building Graph Took: {:?}", start.elapsed());
 
-    //println!("{nodes:#?}");
+    //println!("{graph:#?}");
+
+    start = Instant::now();
+    assembler::generate_verilog(&graph, "output.v");
+
+    println!("Generating Verilog Took: {:?}", start.elapsed());
 }

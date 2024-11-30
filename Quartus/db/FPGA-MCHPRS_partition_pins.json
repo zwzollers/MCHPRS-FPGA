@@ -24,19 +24,15 @@
 					"strict" : false
 				},
 				{
-					"name" : "o_LEDs[5]",
+					"name" : "i_switches[8]",
 					"strict" : false
 				},
 				{
-					"name" : "o_LEDs[6]",
+					"name" : "i_switches[6]",
 					"strict" : false
 				},
 				{
-					"name" : "o_LEDs[7]",
-					"strict" : false
-				},
-				{
-					"name" : "i_buttons[1]",
+					"name" : "i_switches[7]",
 					"strict" : false
 				},
 				{
@@ -61,22 +57,6 @@
 				},
 				{
 					"name" : "i_switches[5]",
-					"strict" : false
-				},
-				{
-					"name" : "i_switches[6]",
-					"strict" : false
-				},
-				{
-					"name" : "i_switches[7]",
-					"strict" : false
-				},
-				{
-					"name" : "i_switches[8]",
-					"strict" : false
-				},
-				{
-					"name" : "i_switches[9]",
 					"strict" : false
 				}
 			]

@@ -5,11 +5,11 @@
     "minecraft:redstone_wire": {
         "block_type" : "redstone"
     },
-    "minecraft:reredstone_torch": {
+    "minecraft:redstone_torch": {
         "stack_size" : 64,
         "block_type" : "torch"
     },
-    "minecraft:reredstone_wall_torch": {
+    "minecraft:redstone_wall_torch": {
         "stack_size" : 64,
         "block_type" : "w_torch"
     },

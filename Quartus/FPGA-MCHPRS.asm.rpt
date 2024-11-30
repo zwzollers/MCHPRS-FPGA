@@ -1,5 +1,5 @@
 Assembler report for FPGA-MCHPRS
-Tue Nov 12 18:15:41 2024
+Sat Nov 30 13:01:27 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -10,7 +10,7 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
   2. Assembler Summary
   3. Assembler Settings
   4. Assembler Generated Files
-  5. Assembler Device Options: C:/Users/zwzol/Documents/Code/FPGA-MCHPRS/Quartus/FPGA-MCHPRS.sof
+  5. Assembler Device Options: FPGA-MCHPRS.sof
   6. Assembler Messages
 
 
@@ -38,7 +38,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Tue Nov 12 18:15:41 2024 ;
+; Assembler Status      ; Successful - Sat Nov 30 13:01:27 2024 ;
 ; Revision Name         ; FPGA-MCHPRS                           ;
 ; Top-level Entity Name ; top                                   ;
 ; Family                ; Cyclone V                             ;
@@ -58,18 +58,18 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------+
 ; File Name                                                         ;
 +-------------------------------------------------------------------+
-; C:/Users/zwzol/Documents/Code/FPGA-MCHPRS/Quartus/FPGA-MCHPRS.sof ;
+; /home/zwzollers/Documents/GIT/MCHPRS-FPGA/Quartus/FPGA-MCHPRS.sof ;
 +-------------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------+
-; Assembler Device Options: C:/Users/zwzol/Documents/Code/FPGA-MCHPRS/Quartus/FPGA-MCHPRS.sof ;
-+----------------+----------------------------------------------------------------------------+
-; Option         ; Setting                                                                    ;
-+----------------+----------------------------------------------------------------------------+
-; JTAG usercode  ; 0x00B4865F                                                                 ;
-; Checksum       ; 0x00B4865F                                                                 ;
-+----------------+----------------------------------------------------------------------------+
++-------------------------------------------+
+; Assembler Device Options: FPGA-MCHPRS.sof ;
++----------------+--------------------------+
+; Option         ; Setting                  ;
++----------------+--------------------------+
+; JTAG usercode  ; 0x00AFDCBA               ;
+; Checksum       ; 0x00AFDCBA               ;
++----------------+--------------------------+
 
 
 +--------------------+
@@ -78,14 +78,14 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Tue Nov 12 18:15:37 2024
+    Info: Processing started: Sat Nov 30 13:01:24 2024
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off FPGA-MCHPRS -c FPGA-MCHPRS
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4876 megabytes
-    Info: Processing ended: Tue Nov 12 18:15:41 2024
-    Info: Elapsed time: 00:00:04
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Peak virtual memory: 730 megabytes
+    Info: Processing ended: Sat Nov 30 13:01:27 2024
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:03
 
 

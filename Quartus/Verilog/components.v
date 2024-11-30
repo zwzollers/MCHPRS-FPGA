@@ -4,11 +4,10 @@ module repeater (i_clk, i_in, o_out);
 	input  i_in;
 	output o_out;
 
-	parameter t = 1;
-	parameter locking = 0;
-	parameter lock = 0;
-	
-	reg [t-1:0] buffer = {t{1'b0}};
+	parameter t = 1,
+				 state = 1'b0;
+
+	reg [t-1:0] buffer = {t{state}};
 
 	assign o_out = buffer[t-1];
 	
@@ -66,8 +65,10 @@ module torch (i_clk, i_in, o_out);
 	input  i_clk;
 	input  i_in;
 	output o_out;
+	
+	parameter state = 1'b0;
 
-	reg buffer = 1'b0;
+	reg buffer = state;
 
 	assign o_out = ~buffer;
 

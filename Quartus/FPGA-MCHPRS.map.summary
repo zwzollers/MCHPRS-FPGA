@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Tue Nov 12 18:15:09 2024
+Analysis & Synthesis Status : Successful - Sat Nov 30 13:01:05 2024
 Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 Revision Name : FPGA-MCHPRS
 Top-level Entity Name : top
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 0
-Total pins : 32
+Total registers : 40
+Total pins : 25
 Total virtual pins : 0
-Total block memory bits : 8,192
+Total block memory bits : 0
 Total DSP Blocks : 0
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0

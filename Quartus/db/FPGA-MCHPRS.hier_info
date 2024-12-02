@@ -14,16 +14,16 @@ i_buttons[0] => i_buttons[0]~0.DATAIN
 i_buttons[1] => ~NO_FANOUT~
 i_buttons[2] => ~NO_FANOUT~
 i_buttons[3] => ~NO_FANOUT~
-o_LEDs[0] <= redstone:redstone.outputs
-o_LEDs[1] <= redstone:redstone.outputs
-o_LEDs[2] <= redstone:redstone.outputs
-o_LEDs[3] <= redstone:redstone.outputs
-o_LEDs[4] <= redstone:redstone.outputs
-o_LEDs[5] <= redstone:redstone.outputs
-o_LEDs[6] <= redstone:redstone.outputs
-o_LEDs[7] <= redstone:redstone.outputs
-o_LEDs[8] <= redstone:redstone.outputs
-o_LEDs[9] <= redstone:redstone.outputs
+o_LEDs[0] << redstone:redstone.outputs
+o_LEDs[1] << redstone:redstone.outputs
+o_LEDs[2] << redstone:redstone.outputs
+o_LEDs[3] << redstone:redstone.outputs
+o_LEDs[4] << redstone:redstone.outputs
+o_LEDs[5] << redstone:redstone.outputs
+o_LEDs[6] << redstone:redstone.outputs
+o_LEDs[7] << redstone:redstone.outputs
+o_LEDs[8] << redstone:redstone.outputs
+o_LEDs[9] << redstone:redstone.outputs
 
 
 |top|fclk:fclk

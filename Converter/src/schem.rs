@@ -74,6 +74,15 @@ impl Direction
             Direction::Down =>  [0,-1,0],
         }
     }
+    pub fn is_side(&self, dir: &Direction) -> bool
+    {
+        match self
+        {
+            Direction::North | Direction::South => dir == &Direction::East || dir == &Direction::West,
+            Direction::East | Direction::West => dir == &Direction::South || dir == &Direction::North,
+            _ => false
+        }
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone)]

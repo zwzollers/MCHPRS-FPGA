@@ -33,11 +33,11 @@ impl Graph
         }
         for node_id in 0..graph.nodes.len()
         {
-            let links: Vec<(usize, u8)> = graph.nodes[node_id].get_links(schem);
-            for (link_pos, link_w) in links
+            let links: Vec<(usize, u8, LinkType)> = graph.nodes[node_id].get_links(schem);
+            for (link_pos, link_w, link_ty) in links
             {
                 graph.nodes[node_id].outputs.push(Link{ty:LinkType::Normal, weight: link_w, dest: node_pos[&Pos::from_index(link_pos, &schem.size)]});
-                graph.nodes[node_pos[&Pos::from_index(link_pos, &schem.size)].0].inputs.push(Link{ty:LinkType::Normal, weight: link_w, dest: NodeID(node_id)});
+                graph.nodes[node_pos[&Pos::from_index(link_pos, &schem.size)].0].inputs.push(Link{ty:link_ty, weight: link_w, dest: NodeID(node_id)});
             }
         }
         graph
@@ -59,11 +59,10 @@ pub struct Node
 
 impl Node
 {
-    pub fn get_links (&self, schem: &RedSchem) -> Vec<(usize, u8)>
+    pub fn get_links (&self, schem: &RedSchem) -> Vec<(usize, u8, LinkType)>
     {
-        println!("POS: {:?}", self.pos);
         // position and weights of nodes connected to given node
-        let mut links: Vec<(usize, u8)> = Vec::new();
+        let mut links: Vec<(usize, u8, LinkType)> = Vec::new();
         // list of searched positions (avoids researching and looping)
         let mut searched: HashSet<usize> = HashSet::new();
         // list of redstone dust not yet searched stored as (Pos_Index, Weight) 
@@ -111,8 +110,11 @@ impl Node
                     // if node facing the same direction as the offset
                     if Direction::from_offset(offset) == *dir
                     {
-                        links.push((offset_pos.unwrap(), 0));
-                        searched.insert(offset_pos.unwrap());
+                        links.push((offset_pos.unwrap(), 0, LinkType::Normal));
+                    }
+                    else if Direction::from_offset(offset).is_side(dir)
+                    {
+                        links.push((offset_pos.unwrap(), 0, LinkType::Side));
                     }
                 }
                 RBlock::Lamp =>
@@ -125,7 +127,7 @@ impl Node
 
                     if *x == RBlock::Lamp
                     {
-                        links.push((offset_pos.unwrap(), 0));
+                        links.push((offset_pos.unwrap(), 0, LinkType::Normal));
                     }
 
                     // searching all sides of a hardpowered block
@@ -149,13 +151,13 @@ impl Node
                             {
                                 if Direction::from_offset(offset) == *dir
                                 {
-                                    links.push((offset_pos.unwrap(), 0));
+                                    links.push((offset_pos.unwrap(), 0, LinkType::Normal));
                                     searched.insert(offset_pos.unwrap());
                                 }
                             }
                             RBlock::Lamp =>
                             {
-                                links.push((offset_pos.unwrap(), 0));
+                                links.push((offset_pos.unwrap(), 0, LinkType::Normal));
                                 searched.insert(offset_pos.unwrap());
                             }
                             _ => ()
@@ -185,13 +187,13 @@ impl Node
                 {
                     if Direction::from_offset(offset) == *dir
                     {
-                        links.push((offset_pos.unwrap(), 0));
+                        links.push((offset_pos.unwrap(), 0, LinkType::Normal));
                         searched.insert(offset_pos.unwrap());
                     }
                 }
                 RBlock::Lamp =>
                 {
-                    links.push((offset_pos.unwrap(), 0));
+                    links.push((offset_pos.unwrap(), 0, LinkType::Normal));
                     searched.insert(offset_pos.unwrap());
                 }
                 _ => ()
@@ -256,7 +258,27 @@ impl Node
                                 searched.insert(offset_pos.unwrap());
                             }
                         }
-                        RBlock::Comparator {dir, ..} | 
+                        RBlock::Comparator {dir, ..} =>
+                        {
+                            if Direction::from_offset(offset) == *dir
+                            {
+                                redstone_connections.push(offset);
+                                if !searched.contains(&offset_pos.unwrap())
+                                {
+                                    links.push((offset_pos.unwrap(), weight, LinkType::Normal));
+                                    searched.insert(offset_pos.unwrap());
+                                }
+                            }
+                            else if Direction::from_offset(offset).is_side(dir)
+                            {
+                                redstone_connections.push(offset);
+                                if !searched.contains(&offset_pos.unwrap())
+                                {
+                                    links.push((offset_pos.unwrap(), weight, LinkType::Side));
+                                    searched.insert(offset_pos.unwrap());
+                                }
+                            }
+                        } 
                         RBlock::Repeater {dir, ..} =>
                         {
                             if Direction::from_offset(offset) == *dir
@@ -264,7 +286,7 @@ impl Node
                                 redstone_connections.push(offset);
                                 if !searched.contains(&offset_pos.unwrap())
                                 {
-                                    links.push((offset_pos.unwrap(), weight));
+                                    links.push((offset_pos.unwrap(), weight, LinkType::Normal));
                                     searched.insert(offset_pos.unwrap());
                                 }
                             }
@@ -275,7 +297,7 @@ impl Node
                         }
                         RBlock::Lamp =>
                         {
-                            links.push((offset_pos.unwrap(), weight));
+                            links.push((offset_pos.unwrap(), weight, LinkType::Normal));
                             searched.insert(offset_pos.unwrap());
                         }
                         _ => ()
@@ -373,13 +395,13 @@ impl Node
                         {
                             if Direction::from_offset(offset) == *dir
                             {
-                                links.push((offset_pos.unwrap(), weight));
+                                links.push((offset_pos.unwrap(), weight, LinkType::Normal));
                                 searched.insert(offset_pos.unwrap());
                             }
                         }
                         RBlock::Lamp =>
                         {
-                            links.push((offset_pos.unwrap(), weight));
+                            links.push((offset_pos.unwrap(), weight, LinkType::Normal));
                             searched.insert(offset_pos.unwrap());
                         }
                         _ => ()
@@ -481,7 +503,7 @@ impl Pos
 }
 
 #[derive(Debug)]
-enum LinkType
+pub enum LinkType
 {
     Normal,
     Side

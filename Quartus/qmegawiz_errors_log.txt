@@ -29,3 +29,8 @@ C:/Users/zwzol/Documents/Code/FPGA-MCHPRS/Quartus/fclk.v
 
 Nov 06 07PM:01:58>: Megafunction PLL Intel FPGA IP v23.1 is not listed in any 
 wizard.lst file in the specified library path(s).Wizard launch aborted
+
+C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/fclk.v
+
+Dec 02 09PM:36:39>: Megafunction PLL Intel FPGA IP v23.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted

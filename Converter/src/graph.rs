@@ -294,11 +294,6 @@ impl Node
                         {
                             redstone_connections.push(offset);
                         }
-                        RBlock::Lamp =>
-                        {
-                            links.push((offset_pos.unwrap(), weight, LinkType::Normal));
-                            searched.insert(offset_pos.unwrap());
-                        }
                         _ => ()
                     } 
                 }
@@ -325,7 +320,7 @@ impl Node
                     }
                 }
 
-                if solid_below  && !cutoff
+                if !cutoff
                 {
                     let offset_pos = Pos::relative_index(redstone_pos, [offset[0],-1,offset[2]], size);
                     if offset_pos != None
@@ -335,7 +330,7 @@ impl Node
                             RBlock::Redstone =>
                             {
                                 redstone_connections.push(offset);
-                                if !searched.contains(&offset_pos.unwrap())
+                                if !searched.contains(&offset_pos.unwrap()) && solid_below
                                 {
                                     redstone.push_front((offset_pos.unwrap(), weight+1));
                                     searched.insert(offset_pos.unwrap());
@@ -358,7 +353,7 @@ impl Node
                 }
             }
 
-            if redstone_connections.len() == 1
+            if redstone_connections.len() == 1 || (redstone_connections.len() == 2 && redstone_connections[0] == redstone_connections[1])
             {
                 let opposite = [redstone_connections[0][0]*-1, 0, redstone_connections[0][2]*-1];
                 let opos = Pos::relative_index(redstone_pos, opposite, size);

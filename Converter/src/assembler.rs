@@ -30,7 +30,7 @@ pub fn generate_verilog(graph: &Graph, path: &str)
                 verilog.push_str(&format!("\trepeater #({}, 1'b{}, {}, {}) c{} (.i_clk(tick), .i_in({}), .i_lock({}), .o_out(w{}));\n",
                      delay,
                      if *state {1} else {0},
-                     if node.outputs[0].ty == LinkType::Side {1} else {0},
+                     if node.outputs.len() == 1 && node.outputs[0].ty == LinkType::Side {1} else {0},
                      if is_locking(node) {1} else {0},
                      node.pos.to_string(),
                      get_inputs_str(node, graph, LinkType::Normal),

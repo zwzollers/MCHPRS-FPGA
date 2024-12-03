@@ -1,5 +1,5 @@
 Flow report for FPGA-MCHPRS
-Mon Dec  2 20:37:27 2024
+Mon Dec  2 21:45:51 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -41,7 +41,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +---------------------------------+------------------------------------------------+
-; Flow Status                     ; Successful - Mon Dec  2 20:37:23 2024          ;
+; Flow Status                     ; Successful - Mon Dec  2 21:45:47 2024          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; FPGA-MCHPRS                                    ;
 ; Top-level Entity Name           ; top                                            ;
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 12/02/2024 20:36:57 ;
+; Start date & time ; 12/02/2024 21:45:00 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; FPGA-MCHPRS         ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                              ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +----------------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID                        ; 95403372631408.173319341708856         ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID                        ; 136411537996978.173319750025024        ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP                       ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP                       ; 0                                      ; --            ; --          ; --         ;
 ; MISC_FILE                                    ; fclk.cmp                               ; --            ; --          ; --         ;
@@ -105,24 +105,24 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:05     ; 1.0                     ; 749 MB              ; 00:00:10                           ;
-; Fitter               ; 00:00:16     ; 1.0                     ; 3034 MB             ; 00:00:43                           ;
-; Assembler            ; 00:00:03     ; 1.0                     ; 729 MB              ; 00:00:03                           ;
-; Timing Analyzer      ; 00:00:03     ; 1.1                     ; 1186 MB             ; 00:00:03                           ;
-; Total                ; 00:00:27     ; --                      ; --                  ; 00:00:59                           ;
+; Analysis & Synthesis ; 00:00:06     ; 1.0                     ; 4875 MB             ; 00:00:07                           ;
+; Fitter               ; 00:00:36     ; 1.0                     ; 7351 MB             ; 00:01:05                           ;
+; Assembler            ; 00:00:04     ; 1.0                     ; 4878 MB             ; 00:00:02                           ;
+; Timing Analyzer      ; 00:00:04     ; 1.0                     ; 5263 MB             ; 00:00:02                           ;
+; Total                ; 00:00:50     ; --                      ; --                  ; 00:01:16                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------+
-; Flow OS Summary                                                                                      ;
-+----------------------+----------------------------------+-------------+-------------+----------------+
-; Module Name          ; Machine Hostname                 ; OS Name     ; OS Version  ; Processor type ;
-+----------------------+----------------------------------+-------------+-------------+----------------+
-; Analysis & Synthesis ; ip-10-150-17-67.wireless.ksu.edu ; Fedora Core ; Fedora Core ; x86_64         ;
-; Fitter               ; ip-10-150-17-67.wireless.ksu.edu ; Fedora Core ; Fedora Core ; x86_64         ;
-; Assembler            ; ip-10-150-17-67.wireless.ksu.edu ; Fedora Core ; Fedora Core ; x86_64         ;
-; Timing Analyzer      ; ip-10-150-17-67.wireless.ksu.edu ; Fedora Core ; Fedora Core ; x86_64         ;
-+----------------------+----------------------------------+-------------+-------------+----------------+
++------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                    ;
++----------------------+------------------+------------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
++----------------------+------------------+------------+------------+----------------+
+; Analysis & Synthesis ; Zanes_Desktop    ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; Zanes_Desktop    ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; Zanes_Desktop    ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; Zanes_Desktop    ; Windows 10 ; 10.0       ; x86_64         ;
++----------------------+------------------+------------+------------+----------------+
 
 
 ------------

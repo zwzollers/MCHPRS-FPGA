@@ -213,22 +213,22 @@ zdbfbclk <> <GND>
 
 
 |top|redstone:redstone
-tick => tick.IN52
-inputs[0] => w100.IN1
-inputs[1] => w300.IN1
-inputs[2] => w500.IN1
-inputs[3] => w700.IN1
-inputs[4] => w900.IN1
-inputs[5] => w1100.IN1
-inputs[6] => w1300.IN1
-inputs[7] => w1500.IN1
-inputs[8] => w013.IN1
+tick => tick.IN4
+inputs[0] => w311.IN2
+inputs[1] => w711.IN2
+inputs[2] => ~NO_FANOUT~
+inputs[3] => ~NO_FANOUT~
+inputs[4] => ~NO_FANOUT~
+inputs[5] => ~NO_FANOUT~
+inputs[6] => ~NO_FANOUT~
+inputs[7] => ~NO_FANOUT~
+inputs[8] => ~NO_FANOUT~
 inputs[9] => ~NO_FANOUT~
-outputs[0] <= outputs.DB_MAX_OUTPUT_PORT_TYPE
-outputs[1] <= outputs.DB_MAX_OUTPUT_PORT_TYPE
-outputs[2] <= outputs.DB_MAX_OUTPUT_PORT_TYPE
-outputs[3] <= outputs.DB_MAX_OUTPUT_PORT_TYPE
-outputs[4] <= outputs.DB_MAX_OUTPUT_PORT_TYPE
+outputs[0] <= repeater:c011.o_out
+outputs[1] <= repeater:c411.o_out
+outputs[2] <= <GND>
+outputs[3] <= <GND>
+outputs[4] <= <GND>
 outputs[5] <= <GND>
 outputs[6] <= <GND>
 outputs[7] <= <GND>
@@ -236,315 +236,35 @@ outputs[8] <= <GND>
 outputs[9] <= <GND>
 
 
-|top|redstone:redstone|torch:c103
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c303
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c503
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c703
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c903
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c1103
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c1303
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c1503
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c108
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c308
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c508
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c708
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c908
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c1108
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c1308
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c1508
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c111
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c311
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c511
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c711
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c911
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c1111
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c1311
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c1511
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c116
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c316
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c516
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c716
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c916
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c1116
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c1316
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c1516
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c217
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c617
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c1017
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c1417
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c122
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c322
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c522
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c722
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c922
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c1122
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c1322
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c1522
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c223
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c623
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c1023
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c1423
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c325
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c725
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c1125
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|top|redstone:redstone|torch:c1525
-i_clk => buffer.CLK
-i_in => buffer.DATAIN
-o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
+|top|redstone:redstone|repeater:c011
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c111
+i_clk => buffer[0].CLK
+i_clk => buffer[1].CLK
+i_in => o_out.IN1
+i_in => buffer.IN1
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c411
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c511
+i_clk => ~NO_FANOUT~
+i_in => o_out.DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= i_in.DB_MAX_OUTPUT_PORT_TYPE
 
 

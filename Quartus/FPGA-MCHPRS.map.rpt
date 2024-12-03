@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FPGA-MCHPRS
-Sat Nov 30 14:32:49 2024
+Mon Dec  2 20:37:02 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -16,65 +16,18 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
   8. Analysis & Synthesis IP Cores Summary
   9. Registers Removed During Synthesis
  10. General Register Statistics
- 11. Inverted Register Statistics
- 12. Source assignments for Top-level Entity: |top
- 13. Parameter Settings for User Entity Instance: fclk:fclk|fclk_0002:fclk_inst|altera_pll:altera_pll_i
- 14. Parameter Settings for User Entity Instance: redstone:redstone|torch:c103
- 15. Parameter Settings for User Entity Instance: redstone:redstone|torch:c303
- 16. Parameter Settings for User Entity Instance: redstone:redstone|torch:c503
- 17. Parameter Settings for User Entity Instance: redstone:redstone|torch:c703
- 18. Parameter Settings for User Entity Instance: redstone:redstone|torch:c903
- 19. Parameter Settings for User Entity Instance: redstone:redstone|torch:c1103
- 20. Parameter Settings for User Entity Instance: redstone:redstone|torch:c1303
- 21. Parameter Settings for User Entity Instance: redstone:redstone|torch:c1503
- 22. Parameter Settings for User Entity Instance: redstone:redstone|torch:c108
- 23. Parameter Settings for User Entity Instance: redstone:redstone|torch:c308
- 24. Parameter Settings for User Entity Instance: redstone:redstone|torch:c508
- 25. Parameter Settings for User Entity Instance: redstone:redstone|torch:c708
- 26. Parameter Settings for User Entity Instance: redstone:redstone|torch:c908
- 27. Parameter Settings for User Entity Instance: redstone:redstone|torch:c1108
- 28. Parameter Settings for User Entity Instance: redstone:redstone|torch:c1308
- 29. Parameter Settings for User Entity Instance: redstone:redstone|torch:c1508
- 30. Parameter Settings for User Entity Instance: redstone:redstone|torch:c111
- 31. Parameter Settings for User Entity Instance: redstone:redstone|torch:c311
- 32. Parameter Settings for User Entity Instance: redstone:redstone|torch:c511
- 33. Parameter Settings for User Entity Instance: redstone:redstone|torch:c711
- 34. Parameter Settings for User Entity Instance: redstone:redstone|torch:c911
- 35. Parameter Settings for User Entity Instance: redstone:redstone|torch:c1111
- 36. Parameter Settings for User Entity Instance: redstone:redstone|torch:c1311
- 37. Parameter Settings for User Entity Instance: redstone:redstone|torch:c1511
- 38. Parameter Settings for User Entity Instance: redstone:redstone|torch:c116
- 39. Parameter Settings for User Entity Instance: redstone:redstone|torch:c316
- 40. Parameter Settings for User Entity Instance: redstone:redstone|torch:c516
- 41. Parameter Settings for User Entity Instance: redstone:redstone|torch:c716
- 42. Parameter Settings for User Entity Instance: redstone:redstone|torch:c916
- 43. Parameter Settings for User Entity Instance: redstone:redstone|torch:c1116
- 44. Parameter Settings for User Entity Instance: redstone:redstone|torch:c1316
- 45. Parameter Settings for User Entity Instance: redstone:redstone|torch:c1516
- 46. Parameter Settings for User Entity Instance: redstone:redstone|torch:c217
- 47. Parameter Settings for User Entity Instance: redstone:redstone|torch:c617
- 48. Parameter Settings for User Entity Instance: redstone:redstone|torch:c1017
- 49. Parameter Settings for User Entity Instance: redstone:redstone|torch:c1417
- 50. Parameter Settings for User Entity Instance: redstone:redstone|torch:c122
- 51. Parameter Settings for User Entity Instance: redstone:redstone|torch:c322
- 52. Parameter Settings for User Entity Instance: redstone:redstone|torch:c522
- 53. Parameter Settings for User Entity Instance: redstone:redstone|torch:c722
- 54. Parameter Settings for User Entity Instance: redstone:redstone|torch:c922
- 55. Parameter Settings for User Entity Instance: redstone:redstone|torch:c1122
- 56. Parameter Settings for User Entity Instance: redstone:redstone|torch:c1322
- 57. Parameter Settings for User Entity Instance: redstone:redstone|torch:c1522
- 58. Parameter Settings for User Entity Instance: redstone:redstone|torch:c223
- 59. Parameter Settings for User Entity Instance: redstone:redstone|torch:c623
- 60. Parameter Settings for User Entity Instance: redstone:redstone|torch:c1023
- 61. Parameter Settings for User Entity Instance: redstone:redstone|torch:c1423
- 62. Parameter Settings for User Entity Instance: redstone:redstone|torch:c325
- 63. Parameter Settings for User Entity Instance: redstone:redstone|torch:c725
- 64. Parameter Settings for User Entity Instance: redstone:redstone|torch:c1125
- 65. Parameter Settings for User Entity Instance: redstone:redstone|torch:c1525
- 66. Port Connectivity Checks: "fclk:fclk"
- 67. Post-Synthesis Netlist Statistics for Top Partition
- 68. Elapsed Time Per Partition
- 69. Analysis & Synthesis Messages
+ 11. Source assignments for Top-level Entity: |top
+ 12. Parameter Settings for User Entity Instance: fclk:fclk|fclk_0002:fclk_inst|altera_pll:altera_pll_i
+ 13. Parameter Settings for User Entity Instance: redstone:redstone|repeater:c011
+ 14. Parameter Settings for User Entity Instance: redstone:redstone|repeater:c111
+ 15. Parameter Settings for User Entity Instance: redstone:redstone|repeater:c411
+ 16. Parameter Settings for User Entity Instance: redstone:redstone|repeater:c511
+ 17. Port Connectivity Checks: "redstone:redstone|repeater:c511"
+ 18. Port Connectivity Checks: "redstone:redstone|repeater:c111"
+ 19. Port Connectivity Checks: "fclk:fclk"
+ 20. Post-Synthesis Netlist Statistics for Top Partition
+ 21. Elapsed Time Per Partition
+ 22. Analysis & Synthesis Messages
 
 
 
@@ -101,13 +54,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sat Nov 30 14:32:49 2024          ;
+; Analysis & Synthesis Status     ; Successful - Mon Dec  2 20:37:02 2024          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; FPGA-MCHPRS                                    ;
 ; Top-level Entity Name           ; top                                            ;
 ; Family                          ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 40                                             ;
+; Total registers                 ; 3                                              ;
 ; Total pins                      ; 25                                             ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 0                                              ;
@@ -245,16 +198,16 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+----------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                ;
 +---------------------------------------------+----------------------------------------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 21                                                                   ;
+; Estimate of Logic utilization (ALMs needed) ; 2                                                                    ;
 ;                                             ;                                                                      ;
-; Combinational ALUT usage for logic          ; 36                                                                   ;
+; Combinational ALUT usage for logic          ; 3                                                                    ;
 ;     -- 7 input functions                    ; 0                                                                    ;
 ;     -- 6 input functions                    ; 0                                                                    ;
 ;     -- 5 input functions                    ; 0                                                                    ;
 ;     -- 4 input functions                    ; 0                                                                    ;
-;     -- <=3 input functions                  ; 36                                                                   ;
+;     -- <=3 input functions                  ; 3                                                                    ;
 ;                                             ;                                                                      ;
-; Dedicated logic registers                   ; 40                                                                   ;
+; Dedicated logic registers                   ; 3                                                                    ;
 ;                                             ;                                                                      ;
 ; I/O pins                                    ; 25                                                                   ;
 ;                                             ;                                                                      ;
@@ -264,9 +217,9 @@ https://fpgasoftware.intel.com/eula.
 ;     -- PLLs                                 ; 1                                                                    ;
 ;                                             ;                                                                      ;
 ; Maximum fan-out node                        ; fclk:fclk|fclk_0002:fclk_inst|altera_pll:altera_pll_i|outclk_wire[0] ;
-; Maximum fan-out                             ; 41                                                                   ;
-; Total fan-out                               ; 185                                                                  ;
-; Average fan-out                             ; 1.46                                                                 ;
+; Maximum fan-out                             ; 4                                                                    ;
+; Total fan-out                               ; 44                                                                   ;
+; Average fan-out                             ; 0.77                                                                 ;
 +---------------------------------------------+----------------------------------------------------------------------+
 
 
@@ -275,51 +228,13 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------+-------------+--------------+
 ; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                        ; Entity Name ; Library Name ;
 +------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------+-------------+--------------+
-; |top                               ; 36 (0)              ; 40 (0)                    ; 0                 ; 0          ; 25   ; 0            ; |top                                                       ; top         ; work         ;
+; |top                               ; 3 (0)               ; 3 (0)                     ; 0                 ; 0          ; 25   ; 0            ; |top                                                       ; top         ; work         ;
 ;    |fclk:fclk|                     ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|fclk:fclk                                             ; fclk        ; fclk         ;
 ;       |fclk_0002:fclk_inst|        ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|fclk:fclk|fclk_0002:fclk_inst                         ; fclk_0002   ; fclk         ;
 ;          |altera_pll:altera_pll_i| ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|fclk:fclk|fclk_0002:fclk_inst|altera_pll:altera_pll_i ; altera_pll  ; work         ;
-;    |redstone:redstone|             ; 36 (36)             ; 40 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone                                     ; redstone    ; work         ;
-;       |torch:c1017|                ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c1017                         ; torch       ; work         ;
-;       |torch:c1023|                ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c1023                         ; torch       ; work         ;
-;       |torch:c103|                 ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c103                          ; torch       ; work         ;
-;       |torch:c108|                 ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c108                          ; torch       ; work         ;
-;       |torch:c1103|                ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c1103                         ; torch       ; work         ;
-;       |torch:c1108|                ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c1108                         ; torch       ; work         ;
-;       |torch:c1111|                ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c1111                         ; torch       ; work         ;
-;       |torch:c1116|                ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c1116                         ; torch       ; work         ;
-;       |torch:c111|                 ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c111                          ; torch       ; work         ;
-;       |torch:c116|                 ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c116                          ; torch       ; work         ;
-;       |torch:c122|                 ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c122                          ; torch       ; work         ;
-;       |torch:c1303|                ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c1303                         ; torch       ; work         ;
-;       |torch:c1308|                ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c1308                         ; torch       ; work         ;
-;       |torch:c1311|                ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c1311                         ; torch       ; work         ;
-;       |torch:c1316|                ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c1316                         ; torch       ; work         ;
-;       |torch:c1322|                ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c1322                         ; torch       ; work         ;
-;       |torch:c1417|                ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c1417                         ; torch       ; work         ;
-;       |torch:c1503|                ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c1503                         ; torch       ; work         ;
-;       |torch:c1508|                ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c1508                         ; torch       ; work         ;
-;       |torch:c1511|                ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c1511                         ; torch       ; work         ;
-;       |torch:c1516|                ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c1516                         ; torch       ; work         ;
-;       |torch:c217|                 ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c217                          ; torch       ; work         ;
-;       |torch:c303|                 ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c303                          ; torch       ; work         ;
-;       |torch:c308|                 ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c308                          ; torch       ; work         ;
-;       |torch:c311|                 ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c311                          ; torch       ; work         ;
-;       |torch:c316|                 ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c316                          ; torch       ; work         ;
-;       |torch:c503|                 ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c503                          ; torch       ; work         ;
-;       |torch:c508|                 ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c508                          ; torch       ; work         ;
-;       |torch:c511|                 ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c511                          ; torch       ; work         ;
-;       |torch:c516|                 ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c516                          ; torch       ; work         ;
-;       |torch:c522|                 ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c522                          ; torch       ; work         ;
-;       |torch:c617|                 ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c617                          ; torch       ; work         ;
-;       |torch:c703|                 ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c703                          ; torch       ; work         ;
-;       |torch:c708|                 ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c708                          ; torch       ; work         ;
-;       |torch:c711|                 ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c711                          ; torch       ; work         ;
-;       |torch:c716|                 ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c716                          ; torch       ; work         ;
-;       |torch:c903|                 ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c903                          ; torch       ; work         ;
-;       |torch:c908|                 ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c908                          ; torch       ; work         ;
-;       |torch:c911|                 ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c911                          ; torch       ; work         ;
-;       |torch:c916|                 ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c916                          ; torch       ; work         ;
+;    |redstone:redstone|             ; 3 (0)               ; 3 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone                                     ; redstone    ; work         ;
+;       |repeater:c011|              ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c011                       ; repeater    ; work         ;
+;       |repeater:c111|              ; 2 (2)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c111                       ; repeater    ; work         ;
 +------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -333,25 +248,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------+--------------+---------+--------------+--------------+-----------------+-----------------+
 
 
-+-------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                        ;
-+----------------------------------------+--------------------------------------------------+
-; Register name                          ; Reason for Removal                               ;
-+----------------------------------------+--------------------------------------------------+
-; redstone:redstone|torch:c1423|buffer   ; Merged with redstone:redstone|torch:c1322|buffer ;
-; redstone:redstone|torch:c1522|buffer   ; Merged with redstone:redstone|torch:c1322|buffer ;
-; redstone:redstone|torch:c1525|buffer   ; Merged with redstone:redstone|torch:c1417|buffer ;
-; redstone:redstone|torch:c325|buffer    ; Merged with redstone:redstone|torch:c217|buffer  ;
-; redstone:redstone|torch:c725|buffer    ; Merged with redstone:redstone|torch:c617|buffer  ;
-; redstone:redstone|torch:c1125|buffer   ; Merged with redstone:redstone|torch:c1017|buffer ;
-; redstone:redstone|torch:c223|buffer    ; Merged with redstone:redstone|torch:c122|buffer  ;
-; redstone:redstone|torch:c322|buffer    ; Merged with redstone:redstone|torch:c122|buffer  ;
-; redstone:redstone|torch:c623|buffer    ; Merged with redstone:redstone|torch:c522|buffer  ;
-; redstone:redstone|torch:c722|buffer    ; Merged with redstone:redstone|torch:c522|buffer  ;
-; redstone:redstone|torch:c1122|buffer   ; Merged with redstone:redstone|torch:c1023|buffer ;
-; redstone:redstone|torch:c922|buffer    ; Merged with redstone:redstone|torch:c1023|buffer ;
-; Total Number of Removed Registers = 12 ;                                                  ;
-+----------------------------------------+--------------------------------------------------+
++------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                 ;
++-------------------------------------------+----------------------------------------+
+; Register name                             ; Reason for Removal                     ;
++-------------------------------------------+----------------------------------------+
+; redstone:redstone|repeater:c411|buffer[0] ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 1     ;                                        ;
++-------------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -359,7 +263,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 40    ;
+; Total registers                              ; 3     ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -367,39 +271,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
-
-
-+---------------------------------------------------+
-; Inverted Register Statistics                      ;
-+-----------------------------------------+---------+
-; Inverted Register                       ; Fan out ;
-+-----------------------------------------+---------+
-; redstone:redstone|torch:c108|buffer     ; 1       ;
-; redstone:redstone|torch:c308|buffer     ; 1       ;
-; redstone:redstone|torch:c508|buffer     ; 1       ;
-; redstone:redstone|torch:c708|buffer     ; 1       ;
-; redstone:redstone|torch:c908|buffer     ; 1       ;
-; redstone:redstone|torch:c1108|buffer    ; 1       ;
-; redstone:redstone|torch:c1308|buffer    ; 1       ;
-; redstone:redstone|torch:c1508|buffer    ; 1       ;
-; redstone:redstone|torch:c1417|buffer    ; 3       ;
-; redstone:redstone|torch:c1322|buffer    ; 3       ;
-; redstone:redstone|torch:c217|buffer     ; 3       ;
-; redstone:redstone|torch:c617|buffer     ; 3       ;
-; redstone:redstone|torch:c1017|buffer    ; 3       ;
-; redstone:redstone|torch:c103|buffer     ; 1       ;
-; redstone:redstone|torch:c303|buffer     ; 1       ;
-; redstone:redstone|torch:c122|buffer     ; 3       ;
-; redstone:redstone|torch:c503|buffer     ; 1       ;
-; redstone:redstone|torch:c703|buffer     ; 1       ;
-; redstone:redstone|torch:c522|buffer     ; 3       ;
-; redstone:redstone|torch:c903|buffer     ; 1       ;
-; redstone:redstone|torch:c1103|buffer    ; 1       ;
-; redstone:redstone|torch:c1023|buffer    ; 3       ;
-; redstone:redstone|torch:c1303|buffer    ; 1       ;
-; redstone:redstone|torch:c1503|buffer    ; 1       ;
-; Total number of inverted registers = 24 ;         ;
-+-----------------------------------------+---------+
 
 
 +-----------------------------------------------+
@@ -668,524 +539,74 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c103 ;
-+----------------+-------+--------------------------------------------------+
-; Parameter Name ; Value ; Type                                             ;
-+----------------+-------+--------------------------------------------------+
-; state          ; 1     ; Unsigned Binary                                  ;
-+----------------+-------+--------------------------------------------------+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: redstone:redstone|repeater:c011 ;
++----------------+-------+-----------------------------------------------------+
+; Parameter Name ; Value ; Type                                                ;
++----------------+-------+-----------------------------------------------------+
+; t              ; 1     ; Signed Integer                                      ;
+; state          ; 0     ; Unsigned Binary                                     ;
+; lock_out       ; 0     ; Signed Integer                                      ;
+; lockable       ; 1     ; Signed Integer                                      ;
++----------------+-------+-----------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c303 ;
-+----------------+-------+--------------------------------------------------+
-; Parameter Name ; Value ; Type                                             ;
-+----------------+-------+--------------------------------------------------+
-; state          ; 1     ; Unsigned Binary                                  ;
-+----------------+-------+--------------------------------------------------+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: redstone:redstone|repeater:c111 ;
++----------------+-------+-----------------------------------------------------+
+; Parameter Name ; Value ; Type                                                ;
++----------------+-------+-----------------------------------------------------+
+; t              ; 2     ; Signed Integer                                      ;
+; state          ; 0     ; Unsigned Binary                                     ;
+; lock_out       ; 1     ; Signed Integer                                      ;
+; lockable       ; 0     ; Signed Integer                                      ;
++----------------+-------+-----------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c503 ;
-+----------------+-------+--------------------------------------------------+
-; Parameter Name ; Value ; Type                                             ;
-+----------------+-------+--------------------------------------------------+
-; state          ; 1     ; Unsigned Binary                                  ;
-+----------------+-------+--------------------------------------------------+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: redstone:redstone|repeater:c411 ;
++----------------+-------+-----------------------------------------------------+
+; Parameter Name ; Value ; Type                                                ;
++----------------+-------+-----------------------------------------------------+
+; t              ; 1     ; Signed Integer                                      ;
+; state          ; 0     ; Unsigned Binary                                     ;
+; lock_out       ; 0     ; Signed Integer                                      ;
+; lockable       ; 1     ; Signed Integer                                      ;
++----------------+-------+-----------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c703 ;
-+----------------+-------+--------------------------------------------------+
-; Parameter Name ; Value ; Type                                             ;
-+----------------+-------+--------------------------------------------------+
-; state          ; 1     ; Unsigned Binary                                  ;
-+----------------+-------+--------------------------------------------------+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: redstone:redstone|repeater:c511 ;
++----------------+-------+-----------------------------------------------------+
+; Parameter Name ; Value ; Type                                                ;
++----------------+-------+-----------------------------------------------------+
+; t              ; 1     ; Signed Integer                                      ;
+; state          ; 0     ; Unsigned Binary                                     ;
+; lock_out       ; 1     ; Signed Integer                                      ;
+; lockable       ; 0     ; Signed Integer                                      ;
++----------------+-------+-----------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c903 ;
-+----------------+-------+--------------------------------------------------+
-; Parameter Name ; Value ; Type                                             ;
-+----------------+-------+--------------------------------------------------+
-; state          ; 1     ; Unsigned Binary                                  ;
-+----------------+-------+--------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c1103 ;
-+----------------+-------+---------------------------------------------------+
-; Parameter Name ; Value ; Type                                              ;
-+----------------+-------+---------------------------------------------------+
-; state          ; 1     ; Unsigned Binary                                   ;
-+----------------+-------+---------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c1303 ;
-+----------------+-------+---------------------------------------------------+
-; Parameter Name ; Value ; Type                                              ;
-+----------------+-------+---------------------------------------------------+
-; state          ; 1     ; Unsigned Binary                                   ;
-+----------------+-------+---------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c1503 ;
-+----------------+-------+---------------------------------------------------+
-; Parameter Name ; Value ; Type                                              ;
-+----------------+-------+---------------------------------------------------+
-; state          ; 1     ; Unsigned Binary                                   ;
-+----------------+-------+---------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c108 ;
-+----------------+-------+--------------------------------------------------+
-; Parameter Name ; Value ; Type                                             ;
-+----------------+-------+--------------------------------------------------+
-; state          ; 1     ; Unsigned Binary                                  ;
-+----------------+-------+--------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c308 ;
-+----------------+-------+--------------------------------------------------+
-; Parameter Name ; Value ; Type                                             ;
-+----------------+-------+--------------------------------------------------+
-; state          ; 1     ; Unsigned Binary                                  ;
-+----------------+-------+--------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c508 ;
-+----------------+-------+--------------------------------------------------+
-; Parameter Name ; Value ; Type                                             ;
-+----------------+-------+--------------------------------------------------+
-; state          ; 1     ; Unsigned Binary                                  ;
-+----------------+-------+--------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c708 ;
-+----------------+-------+--------------------------------------------------+
-; Parameter Name ; Value ; Type                                             ;
-+----------------+-------+--------------------------------------------------+
-; state          ; 1     ; Unsigned Binary                                  ;
-+----------------+-------+--------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c908 ;
-+----------------+-------+--------------------------------------------------+
-; Parameter Name ; Value ; Type                                             ;
-+----------------+-------+--------------------------------------------------+
-; state          ; 1     ; Unsigned Binary                                  ;
-+----------------+-------+--------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c1108 ;
-+----------------+-------+---------------------------------------------------+
-; Parameter Name ; Value ; Type                                              ;
-+----------------+-------+---------------------------------------------------+
-; state          ; 1     ; Unsigned Binary                                   ;
-+----------------+-------+---------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c1308 ;
-+----------------+-------+---------------------------------------------------+
-; Parameter Name ; Value ; Type                                              ;
-+----------------+-------+---------------------------------------------------+
-; state          ; 1     ; Unsigned Binary                                   ;
-+----------------+-------+---------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c1508 ;
-+----------------+-------+---------------------------------------------------+
-; Parameter Name ; Value ; Type                                              ;
-+----------------+-------+---------------------------------------------------+
-; state          ; 1     ; Unsigned Binary                                   ;
-+----------------+-------+---------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c111 ;
-+----------------+-------+--------------------------------------------------+
-; Parameter Name ; Value ; Type                                             ;
-+----------------+-------+--------------------------------------------------+
-; state          ; 0     ; Unsigned Binary                                  ;
-+----------------+-------+--------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c311 ;
-+----------------+-------+--------------------------------------------------+
-; Parameter Name ; Value ; Type                                             ;
-+----------------+-------+--------------------------------------------------+
-; state          ; 0     ; Unsigned Binary                                  ;
-+----------------+-------+--------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c511 ;
-+----------------+-------+--------------------------------------------------+
-; Parameter Name ; Value ; Type                                             ;
-+----------------+-------+--------------------------------------------------+
-; state          ; 0     ; Unsigned Binary                                  ;
-+----------------+-------+--------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c711 ;
-+----------------+-------+--------------------------------------------------+
-; Parameter Name ; Value ; Type                                             ;
-+----------------+-------+--------------------------------------------------+
-; state          ; 0     ; Unsigned Binary                                  ;
-+----------------+-------+--------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c911 ;
-+----------------+-------+--------------------------------------------------+
-; Parameter Name ; Value ; Type                                             ;
-+----------------+-------+--------------------------------------------------+
-; state          ; 0     ; Unsigned Binary                                  ;
-+----------------+-------+--------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c1111 ;
-+----------------+-------+---------------------------------------------------+
-; Parameter Name ; Value ; Type                                              ;
-+----------------+-------+---------------------------------------------------+
-; state          ; 0     ; Unsigned Binary                                   ;
-+----------------+-------+---------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c1311 ;
-+----------------+-------+---------------------------------------------------+
-; Parameter Name ; Value ; Type                                              ;
-+----------------+-------+---------------------------------------------------+
-; state          ; 0     ; Unsigned Binary                                   ;
-+----------------+-------+---------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c1511 ;
-+----------------+-------+---------------------------------------------------+
-; Parameter Name ; Value ; Type                                              ;
-+----------------+-------+---------------------------------------------------+
-; state          ; 0     ; Unsigned Binary                                   ;
-+----------------+-------+---------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c116 ;
-+----------------+-------+--------------------------------------------------+
-; Parameter Name ; Value ; Type                                             ;
-+----------------+-------+--------------------------------------------------+
-; state          ; 0     ; Unsigned Binary                                  ;
-+----------------+-------+--------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c316 ;
-+----------------+-------+--------------------------------------------------+
-; Parameter Name ; Value ; Type                                             ;
-+----------------+-------+--------------------------------------------------+
-; state          ; 0     ; Unsigned Binary                                  ;
-+----------------+-------+--------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c516 ;
-+----------------+-------+--------------------------------------------------+
-; Parameter Name ; Value ; Type                                             ;
-+----------------+-------+--------------------------------------------------+
-; state          ; 0     ; Unsigned Binary                                  ;
-+----------------+-------+--------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c716 ;
-+----------------+-------+--------------------------------------------------+
-; Parameter Name ; Value ; Type                                             ;
-+----------------+-------+--------------------------------------------------+
-; state          ; 0     ; Unsigned Binary                                  ;
-+----------------+-------+--------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c916 ;
-+----------------+-------+--------------------------------------------------+
-; Parameter Name ; Value ; Type                                             ;
-+----------------+-------+--------------------------------------------------+
-; state          ; 0     ; Unsigned Binary                                  ;
-+----------------+-------+--------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c1116 ;
-+----------------+-------+---------------------------------------------------+
-; Parameter Name ; Value ; Type                                              ;
-+----------------+-------+---------------------------------------------------+
-; state          ; 0     ; Unsigned Binary                                   ;
-+----------------+-------+---------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c1316 ;
-+----------------+-------+---------------------------------------------------+
-; Parameter Name ; Value ; Type                                              ;
-+----------------+-------+---------------------------------------------------+
-; state          ; 0     ; Unsigned Binary                                   ;
-+----------------+-------+---------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c1516 ;
-+----------------+-------+---------------------------------------------------+
-; Parameter Name ; Value ; Type                                              ;
-+----------------+-------+---------------------------------------------------+
-; state          ; 0     ; Unsigned Binary                                   ;
-+----------------+-------+---------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c217 ;
-+----------------+-------+--------------------------------------------------+
-; Parameter Name ; Value ; Type                                             ;
-+----------------+-------+--------------------------------------------------+
-; state          ; 1     ; Unsigned Binary                                  ;
-+----------------+-------+--------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c617 ;
-+----------------+-------+--------------------------------------------------+
-; Parameter Name ; Value ; Type                                             ;
-+----------------+-------+--------------------------------------------------+
-; state          ; 1     ; Unsigned Binary                                  ;
-+----------------+-------+--------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c1017 ;
-+----------------+-------+---------------------------------------------------+
-; Parameter Name ; Value ; Type                                              ;
-+----------------+-------+---------------------------------------------------+
-; state          ; 1     ; Unsigned Binary                                   ;
-+----------------+-------+---------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c1417 ;
-+----------------+-------+---------------------------------------------------+
-; Parameter Name ; Value ; Type                                              ;
-+----------------+-------+---------------------------------------------------+
-; state          ; 1     ; Unsigned Binary                                   ;
-+----------------+-------+---------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c122 ;
-+----------------+-------+--------------------------------------------------+
-; Parameter Name ; Value ; Type                                             ;
-+----------------+-------+--------------------------------------------------+
-; state          ; 1     ; Unsigned Binary                                  ;
-+----------------+-------+--------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c322 ;
-+----------------+-------+--------------------------------------------------+
-; Parameter Name ; Value ; Type                                             ;
-+----------------+-------+--------------------------------------------------+
-; state          ; 1     ; Unsigned Binary                                  ;
-+----------------+-------+--------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c522 ;
-+----------------+-------+--------------------------------------------------+
-; Parameter Name ; Value ; Type                                             ;
-+----------------+-------+--------------------------------------------------+
-; state          ; 1     ; Unsigned Binary                                  ;
-+----------------+-------+--------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c722 ;
-+----------------+-------+--------------------------------------------------+
-; Parameter Name ; Value ; Type                                             ;
-+----------------+-------+--------------------------------------------------+
-; state          ; 1     ; Unsigned Binary                                  ;
-+----------------+-------+--------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c922 ;
-+----------------+-------+--------------------------------------------------+
-; Parameter Name ; Value ; Type                                             ;
-+----------------+-------+--------------------------------------------------+
-; state          ; 1     ; Unsigned Binary                                  ;
-+----------------+-------+--------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c1122 ;
-+----------------+-------+---------------------------------------------------+
-; Parameter Name ; Value ; Type                                              ;
-+----------------+-------+---------------------------------------------------+
-; state          ; 1     ; Unsigned Binary                                   ;
-+----------------+-------+---------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c1322 ;
-+----------------+-------+---------------------------------------------------+
-; Parameter Name ; Value ; Type                                              ;
-+----------------+-------+---------------------------------------------------+
-; state          ; 1     ; Unsigned Binary                                   ;
-+----------------+-------+---------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c1522 ;
-+----------------+-------+---------------------------------------------------+
-; Parameter Name ; Value ; Type                                              ;
-+----------------+-------+---------------------------------------------------+
-; state          ; 1     ; Unsigned Binary                                   ;
-+----------------+-------+---------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c223 ;
-+----------------+-------+--------------------------------------------------+
-; Parameter Name ; Value ; Type                                             ;
-+----------------+-------+--------------------------------------------------+
-; state          ; 1     ; Unsigned Binary                                  ;
-+----------------+-------+--------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c623 ;
-+----------------+-------+--------------------------------------------------+
-; Parameter Name ; Value ; Type                                             ;
-+----------------+-------+--------------------------------------------------+
-; state          ; 1     ; Unsigned Binary                                  ;
-+----------------+-------+--------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c1023 ;
-+----------------+-------+---------------------------------------------------+
-; Parameter Name ; Value ; Type                                              ;
-+----------------+-------+---------------------------------------------------+
-; state          ; 1     ; Unsigned Binary                                   ;
-+----------------+-------+---------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c1423 ;
-+----------------+-------+---------------------------------------------------+
-; Parameter Name ; Value ; Type                                              ;
-+----------------+-------+---------------------------------------------------+
-; state          ; 1     ; Unsigned Binary                                   ;
-+----------------+-------+---------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c325 ;
-+----------------+-------+--------------------------------------------------+
-; Parameter Name ; Value ; Type                                             ;
-+----------------+-------+--------------------------------------------------+
-; state          ; 1     ; Unsigned Binary                                  ;
-+----------------+-------+--------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c725 ;
-+----------------+-------+--------------------------------------------------+
-; Parameter Name ; Value ; Type                                             ;
-+----------------+-------+--------------------------------------------------+
-; state          ; 1     ; Unsigned Binary                                  ;
-+----------------+-------+--------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c1125 ;
-+----------------+-------+---------------------------------------------------+
-; Parameter Name ; Value ; Type                                              ;
-+----------------+-------+---------------------------------------------------+
-; state          ; 1     ; Unsigned Binary                                   ;
-+----------------+-------+---------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: redstone:redstone|torch:c1525 ;
-+----------------+-------+---------------------------------------------------+
-; Parameter Name ; Value ; Type                                              ;
-+----------------+-------+---------------------------------------------------+
-; state          ; 1     ; Unsigned Binary                                   ;
-+----------------+-------+---------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
++-------------------------------------------------------------+
+; Port Connectivity Checks: "redstone:redstone|repeater:c511" ;
++--------+-------+----------+---------------------------------+
+; Port   ; Type  ; Severity ; Details                         ;
++--------+-------+----------+---------------------------------+
+; i_lock ; Input ; Info     ; Explicitly unconnected          ;
++--------+-------+----------+---------------------------------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "redstone:redstone|repeater:c111" ;
++--------+-------+----------+---------------------------------+
+; Port   ; Type  ; Severity ; Details                         ;
++--------+-------+----------+---------------------------------+
+; i_lock ; Input ; Info     ; Explicitly unconnected          ;
++--------+-------+----------+---------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------------------+
@@ -1202,17 +623,17 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 40                          ;
-;     plain             ; 40                          ;
-; arriav_lcell_comb     ; 37                          ;
-;     normal            ; 37                          ;
+; arriav_ff             ; 3                           ;
+;     plain             ; 3                           ;
+; arriav_lcell_comb     ; 4                           ;
+;     normal            ; 4                           ;
 ;         0 data inputs ; 1                           ;
-;         2 data inputs ; 36                          ;
+;         3 data inputs ; 3                           ;
 ; boundary_port         ; 25                          ;
 ; generic_pll           ; 1                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 1.00                        ;
-; Average LUT depth     ; 0.84                        ;
+; Max LUT depth         ; 2.00                        ;
+; Average LUT depth     ; 1.00                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1231,7 +652,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Sat Nov 30 14:32:43 2024
+    Info: Processing started: Mon Dec  2 20:36:57 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FPGA-MCHPRS -c FPGA-MCHPRS
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
@@ -1239,7 +660,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file Verilog
     Info (12023): Found entity 1: redstone File: /home/zwzollers/Documents/GIT/MCHPRS-FPGA/Quartus/Verilog/redstone.v Line: 1
 Info (12021): Found 2 design units, including 2 entities, in source file Verilog/components.v
     Info (12023): Found entity 1: repeater File: /home/zwzollers/Documents/GIT/MCHPRS-FPGA/Quartus/Verilog/components.v Line: 1
-    Info (12023): Found entity 2: torch File: /home/zwzollers/Documents/GIT/MCHPRS-FPGA/Quartus/Verilog/components.v Line: 63
+    Info (12023): Found entity 2: torch File: /home/zwzollers/Documents/GIT/MCHPRS-FPGA/Quartus/Verilog/components.v Line: 61
 Info (12021): Found 1 design units, including 1 entities, in source file Verilog/sevseg_dec.v
     Info (12023): Found entity 1: sevseg_dec File: /home/zwzollers/Documents/GIT/MCHPRS-FPGA/Quartus/Verilog/sevseg_dec.v Line: 7
 Info (12021): Found 1 design units, including 1 entities, in source file Verilog/top.v
@@ -1322,13 +743,19 @@ Info (12133): Instantiated megafunction "fclk:fclk|fclk_0002:fclk_inst|altera_pl
     Info (12134): Parameter "pll_type" = "General"
     Info (12134): Parameter "pll_subtype" = "General"
 Info (12128): Elaborating entity "redstone" for hierarchy "redstone:redstone" File: /home/zwzollers/Documents/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 15
-Warning (10034): Output port "outputs[9..5]" at redstone.v(4) has no driver File: /home/zwzollers/Documents/GIT/MCHPRS-FPGA/Quartus/Verilog/redstone.v Line: 4
-Info (12128): Elaborating entity "torch" for hierarchy "redstone:redstone|torch:c103" File: /home/zwzollers/Documents/GIT/MCHPRS-FPGA/Quartus/Verilog/redstone.v Line: 22
-Info (12128): Elaborating entity "torch" for hierarchy "redstone:redstone|torch:c111" File: /home/zwzollers/Documents/GIT/MCHPRS-FPGA/Quartus/Verilog/redstone.v Line: 62
-Info (13014): Ignored 11 buffer(s)
-    Info (13019): Ignored 11 SOFT buffer(s)
+Warning (10034): Output port "outputs[9..2]" at redstone.v(4) has no driver File: /home/zwzollers/Documents/GIT/MCHPRS-FPGA/Quartus/Verilog/redstone.v Line: 4
+Info (12128): Elaborating entity "repeater" for hierarchy "redstone:redstone|repeater:c011" File: /home/zwzollers/Documents/GIT/MCHPRS-FPGA/Quartus/Verilog/redstone.v Line: 7
+Info (12128): Elaborating entity "repeater" for hierarchy "redstone:redstone|repeater:c111" File: /home/zwzollers/Documents/GIT/MCHPRS-FPGA/Quartus/Verilog/redstone.v Line: 9
+Info (12128): Elaborating entity "repeater" for hierarchy "redstone:redstone|repeater:c511" File: /home/zwzollers/Documents/GIT/MCHPRS-FPGA/Quartus/Verilog/redstone.v Line: 15
+Warning (10036): Verilog HDL or VHDL warning at components.v(13): object "buffer" assigned a value but never read File: /home/zwzollers/Documents/GIT/MCHPRS-FPGA/Quartus/Verilog/components.v Line: 13
+Info (13014): Ignored 4 buffer(s)
+    Info (13019): Ignored 4 SOFT buffer(s)
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "o_LEDs[1]" is stuck at GND File: /home/zwzollers/Documents/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 5
+    Warning (13410): Pin "o_LEDs[2]" is stuck at GND File: /home/zwzollers/Documents/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 5
+    Warning (13410): Pin "o_LEDs[3]" is stuck at GND File: /home/zwzollers/Documents/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 5
+    Warning (13410): Pin "o_LEDs[4]" is stuck at GND File: /home/zwzollers/Documents/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 5
     Warning (13410): Pin "o_LEDs[5]" is stuck at GND File: /home/zwzollers/Documents/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 5
     Warning (13410): Pin "o_LEDs[6]" is stuck at GND File: /home/zwzollers/Documents/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 5
     Warning (13410): Pin "o_LEDs[7]" is stuck at GND File: /home/zwzollers/Documents/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 5
@@ -1337,20 +764,28 @@ Warning (13024): Output pins are stuck at VCC or GND
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 5 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 4 input pin(s) that do not drive logic
+Warning (21074): Design contains 12 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "i_switches[1]" File: /home/zwzollers/Documents/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 3
+    Warning (15610): No output dependent on input pin "i_switches[2]" File: /home/zwzollers/Documents/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 3
+    Warning (15610): No output dependent on input pin "i_switches[3]" File: /home/zwzollers/Documents/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 3
+    Warning (15610): No output dependent on input pin "i_switches[4]" File: /home/zwzollers/Documents/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 3
+    Warning (15610): No output dependent on input pin "i_switches[5]" File: /home/zwzollers/Documents/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 3
+    Warning (15610): No output dependent on input pin "i_switches[6]" File: /home/zwzollers/Documents/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 3
+    Warning (15610): No output dependent on input pin "i_switches[7]" File: /home/zwzollers/Documents/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 3
+    Warning (15610): No output dependent on input pin "i_switches[8]" File: /home/zwzollers/Documents/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 3
     Warning (15610): No output dependent on input pin "i_switches[9]" File: /home/zwzollers/Documents/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 3
     Warning (15610): No output dependent on input pin "i_buttons[1]" File: /home/zwzollers/Documents/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 4
     Warning (15610): No output dependent on input pin "i_buttons[2]" File: /home/zwzollers/Documents/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 4
     Warning (15610): No output dependent on input pin "i_buttons[3]" File: /home/zwzollers/Documents/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 4
-Info (21057): Implemented 71 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 30 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 10 output pins
-    Info (21061): Implemented 45 logic cells
+    Info (21061): Implemented 4 logic cells
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 16 warnings
-    Info: Peak virtual memory: 756 megabytes
-    Info: Processing ended: Sat Nov 30 14:32:49 2024
-    Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:12
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 29 warnings
+    Info: Peak virtual memory: 749 megabytes
+    Info: Processing ended: Mon Dec  2 20:37:02 2024
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:11
 
 

@@ -36,7 +36,7 @@ impl Graph
             let links: Vec<(usize, u8, LinkType)> = graph.nodes[node_id].get_links(schem);
             for (link_pos, link_w, link_ty) in links
             {
-                graph.nodes[node_id].outputs.push(Link{ty:LinkType::Normal, weight: link_w, dest: node_pos[&Pos::from_index(link_pos, &schem.size)]});
+                graph.nodes[node_id].outputs.push(Link{ty:link_ty.clone(), weight: link_w, dest: node_pos[&Pos::from_index(link_pos, &schem.size)]});
                 graph.nodes[node_pos[&Pos::from_index(link_pos, &schem.size)].0].inputs.push(Link{ty:link_ty, weight: link_w, dest: NodeID(node_id)});
             }
         }
@@ -119,7 +119,8 @@ impl Node
                 }
                 RBlock::Lamp =>
                 {
-                    
+                    links.push((offset_pos.unwrap(), 0, LinkType::Normal));
+                    searched.insert(offset_pos.unwrap());
                 }
                 x if x.is_solid() =>
                 {
@@ -212,8 +213,6 @@ impl Node
             // list of solid blocks that the redstone is soft powering
             let mut connected_blocks: Vec<(usize, u8)> = Vec::new();
 
-            println!("  red: {:?}", Pos::from_index(redstone_pos, size));
-
             // is the block above and below solid
             // this is going to be used to determine where possible connections will be
             let pos_below = Pos::relative_index(redstone_pos, [0,-1,0], size);
@@ -254,7 +253,7 @@ impl Node
                             redstone_connections.push(offset);
                             if !searched.contains(&offset_pos.unwrap())
                             {
-                                connected_blocks.push((offset_pos.unwrap(), weight+1));
+                                connected_blocks.push((offset_pos.unwrap(), weight));
                                 searched.insert(offset_pos.unwrap());
                             }
                         }
@@ -502,7 +501,7 @@ impl Pos
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone, PartialEq)]
 pub enum LinkType
 {
     Normal,

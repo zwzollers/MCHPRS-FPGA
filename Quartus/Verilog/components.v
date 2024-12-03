@@ -1,63 +1,61 @@
-module repeater (i_clk, i_in, o_out);
+module repeater (i_clk, i_in, i_lock, o_out);
 
 	input  i_clk;
 	input  i_in;
+	input  i_lock;
 	output o_out;
 
 	parameter t = 1,
-				 state = 1'b0;
+	          state = 1'b0,
+	          lock_out = 0,
+	          lockable = 0;
 
 	reg [t-1:0] buffer = {t{state}};
-
-	assign o_out = buffer[t-1];
 	
 	generate
-		if (t == 1)
+	
+		if (lock_out == 0 && lockable == 0 && t == 1) begin
+			assign o_out = buffer[t-1];
 			always @(posedge i_clk) begin
 				buffer = i_in;
 			end
-		else
+		end
+		
+		else if (lock_out == 0 && lockable == 0 && t > 1) begin
+			assign o_out = buffer[t-1];
 			always @(posedge i_clk) begin
 				buffer = {buffer[t-2:0] | {t-1{buffer[t-1] & i_in}}, i_in | (~buffer[t-1] & buffer[0])};
 			end
-		// if (t == 1)
-		// 	always @(posedge i_clk) begin
-		// 		l_out = l_in;
-		// 	end
-		// else
-		// 	always @(posedge i_clk) begin
-		// 		{l_out, buffer} = {h_out, (buffer[t-2:0] | l_in) & {t-1{~buffer[t-1]}}, (buffer[t-1] & ~h_out) | h_in };
-		// 	end
-		// if (t == 1)
-		// 	always @(posedge i_clk) begin
-		// 		o_out = i_in;
-		// 	end
-		// else if (t == 2)
-		// 	always @(posedge i_clk) begin
-		// 		{o_out, buffer} = {
-		// 			(o_out & i_in) | (o_out ^ buffer[1]),
-		// 			(buffer[0] | (i_in ^ o_out)) & ~buffer[1],
-		// 			buffer[1] & ~o_out};
-		// 	end
-		// else if (t == 3)
-		// 	always @(posedge i_clk) begin
-		// 		{o_out, buffer} = {
-		// 			(o_out & i_in) | (o_out ^ buffer[2]),
-		// 			buffer[1] & ~buffer[3],
-		// 			(buffer[0] | (i_in ^ o_out)) & ~buffer[2],
-		// 			buffer[2] & ~o_out};
-		// 	end
-		// else if (t == 4)
-		// 	always @(posedge i_clk) begin
-		// 		{o_out, buffer} = {
-		// 			(o_out & i_in) | (o_out ^ buffer[3]),
-		// 			buffer[2] & ~buffer[3],
-		// 			buffer[1] & ~buffer[3],
-		// 			(buffer[0] | (i_in ^ o_out)) & ~buffer[3],
-		// 			buffer[3] & ~o_out};
-		// 	end
+		end
+		
+		else if (lock_out == 1 && t == 1) begin
+			assign o_out = i_in;
+		end
+		
+		else if (lock_out == 1 && t > 1) begin
+			assign o_out = buffer[t-2] | (buffer[t-1] & i_in);
+			always @(posedge i_clk) begin
+				buffer = {buffer[t-2:0] | {t-1{buffer[t-1] & i_in}}, i_in | (~buffer[t-1] & buffer[0])};
+			end
+		end
+				
+		else if (lockable == 1 && t == 1) begin
+			assign o_out = buffer[t-1];
+			always @(posedge i_clk) begin
+				buffer = (i_lock & buffer) | (!i_lock & i_in);
+			end
+		end
+		
+		else if (lockable == 1 && t > 1) begin 
+			assign o_out = buffer[t-1];
+			always @(posedge i_clk) begin
+				if (i_lock)
+					buffer = {buffer[t-2:0] | {t-1{buffer[t-1] & i_in}}, i_in | (~buffer[t-1] & buffer[0])};
+				else
+					buffer = {t{buffer[t-1]}};
+			end
+		end
 	endgenerate
-	
 endmodule
 
 module torch (i_clk, i_in, o_out);

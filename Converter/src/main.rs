@@ -5,13 +5,14 @@ mod items;
 mod schem;
 mod graph;
 mod assembler;
+mod LUT;
 
 fn main() 
 {
     let mut total = Instant::now();
     let mut start = Instant::now();
-    //let schem = schem::SchemData::from_file("./test_schems/test13_reg.schem");
-    let schem = schem::SchemData::from_file("./test_schems/c4AI1.schem");
+    let schem = schem::SchemData::from_file("./test_schems/test13_reg.schem");
+    //let schem = schem::SchemData::from_file("./test_schems/c4AI1.schem");
 
     println!("Loading Schem Took: {:?}", start.elapsed());
 

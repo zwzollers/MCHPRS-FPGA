@@ -15,17 +15,17 @@ pub fn generate_verilog(graph: &Graph, path: &str)
         verilog.push_str(&format!("\twire w{};\n", node.pos.to_string()));
         match &node.block
         {
-            NBlock::Input { state } =>
+            NodeType::Input {..} =>
             {
                 verilog.push_str(&format!("\tassign w{} = inputs[{input_count}];\n", node.pos.to_string()));
                 input_count += 1;
             }
-            NBlock::Output =>
+            NodeType::Output =>
             {
                 verilog.push_str(&format!("\tassign outputs[{output_count}] = ({});\n", get_inputs_str(node, graph, LinkType::Normal)));
                 output_count += 1;
             }
-            NBlock::Repeater { delay, state } =>
+            NodeType::Repeater { delay, state } =>
             {
                 verilog.push_str(&format!("\trepeater #({}, 1'b{}, {}, {}) c{} (.i_clk(tick), .i_in({}), .i_lock({}), .o_out(w{}));\n",
                      delay,
@@ -37,7 +37,7 @@ pub fn generate_verilog(graph: &Graph, path: &str)
                      get_inputs_str(node, graph, LinkType::Side),
                      node.pos.to_string()));
             }
-            NBlock::Torch { state } =>
+            NodeType::Torch { state } =>
             {
                 verilog.push_str(&format!("\ttorch #(1'b{}) c{} (.i_clk(tick), .i_in({}), .o_out(w{}));\n", 
                     if *state {1} else {0},
@@ -45,15 +45,23 @@ pub fn generate_verilog(graph: &Graph, path: &str)
                     get_inputs_str(node, graph, LinkType::Normal),
                     node.pos.to_string()));
             }
-            NBlock::Comparator { mode, state } =>
+            NodeType::LUT {data} =>
             {
-                verilog.push_str("\n");
+                verilog.push_str("");
+            }
+            NodeType::Comparator {..} =>
+            {
+                panic!("    Error: comparator nodes should be converted to LUT before assembly");
             }
         }
     }
     verilog.push_str("endmodule");
     let mut file = File::create(path).unwrap();
-    file.write_all(verilog.as_bytes());
+    match file.write_all(verilog.as_bytes())
+    {
+        Err(..) => println!("    Error Writing to file"),
+        _ => ()
+    }
 
 }
 

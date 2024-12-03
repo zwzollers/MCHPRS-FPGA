@@ -1,18 +1,20 @@
 use std::collections::{HashMap, HashSet, VecDeque};
 
 use crate::schem::*;
+use crate::LUT::*;
 
 #[derive(Debug)]
-pub struct Graph
+pub struct Graph<'a>
 {
-    pub nodes: Vec<Node>,
+    pub nodes: Vec<Node<'a>>,
+    pub luts: Vec<LUT>
 }
 
-impl Graph
+impl<'a> Graph<'a>
 {
     pub fn from_redschem (schem: &RedSchem) -> Graph
     {
-        let mut graph: Graph = Graph{nodes: Vec::new()};
+        let mut graph: Graph = Graph{nodes: Vec::new(), luts: Vec::new()};
 
         let mut node_pos: HashMap<Pos, NodeID> = HashMap::new();
         let mut i: usize = 0;
@@ -24,7 +26,7 @@ impl Graph
             if block.is_node()
             {
                 let pos = Pos::from_index(i, &schem.size);
-                let node = Node{block: NBlock::from_rblock(block).unwrap(), pos:pos, inputs: Vec::new(), outputs: Vec::new()};
+                let node = Node{block: NodeType::from_rblock(block).unwrap(), pos:pos, inputs: Vec::new(), outputs: Vec::new()};
                 graph.nodes.push(node);
                 node_pos.insert(pos.clone(), NodeID(node_i));
                 node_i += 1;
@@ -48,16 +50,16 @@ impl Graph
 pub struct NodeID (pub usize);
 
 #[derive(Debug)]
-pub struct Node
+pub struct Node<'a>
 {
-    pub block: NBlock,
+    pub block: NodeType<'a>,
     pub pos: Pos,
 
     pub inputs: Vec<Link>,
     pub outputs: Vec<Link>
 }
 
-impl Node
+impl<'a> Node<'a>
 {
     pub fn get_links (&self, schem: &RedSchem) -> Vec<(usize, u8, LinkType)>
     {
@@ -415,26 +417,27 @@ pub enum CompMode
 }
 
 #[derive(Debug)]
-pub enum NBlock
+pub enum NodeType<'a>
 {
     Repeater{delay: u8, state: bool},
     Comparator{mode: CompMode, state: u8},
     Torch{state: bool},
     Input{state: bool},
-    Output
+    Output,
+    LUT{data: &'a LUT}
 }
 
-impl NBlock
+impl<'a> NodeType<'a>
 {
-    fn from_rblock(block: &RBlock) -> Option<NBlock>
+    fn from_rblock(block: &RBlock) -> Option<NodeType>
     {
         match block
         {
-            RBlock::Repeater { delay, dir:_, state } => Some(NBlock::Repeater { delay: *delay, state: *state }),
-            RBlock::Comparator { mode, dir:_, state } => Some(NBlock::Comparator { mode: mode.clone(), state: *state }),
-            RBlock::Torch { dir:_, state } => Some(NBlock::Torch { state: *state }),
-            RBlock::Lever { dir:_, state } => Some(NBlock::Input { state: *state }),
-            RBlock::Lamp => Some(NBlock::Output),
+            RBlock::Repeater { delay, dir:_, state } => Some(NodeType::Repeater { delay: *delay, state: *state }),
+            RBlock::Comparator { mode, dir:_, state } => Some(NodeType::Comparator { mode: mode.clone(), state: *state }),
+            RBlock::Torch { dir:_, state } => Some(NodeType::Torch { state: *state }),
+            RBlock::Lever { dir:_, state } => Some(NodeType::Input { state: *state }),
+            RBlock::Lamp => Some(NodeType::Output),
             _ => None
         }
     }
@@ -500,7 +503,8 @@ impl Pos
 pub enum LinkType
 {
     Normal,
-    Side
+    Side,
+    LUT(u8)
 }
 
 #[derive(Debug)]

@@ -54,6 +54,14 @@
         "stack_size" : 64,
         "block_type" : "solid"
     },
+    "minecraft:blue_wool": {
+        "stack_size" : 64,
+        "block_type" : "solid"
+    },
+    "minecraft:sandstone": {
+        "stack_size" : 64,
+        "block_type" : "solid"
+    },
     "minecraft:target": {
         "stack_size" : 64,
         "block_type" : "target"

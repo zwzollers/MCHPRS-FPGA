@@ -4,7 +4,7 @@ use std::io::prelude::*;
 
 
 
-pub fn generate_verilog(graph: &Graph, path: &str)
+pub fn generate_verilog(graph: &Graph, path: &str, size: &crate::schem::Size)
 {
     let mut input_count = 0;
     let mut output_count = 0;
@@ -12,17 +12,17 @@ pub fn generate_verilog(graph: &Graph, path: &str)
     let mut verilog = "module redstone (tick, inputs, outputs);\n\tinput tick;\n\tinput [9:0] inputs;\n\toutput [9:0] outputs;\n\n".to_owned();
     for node in &graph.nodes
     {
-        verilog.push_str(&format!("\twire w{};\n", node.pos.to_string()));
+        verilog.push_str(&format!("\twire w{};\n", node.pos.to_string(size)));
         match &node.block
         {
             NBlock::Input { state } =>
             {
-                verilog.push_str(&format!("\tassign w{} = inputs[{input_count}];\n", node.pos.to_string()));
+                verilog.push_str(&format!("\tassign w{} = inputs[{input_count}];\n", node.pos.to_string(size)));
                 input_count += 1;
             }
             NBlock::Output =>
             {
-                verilog.push_str(&format!("\tassign outputs[{output_count}] = ({});\n", get_inputs_str(node, graph, LinkType::Normal)));
+                verilog.push_str(&format!("\tassign outputs[{output_count}] = ({});\n", get_inputs_str(node, graph, LinkType::Normal, size)));
                 output_count += 1;
             }
             NBlock::Repeater { delay, state } =>
@@ -32,18 +32,18 @@ pub fn generate_verilog(graph: &Graph, path: &str)
                      if *state {1} else {0},
                      if node.outputs.len() == 1 && node.outputs[0].ty == LinkType::Side {1} else {0},
                      if is_locking(node) {1} else {0},
-                     node.pos.to_string(),
-                     get_inputs_str(node, graph, LinkType::Normal),
-                     get_inputs_str(node, graph, LinkType::Side),
-                     node.pos.to_string()));
+                     node.pos.to_string(size),
+                     get_inputs_str(node, graph, LinkType::Normal, size),
+                     get_inputs_str(node, graph, LinkType::Side, size),
+                     node.pos.to_string(size)));
             }
             NBlock::Torch { state } =>
             {
                 verilog.push_str(&format!("\ttorch #(1'b{}) c{} (.i_clk(tick), .i_in({}), .o_out(w{}));\n", 
                     if *state {1} else {0},
-                    node.pos.to_string(),
-                    get_inputs_str(node, graph, LinkType::Normal),
-                    node.pos.to_string()));
+                    node.pos.to_string(size),
+                    get_inputs_str(node, graph, LinkType::Normal, size),
+                    node.pos.to_string(size)));
             }
             NBlock::Comparator { mode, state } =>
             {
@@ -53,18 +53,18 @@ pub fn generate_verilog(graph: &Graph, path: &str)
     }
     verilog.push_str("endmodule");
     let mut file = File::create(path).unwrap();
-    file.write_all(verilog.as_bytes());
+    let _ = file.write_all(verilog.as_bytes());
 
 }
 
-pub fn get_inputs_str (node: &Node, graph: &Graph, ty: LinkType) -> String
+pub fn get_inputs_str (node: &Node, graph: &Graph, ty: LinkType, size: &crate::schem::Size) -> String
 {
     let mut inputs = "".to_owned();
     for input in &node.inputs
     {
         if input.ty == ty
         {
-            inputs.push_str(&format!("w{}|",&graph.nodes[input.dest.0].pos.to_string()));
+            inputs.push_str(&format!("w{}|",&graph.nodes[input.dest.0].pos.to_string(size)));
         }
         
     }

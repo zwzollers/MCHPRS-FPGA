@@ -1,5 +1,5 @@
 Fitter report for FPGA-MCHPRS
-Mon Dec  2 21:45:42 2024
+Sat Dec 28 15:38:11 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -64,15 +64,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +---------------------------------+------------------------------------------------+
-; Fitter Status                   ; Successful - Mon Dec  2 21:45:42 2024          ;
+; Fitter Status                   ; Successful - Sat Dec 28 15:38:11 2024          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; FPGA-MCHPRS                                    ;
 ; Top-level Entity Name           ; top                                            ;
 ; Family                          ; Cyclone V                                      ;
-; Device                          ; 5CSEMA5F31C6                                   ;
+; Device                          ; 5CSEMA5F31A7                                   ;
 ; Timing Models                   ; Final                                          ;
-; Logic utilization (in ALMs)     ; 2 / 32,070 ( < 1 % )                           ;
-; Total registers                 ; 3                                              ;
+; Logic utilization (in ALMs)     ; 61 / 32,070 ( < 1 % )                          ;
+; Total registers                 ; 175                                            ;
 ; Total pins                      ; 25 / 457 ( 5 % )                               ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 0 / 4,065,280 ( 0 % )                          ;
@@ -92,9 +92,9 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------------------------------------+---------------------------------------+---------------------------------------+
 ; Option                                                             ; Setting                               ; Default Value                         ;
 +--------------------------------------------------------------------+---------------------------------------+---------------------------------------+
-; Device                                                             ; 5CSEMA5F31C6                          ;                                       ;
-; Minimum Core Junction Temperature                                  ; 0                                     ;                                       ;
-; Maximum Core Junction Temperature                                  ; 85                                    ;                                       ;
+; Device                                                             ; 5CSEMA5F31A7                          ;                                       ;
+; Minimum Core Junction Temperature                                  ; -40                                   ;                                       ;
+; Maximum Core Junction Temperature                                  ; 125                                   ;                                       ;
 ; Router Timing Optimization Level                                   ; MAXIMUM                               ; Normal                                ;
 ; Perform Physical Synthesis for Combinational Logic for Performance ; On                                    ; Off                                   ;
 ; Logic Cell Insertion - Logic Duplication                           ; On                                    ; Auto                                  ;
@@ -154,38 +154,96 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 12          ;
 ; Maximum allowed            ; 12          ;
 ;                            ;             ;
-; Average used               ; 1.00        ;
+; Average used               ; 1.03        ;
 ; Maximum used               ; 12          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.1%      ;
-;     Processors 3-12        ;   0.0%      ;
+;     Processor 2            ;   0.3%      ;
+;     Processor 3            ;   0.3%      ;
+;     Processor 4            ;   0.3%      ;
+;     Processor 5            ;   0.3%      ;
+;     Processor 6            ;   0.3%      ;
+;     Processor 7            ;   0.3%      ;
+;     Processor 8            ;   0.3%      ;
+;     Processor 9            ;   0.3%      ;
+;     Processor 10           ;   0.3%      ;
+;     Processor 11           ;   0.3%      ;
+;     Processor 12           ;   0.3%      ;
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Fitter Netlist Optimizations                                                                                                                                                                                               ;
-+------------------------------------------------------------------------------+---------+-----------+----------------------------+-----------+----------------+------------------+------------------+-----------------------+
-; Node                                                                         ; Action  ; Operation ; Reason                     ; Node Port ; Node Port Name ; Destination Node ; Destination Port ; Destination Port Name ;
-+------------------------------------------------------------------------------+---------+-----------+----------------------------+-----------+----------------+------------------+------------------+-----------------------+
-; fclk:fclk|fclk_0002:fclk_inst|altera_pll:altera_pll_i|outclk_wire[0]~CLKENA0 ; Created ; Placement ; Fitter Periphery Placement ;           ;                ;                  ;                  ;                       ;
-+------------------------------------------------------------------------------+---------+-----------+----------------------------+-----------+----------------+------------------+------------------+-----------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fitter Netlist Optimizations                                                                                                                                                                                                                                                                              ;
++------------------------------------------------------------------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+------------------------------------------------------+------------------+-----------------------+
+; Node                                                                         ; Action     ; Operation                                         ; Reason                     ; Node Port ; Node Port Name ; Destination Node                                     ; Destination Port ; Destination Port Name ;
++------------------------------------------------------------------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+------------------------------------------------------+------------------+-----------------------+
+; fclk:fclk|fclk_0002:fclk_inst|altera_pll:altera_pll_i|outclk_wire[0]~CLKENA0 ; Created    ; Placement                                         ; Fitter Periphery Placement ;           ;                ;                                                      ;                  ;                       ;
+; redstone:redstone|comb~5                                                     ; Modified   ; Physical Synthesis                                ; Timing optimization        ;           ;                ;                                                      ;                  ;                       ;
+; redstone:redstone|comb~5_RESYN16_BDD17                                       ; Created    ; Physical Synthesis                                ; Timing optimization        ;           ;                ;                                                      ;                  ;                       ;
+; redstone:redstone|comb~12                                                    ; Modified   ; Physical Synthesis                                ; Timing optimization        ;           ;                ;                                                      ;                  ;                       ;
+; redstone:redstone|comb~12_RESYN18_BDD19                                      ; Created    ; Physical Synthesis                                ; Timing optimization        ;           ;                ;                                                      ;                  ;                       ;
+; redstone:redstone|comb~21                                                    ; Modified   ; Physical Synthesis                                ; Timing optimization        ;           ;                ;                                                      ;                  ;                       ;
+; redstone:redstone|comb~21_RESYN20_BDD21                                      ; Created    ; Physical Synthesis                                ; Timing optimization        ;           ;                ;                                                      ;                  ;                       ;
+; redstone:redstone|comb~29                                                    ; Modified   ; Physical Synthesis                                ; Timing optimization        ;           ;                ;                                                      ;                  ;                       ;
+; redstone:redstone|comb~29_RESYN22_BDD23                                      ; Created    ; Physical Synthesis                                ; Timing optimization        ;           ;                ;                                                      ;                  ;                       ;
+; redstone:redstone|repeater:c1745|buffer[0]~0                                 ; Modified   ; Physical Synthesis                                ; Timing optimization        ;           ;                ;                                                      ;                  ;                       ;
+; redstone:redstone|repeater:c1746|buffer[0]~0                                 ; Modified   ; Physical Synthesis                                ; Timing optimization        ;           ;                ;                                                      ;                  ;                       ;
+; redstone:redstone|repeater:c3505|buffer[0]~0                                 ; Modified   ; Physical Synthesis                                ; Timing optimization        ;           ;                ;                                                      ;                  ;                       ;
+; redstone:redstone|repeater:c3506|buffer[0]~0                                 ; Modified   ; Physical Synthesis                                ; Timing optimization        ;           ;                ;                                                      ;                  ;                       ;
+; redstone:redstone|repeater:c5265|buffer[0]~0                                 ; Modified   ; Physical Synthesis                                ; Timing optimization        ;           ;                ;                                                      ;                  ;                       ;
+; redstone:redstone|repeater:c5266|buffer[0]~0                                 ; Modified   ; Physical Synthesis                                ; Timing optimization        ;           ;                ;                                                      ;                  ;                       ;
+; redstone:redstone|repeater:c7025|buffer[0]~0                                 ; Modified   ; Physical Synthesis                                ; Timing optimization        ;           ;                ;                                                      ;                  ;                       ;
+; redstone:redstone|repeater:c7026|buffer[0]~0                                 ; Modified   ; Physical Synthesis                                ; Timing optimization        ;           ;                ;                                                      ;                  ;                       ;
+; redstone:redstone|repeater:c205|buffer[0]                                    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; redstone:redstone|repeater:c205|buffer[0]~DUPLICATE  ;                  ;                       ;
+; redstone:redstone|repeater:c425|buffer[0]                                    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; redstone:redstone|repeater:c425|buffer[0]~DUPLICATE  ;                  ;                       ;
+; redstone:redstone|repeater:c737|buffer[0]                                    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; redstone:redstone|repeater:c737|buffer[0]~DUPLICATE  ;                  ;                       ;
+; redstone:redstone|repeater:c957|buffer[0]                                    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; redstone:redstone|repeater:c957|buffer[0]~DUPLICATE  ;                  ;                       ;
+; redstone:redstone|repeater:c1085|buffer[0]                                   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; redstone:redstone|repeater:c1085|buffer[0]~DUPLICATE ;                  ;                       ;
+; redstone:redstone|repeater:c1686|buffer[1]                                   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; redstone:redstone|repeater:c1686|buffer[1]~DUPLICATE ;                  ;                       ;
+; redstone:redstone|repeater:c1745|buffer[0]                                   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; redstone:redstone|repeater:c1745|buffer[0]~DUPLICATE ;                  ;                       ;
+; redstone:redstone|repeater:c1952|buffer[0]                                   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; redstone:redstone|repeater:c1952|buffer[0]~DUPLICATE ;                  ;                       ;
+; redstone:redstone|repeater:c2057|buffer[0]                                   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; redstone:redstone|repeater:c2057|buffer[0]~DUPLICATE ;                  ;                       ;
+; redstone:redstone|repeater:c2277|buffer[0]                                   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; redstone:redstone|repeater:c2277|buffer[0]~DUPLICATE ;                  ;                       ;
+; redstone:redstone|repeater:c2405|buffer[0]                                   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; redstone:redstone|repeater:c2405|buffer[0]~DUPLICATE ;                  ;                       ;
+; redstone:redstone|repeater:c2497|buffer[0]                                   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; redstone:redstone|repeater:c2497|buffer[0]~DUPLICATE ;                  ;                       ;
+; redstone:redstone|repeater:c2717|buffer[0]                                   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; redstone:redstone|repeater:c2717|buffer[0]~DUPLICATE ;                  ;                       ;
+; redstone:redstone|repeater:c2845|buffer[0]                                   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; redstone:redstone|repeater:c2845|buffer[0]~DUPLICATE ;                  ;                       ;
+; redstone:redstone|repeater:c3446|buffer[1]                                   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; redstone:redstone|repeater:c3446|buffer[1]~DUPLICATE ;                  ;                       ;
+; redstone:redstone|repeater:c3456|buffer[0]                                   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; redstone:redstone|repeater:c3456|buffer[0]~DUPLICATE ;                  ;                       ;
+; redstone:redstone|repeater:c3505|buffer[0]                                   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; redstone:redstone|repeater:c3505|buffer[0]~DUPLICATE ;                  ;                       ;
+; redstone:redstone|repeater:c3712|buffer[0]                                   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; redstone:redstone|repeater:c3712|buffer[0]~DUPLICATE ;                  ;                       ;
+; redstone:redstone|repeater:c3945|buffer[0]                                   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; redstone:redstone|repeater:c3945|buffer[0]~DUPLICATE ;                  ;                       ;
+; redstone:redstone|repeater:c4605|buffer[0]                                   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; redstone:redstone|repeater:c4605|buffer[0]~DUPLICATE ;                  ;                       ;
+; redstone:redstone|repeater:c4697|buffer[0]                                   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; redstone:redstone|repeater:c4697|buffer[0]~DUPLICATE ;                  ;                       ;
+; redstone:redstone|repeater:c4825|buffer[0]                                   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; redstone:redstone|repeater:c4825|buffer[0]~DUPLICATE ;                  ;                       ;
+; redstone:redstone|repeater:c5045|buffer[0]                                   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; redstone:redstone|repeater:c5045|buffer[0]~DUPLICATE ;                  ;                       ;
+; redstone:redstone|repeater:c5134|buffer[0]                                   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; redstone:redstone|repeater:c5134|buffer[0]~DUPLICATE ;                  ;                       ;
+; redstone:redstone|repeater:c5137|buffer[0]                                   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; redstone:redstone|repeater:c5137|buffer[0]~DUPLICATE ;                  ;                       ;
+; redstone:redstone|repeater:c5265|buffer[0]                                   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; redstone:redstone|repeater:c5265|buffer[0]~DUPLICATE ;                  ;                       ;
+; redstone:redstone|repeater:c5472|buffer[0]                                   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; redstone:redstone|repeater:c5472|buffer[0]~DUPLICATE ;                  ;                       ;
+; redstone:redstone|repeater:c6145|buffer[0]                                   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; redstone:redstone|repeater:c6145|buffer[0]~DUPLICATE ;                  ;                       ;
+; redstone:redstone|repeater:c6237|buffer[0]                                   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; redstone:redstone|repeater:c6237|buffer[0]~DUPLICATE ;                  ;                       ;
+; redstone:redstone|repeater:c6585|buffer[0]                                   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; redstone:redstone|repeater:c6585|buffer[0]~DUPLICATE ;                  ;                       ;
+; redstone:redstone|repeater:c6805|buffer[0]                                   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; redstone:redstone|repeater:c6805|buffer[0]~DUPLICATE ;                  ;                       ;
+; redstone:redstone|repeater:c7025|buffer[0]                                   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; redstone:redstone|repeater:c7025|buffer[0]~DUPLICATE ;                  ;                       ;
+; redstone:redstone|torch:c154|buffer                                          ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; redstone:redstone|torch:c154|buffer~DUPLICATE        ;                  ;                       ;
++------------------------------------------------------------------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+------------------------------------------------------+------------------+-----------------------+
 
 
-+-------------------------------------------------------------------------------------------------+
-; Incremental Compilation Preservation Summary                                                    ;
-+---------------------+-------------------+----------------------------+--------------------------+
-; Type                ; Total [A + B]     ; From Design Partitions [A] ; From Rapid Recompile [B] ;
-+---------------------+-------------------+----------------------------+--------------------------+
-; Placement (by node) ;                   ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 62 ) ; 0.00 % ( 0 / 62 )          ; 0.00 % ( 0 / 62 )        ;
-;     -- Achieved     ; 0.00 % ( 0 / 62 ) ; 0.00 % ( 0 / 62 )          ; 0.00 % ( 0 / 62 )        ;
-;                     ;                   ;                            ;                          ;
-; Routing (by net)    ;                   ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 0 )  ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
-;     -- Achieved     ; 0.00 % ( 0 / 0 )  ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
-+---------------------+-------------------+----------------------------+--------------------------+
++--------------------------------------------------------------------------------------------------+
+; Incremental Compilation Preservation Summary                                                     ;
++---------------------+--------------------+----------------------------+--------------------------+
+; Type                ; Total [A + B]      ; From Design Partitions [A] ; From Rapid Recompile [B] ;
++---------------------+--------------------+----------------------------+--------------------------+
+; Placement (by node) ;                    ;                            ;                          ;
+;     -- Requested    ; 0.00 % ( 0 / 306 ) ; 0.00 % ( 0 / 306 )         ; 0.00 % ( 0 / 306 )       ;
+;     -- Achieved     ; 0.00 % ( 0 / 306 ) ; 0.00 % ( 0 / 306 )         ; 0.00 % ( 0 / 306 )       ;
+;                     ;                    ;                            ;                          ;
+; Routing (by net)    ;                    ;                            ;                          ;
+;     -- Requested    ; 0.00 % ( 0 / 0 )   ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
+;     -- Achieved     ; 0.00 % ( 0 / 0 )   ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
++---------------------+--------------------+----------------------------+--------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -203,7 +261,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 ; Partition Name                 ; Preservation Achieved ; Preservation Level Used ; Netlist Type Used ; Preservation Method ; Notes ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
-; Top                            ; 0.00 % ( 0 / 53 )     ; N/A                     ; Source File       ; N/A                 ;       ;
+; Top                            ; 0.00 % ( 0 / 297 )    ; N/A                     ; Source File       ; N/A                 ;       ;
 ; hard_block:auto_generated_inst ; 0.00 % ( 0 / 9 )      ; N/A                     ; Source File       ; N/A                 ;       ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 
@@ -219,14 +277,14 @@ The pin-out file can be found in C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Q
 +-------------------------------------------------------------+--------------------+-------+
 ; Resource                                                    ; Usage              ; %     ;
 +-------------------------------------------------------------+--------------------+-------+
-; Logic utilization (ALMs needed / total ALMs on device)      ; 2 / 32,070         ; < 1 % ;
-; ALMs needed [=A-B+C]                                        ; 2                  ;       ;
-;     [A] ALMs used in final placement [=a+b+c+d]             ; 3 / 32,070         ; < 1 % ;
-;         [a] ALMs used for LUT logic and registers           ; 1                  ;       ;
-;         [b] ALMs used for LUT logic                         ; 1                  ;       ;
-;         [c] ALMs used for registers                         ; 1                  ;       ;
+; Logic utilization (ALMs needed / total ALMs on device)      ; 61 / 32,070        ; < 1 % ;
+; ALMs needed [=A-B+C]                                        ; 61                 ;       ;
+;     [A] ALMs used in final placement [=a+b+c+d]             ; 76 / 32,070        ; < 1 % ;
+;         [a] ALMs used for LUT logic and registers           ; 55                 ;       ;
+;         [b] ALMs used for LUT logic                         ; 4                  ;       ;
+;         [c] ALMs used for registers                         ; 17                 ;       ;
 ;         [d] ALMs used for memory (up to half of total ALMs) ; 0                  ;       ;
-;     [B] Estimate of ALMs recoverable by dense packing       ; 1 / 32,070         ; < 1 % ;
+;     [B] Estimate of ALMs recoverable by dense packing       ; 15 / 32,070        ; < 1 % ;
 ;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 0 / 32,070         ; 0 %   ;
 ;         [a] Due to location constrained logic               ; 0                  ;       ;
 ;         [b] Due to LAB-wide signal conflicts                ; 0                  ;       ;
@@ -235,25 +293,25 @@ The pin-out file can be found in C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Q
 ;                                                             ;                    ;       ;
 ; Difficulty packing design                                   ; Low                ;       ;
 ;                                                             ;                    ;       ;
-; Total LABs:  partially or completely used                   ; 2 / 3,207          ; < 1 % ;
-;     -- Logic LABs                                           ; 2                  ;       ;
+; Total LABs:  partially or completely used                   ; 11 / 3,207         ; < 1 % ;
+;     -- Logic LABs                                           ; 11                 ;       ;
 ;     -- Memory LABs (up to half of total LABs)               ; 0                  ;       ;
 ;                                                             ;                    ;       ;
-; Combinational ALUT usage for logic                          ; 4                  ;       ;
+; Combinational ALUT usage for logic                          ; 113                ;       ;
 ;     -- 7 input functions                                    ; 0                  ;       ;
-;     -- 6 input functions                                    ; 0                  ;       ;
-;     -- 5 input functions                                    ; 0                  ;       ;
-;     -- 4 input functions                                    ; 0                  ;       ;
-;     -- <=3 input functions                                  ; 4                  ;       ;
-; Combinational ALUT usage for route-throughs                 ; 0                  ;       ;
+;     -- 6 input functions                                    ; 8                  ;       ;
+;     -- 5 input functions                                    ; 12                 ;       ;
+;     -- 4 input functions                                    ; 52                 ;       ;
+;     -- <=3 input functions                                  ; 41                 ;       ;
+; Combinational ALUT usage for route-throughs                 ; 12                 ;       ;
 ;                                                             ;                    ;       ;
-; Dedicated logic registers                                   ; 3                  ;       ;
+; Dedicated logic registers                                   ; 175                ;       ;
 ;     -- By type:                                             ;                    ;       ;
-;         -- Primary logic registers                          ; 3 / 64,140         ; < 1 % ;
-;         -- Secondary logic registers                        ; 0 / 64,140         ; 0 %   ;
+;         -- Primary logic registers                          ; 142 / 64,140       ; < 1 % ;
+;         -- Secondary logic registers                        ; 33 / 64,140        ; < 1 % ;
 ;     -- By function:                                         ;                    ;       ;
-;         -- Design implementation registers                  ; 3                  ;       ;
-;         -- Routing optimization registers                   ; 0                  ;       ;
+;         -- Design implementation registers                  ; 142                ;       ;
+;         -- Routing optimization registers                   ; 33                 ;       ;
 ;                                                             ;                    ;       ;
 ; Virtual pins                                                ; 0                  ;       ;
 ; I/O pins                                                    ; 25 / 457           ; 5 %   ;
@@ -309,103 +367,103 @@ The pin-out file can be found in C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Q
 ; Impedance control blocks                                    ; 0 / 4              ; 0 %   ;
 ; Hard Memory Controllers                                     ; 0 / 2              ; 0 %   ;
 ; Average interconnect usage (total/H/V)                      ; 0.0% / 0.0% / 0.0% ;       ;
-; Peak interconnect usage (total/H/V)                         ; 0.0% / 0.1% / 0.1% ;       ;
-; Maximum fan-out                                             ; 20                 ;       ;
-; Highest non-global fan-out                                  ; 3                  ;       ;
-; Total fan-out                                               ; 50                 ;       ;
-; Average fan-out                                             ; 0.81               ;       ;
+; Peak interconnect usage (total/H/V)                         ; 0.3% / 0.4% / 0.1% ;       ;
+; Maximum fan-out                                             ; 175                ;       ;
+; Highest non-global fan-out                                  ; 8                  ;       ;
+; Total fan-out                                               ; 810                ;       ;
+; Average fan-out                                             ; 2.28               ;       ;
 +-------------------------------------------------------------+--------------------+-------+
 
 
-+--------------------------------------------------------------------------------------------------------------------+
-; Fitter Partition Statistics                                                                                        ;
-+-------------------------------------------------------------+---------------------+--------------------------------+
-; Statistic                                                   ; Top                 ; hard_block:auto_generated_inst ;
-+-------------------------------------------------------------+---------------------+--------------------------------+
-; Logic utilization (ALMs needed / total ALMs on device)      ; 2 / 32070 ( < 1 % ) ; 0 / 32070 ( 0 % )              ;
-; ALMs needed [=A-B+C]                                        ; 2                   ; 0                              ;
-;     [A] ALMs used in final placement [=a+b+c+d]             ; 3 / 32070 ( < 1 % ) ; 0 / 32070 ( 0 % )              ;
-;         [a] ALMs used for LUT logic and registers           ; 1                   ; 0                              ;
-;         [b] ALMs used for LUT logic                         ; 1                   ; 0                              ;
-;         [c] ALMs used for registers                         ; 1                   ; 0                              ;
-;         [d] ALMs used for memory (up to half of total ALMs) ; 0                   ; 0                              ;
-;     [B] Estimate of ALMs recoverable by dense packing       ; 1 / 32070 ( < 1 % ) ; 0 / 32070 ( 0 % )              ;
-;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 0 / 32070 ( 0 % )   ; 0 / 32070 ( 0 % )              ;
-;         [a] Due to location constrained logic               ; 0                   ; 0                              ;
-;         [b] Due to LAB-wide signal conflicts                ; 0                   ; 0                              ;
-;         [c] Due to LAB input limits                         ; 0                   ; 0                              ;
-;         [d] Due to virtual I/Os                             ; 0                   ; 0                              ;
-;                                                             ;                     ;                                ;
-; Difficulty packing design                                   ; Low                 ; Low                            ;
-;                                                             ;                     ;                                ;
-; Total LABs:  partially or completely used                   ; 2 / 3207 ( < 1 % )  ; 0 / 3207 ( 0 % )               ;
-;     -- Logic LABs                                           ; 2                   ; 0                              ;
-;     -- Memory LABs (up to half of total LABs)               ; 0                   ; 0                              ;
-;                                                             ;                     ;                                ;
-; Combinational ALUT usage for logic                          ; 4                   ; 0                              ;
-;     -- 7 input functions                                    ; 0                   ; 0                              ;
-;     -- 6 input functions                                    ; 0                   ; 0                              ;
-;     -- 5 input functions                                    ; 0                   ; 0                              ;
-;     -- 4 input functions                                    ; 0                   ; 0                              ;
-;     -- <=3 input functions                                  ; 4                   ; 0                              ;
-; Combinational ALUT usage for route-throughs                 ; 0                   ; 0                              ;
-; Memory ALUT usage                                           ; 0                   ; 0                              ;
-;     -- 64-address deep                                      ; 0                   ; 0                              ;
-;     -- 32-address deep                                      ; 0                   ; 0                              ;
-;                                                             ;                     ;                                ;
-; Dedicated logic registers                                   ; 0                   ; 0                              ;
-;     -- By type:                                             ;                     ;                                ;
-;         -- Primary logic registers                          ; 3 / 64140 ( < 1 % ) ; 0 / 64140 ( 0 % )              ;
-;         -- Secondary logic registers                        ; 0 / 64140 ( 0 % )   ; 0 / 64140 ( 0 % )              ;
-;     -- By function:                                         ;                     ;                                ;
-;         -- Design implementation registers                  ; 3                   ; 0                              ;
-;         -- Routing optimization registers                   ; 0                   ; 0                              ;
-;                                                             ;                     ;                                ;
-;                                                             ;                     ;                                ;
-; Virtual pins                                                ; 0                   ; 0                              ;
-; I/O pins                                                    ; 23                  ; 2                              ;
-; I/O registers                                               ; 0                   ; 0                              ;
-; Total block memory bits                                     ; 0                   ; 0                              ;
-; Total block memory implementation bits                      ; 0                   ; 0                              ;
-; Clock enable block                                          ; 0 / 116 ( 0 % )     ; 1 / 116 ( < 1 % )              ;
-; Fractional PLL                                              ; 0 / 6 ( 0 % )       ; 1 / 6 ( 16 % )                 ;
-; PLL Output Counter                                          ; 0 / 54 ( 0 % )      ; 1 / 54 ( 1 % )                 ;
-; PLL Reconfiguration Block                                   ; 0 / 6 ( 0 % )       ; 1 / 6 ( 16 % )                 ;
-; PLL Reference Clock Select Block                            ; 0 / 6 ( 0 % )       ; 1 / 6 ( 16 % )                 ;
-;                                                             ;                     ;                                ;
-; Connections                                                 ;                     ;                                ;
-;     -- Input Connections                                    ; 3                   ; 0                              ;
-;     -- Registered Input Connections                         ; 3                   ; 0                              ;
-;     -- Output Connections                                   ; 0                   ; 3                              ;
-;     -- Registered Output Connections                        ; 0                   ; 0                              ;
-;                                                             ;                     ;                                ;
-; Internal Connections                                        ;                     ;                                ;
-;     -- Total Connections                                    ; 39                  ; 37                             ;
-;     -- Registered Connections                               ; 9                   ; 0                              ;
-;                                                             ;                     ;                                ;
-; External Connections                                        ;                     ;                                ;
-;     -- Top                                                  ; 0                   ; 3                              ;
-;     -- hard_block:auto_generated_inst                       ; 3                   ; 0                              ;
-;                                                             ;                     ;                                ;
-; Partition Interface                                         ;                     ;                                ;
-;     -- Input Ports                                          ; 15                  ; 2                              ;
-;     -- Output Ports                                         ; 10                  ; 1                              ;
-;     -- Bidir Ports                                          ; 0                   ; 0                              ;
-;                                                             ;                     ;                                ;
-; Registered Ports                                            ;                     ;                                ;
-;     -- Registered Input Ports                               ; 0                   ; 0                              ;
-;     -- Registered Output Ports                              ; 0                   ; 0                              ;
-;                                                             ;                     ;                                ;
-; Port Connectivity                                           ;                     ;                                ;
-;     -- Input Ports driven by GND                            ; 0                   ; 0                              ;
-;     -- Output Ports driven by GND                           ; 0                   ; 0                              ;
-;     -- Input Ports driven by VCC                            ; 0                   ; 0                              ;
-;     -- Output Ports driven by VCC                           ; 0                   ; 0                              ;
-;     -- Input Ports with no Source                           ; 0                   ; 0                              ;
-;     -- Output Ports with no Source                          ; 0                   ; 0                              ;
-;     -- Input Ports with no Fanout                           ; 0                   ; 0                              ;
-;     -- Output Ports with no Fanout                          ; 0                   ; 0                              ;
-+-------------------------------------------------------------+---------------------+--------------------------------+
++----------------------------------------------------------------------------------------------------------------------+
+; Fitter Partition Statistics                                                                                          ;
++-------------------------------------------------------------+-----------------------+--------------------------------+
+; Statistic                                                   ; Top                   ; hard_block:auto_generated_inst ;
++-------------------------------------------------------------+-----------------------+--------------------------------+
+; Logic utilization (ALMs needed / total ALMs on device)      ; 61 / 32070 ( < 1 % )  ; 0 / 32070 ( 0 % )              ;
+; ALMs needed [=A-B+C]                                        ; 61                    ; 0                              ;
+;     [A] ALMs used in final placement [=a+b+c+d]             ; 76 / 32070 ( < 1 % )  ; 0 / 32070 ( 0 % )              ;
+;         [a] ALMs used for LUT logic and registers           ; 55                    ; 0                              ;
+;         [b] ALMs used for LUT logic                         ; 4                     ; 0                              ;
+;         [c] ALMs used for registers                         ; 17                    ; 0                              ;
+;         [d] ALMs used for memory (up to half of total ALMs) ; 0                     ; 0                              ;
+;     [B] Estimate of ALMs recoverable by dense packing       ; 15 / 32070 ( < 1 % )  ; 0 / 32070 ( 0 % )              ;
+;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 0 / 32070 ( 0 % )     ; 0 / 32070 ( 0 % )              ;
+;         [a] Due to location constrained logic               ; 0                     ; 0                              ;
+;         [b] Due to LAB-wide signal conflicts                ; 0                     ; 0                              ;
+;         [c] Due to LAB input limits                         ; 0                     ; 0                              ;
+;         [d] Due to virtual I/Os                             ; 0                     ; 0                              ;
+;                                                             ;                       ;                                ;
+; Difficulty packing design                                   ; Low                   ; Low                            ;
+;                                                             ;                       ;                                ;
+; Total LABs:  partially or completely used                   ; 11 / 3207 ( < 1 % )   ; 0 / 3207 ( 0 % )               ;
+;     -- Logic LABs                                           ; 11                    ; 0                              ;
+;     -- Memory LABs (up to half of total LABs)               ; 0                     ; 0                              ;
+;                                                             ;                       ;                                ;
+; Combinational ALUT usage for logic                          ; 113                   ; 0                              ;
+;     -- 7 input functions                                    ; 0                     ; 0                              ;
+;     -- 6 input functions                                    ; 8                     ; 0                              ;
+;     -- 5 input functions                                    ; 12                    ; 0                              ;
+;     -- 4 input functions                                    ; 52                    ; 0                              ;
+;     -- <=3 input functions                                  ; 41                    ; 0                              ;
+; Combinational ALUT usage for route-throughs                 ; 12                    ; 0                              ;
+; Memory ALUT usage                                           ; 0                     ; 0                              ;
+;     -- 64-address deep                                      ; 0                     ; 0                              ;
+;     -- 32-address deep                                      ; 0                     ; 0                              ;
+;                                                             ;                       ;                                ;
+; Dedicated logic registers                                   ; 0                     ; 0                              ;
+;     -- By type:                                             ;                       ;                                ;
+;         -- Primary logic registers                          ; 142 / 64140 ( < 1 % ) ; 0 / 64140 ( 0 % )              ;
+;         -- Secondary logic registers                        ; 33 / 64140 ( < 1 % )  ; 0 / 64140 ( 0 % )              ;
+;     -- By function:                                         ;                       ;                                ;
+;         -- Design implementation registers                  ; 142                   ; 0                              ;
+;         -- Routing optimization registers                   ; 33                    ; 0                              ;
+;                                                             ;                       ;                                ;
+;                                                             ;                       ;                                ;
+; Virtual pins                                                ; 0                     ; 0                              ;
+; I/O pins                                                    ; 23                    ; 2                              ;
+; I/O registers                                               ; 0                     ; 0                              ;
+; Total block memory bits                                     ; 0                     ; 0                              ;
+; Total block memory implementation bits                      ; 0                     ; 0                              ;
+; Clock enable block                                          ; 0 / 116 ( 0 % )       ; 1 / 116 ( < 1 % )              ;
+; Fractional PLL                                              ; 0 / 6 ( 0 % )         ; 1 / 6 ( 16 % )                 ;
+; PLL Output Counter                                          ; 0 / 54 ( 0 % )        ; 1 / 54 ( 1 % )                 ;
+; PLL Reconfiguration Block                                   ; 0 / 6 ( 0 % )         ; 1 / 6 ( 16 % )                 ;
+; PLL Reference Clock Select Block                            ; 0 / 6 ( 0 % )         ; 1 / 6 ( 16 % )                 ;
+;                                                             ;                       ;                                ;
+; Connections                                                 ;                       ;                                ;
+;     -- Input Connections                                    ; 175                   ; 0                              ;
+;     -- Registered Input Connections                         ; 175                   ; 0                              ;
+;     -- Output Connections                                   ; 0                     ; 175                            ;
+;     -- Registered Output Connections                        ; 0                     ; 0                              ;
+;                                                             ;                       ;                                ;
+; Internal Connections                                        ;                       ;                                ;
+;     -- Total Connections                                    ; 799                   ; 209                            ;
+;     -- Registered Connections                               ; 560                   ; 0                              ;
+;                                                             ;                       ;                                ;
+; External Connections                                        ;                       ;                                ;
+;     -- Top                                                  ; 0                     ; 175                            ;
+;     -- hard_block:auto_generated_inst                       ; 175                   ; 0                              ;
+;                                                             ;                       ;                                ;
+; Partition Interface                                         ;                       ;                                ;
+;     -- Input Ports                                          ; 15                    ; 2                              ;
+;     -- Output Ports                                         ; 10                    ; 1                              ;
+;     -- Bidir Ports                                          ; 0                     ; 0                              ;
+;                                                             ;                       ;                                ;
+; Registered Ports                                            ;                       ;                                ;
+;     -- Registered Input Ports                               ; 0                     ; 0                              ;
+;     -- Registered Output Ports                              ; 0                     ; 0                              ;
+;                                                             ;                       ;                                ;
+; Port Connectivity                                           ;                       ;                                ;
+;     -- Input Ports driven by GND                            ; 0                     ; 0                              ;
+;     -- Output Ports driven by GND                           ; 0                     ; 0                              ;
+;     -- Input Ports driven by VCC                            ; 0                     ; 0                              ;
+;     -- Output Ports driven by VCC                           ; 0                     ; 0                              ;
+;     -- Input Ports with no Source                           ; 0                     ; 0                              ;
+;     -- Output Ports with no Source                          ; 0                     ; 0                              ;
+;     -- Input Ports with no Fanout                           ; 0                     ; 0                              ;
+;     -- Output Ports with no Fanout                          ; 0                     ; 0                              ;
++-------------------------------------------------------------+-----------------------+--------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -418,7 +476,7 @@ The pin-out file can be found in C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Q
 ; i_buttons[2]  ; W15   ; 3B       ; 40           ; 0            ; 0            ; 0                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
 ; i_buttons[3]  ; Y16   ; 3B       ; 40           ; 0            ; 17           ; 0                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
 ; i_clk         ; AF14  ; 3B       ; 32           ; 0            ; 0            ; 1                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
-; i_switches[0] ; AB12  ; 3A       ; 12           ; 0            ; 17           ; 3                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
+; i_switches[0] ; AB12  ; 3A       ; 12           ; 0            ; 17           ; 1                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
 ; i_switches[1] ; AC12  ; 3A       ; 16           ; 0            ; 0            ; 0                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
 ; i_switches[2] ; AF9   ; 3A       ; 8            ; 0            ; 34           ; 0                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
 ; i_switches[3] ; AF10  ; 3A       ; 4            ; 0            ; 51           ; 0                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
@@ -1403,9 +1461,9 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ; o_LEDs[7]     ; Incomplete set of assignments ;
 ; o_LEDs[8]     ; Incomplete set of assignments ;
 ; o_LEDs[9]     ; Incomplete set of assignments ;
-; i_switches[0] ; Incomplete set of assignments ;
 ; i_clk         ; Incomplete set of assignments ;
 ; i_buttons[0]  ; Incomplete set of assignments ;
+; i_switches[0] ; Incomplete set of assignments ;
 +---------------+-------------------------------+
 
 
@@ -1422,13 +1480,13 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ;         -- PLL Bandwidth Range                                                                      ; 1200000 to 600000 Hz      ;
 ;     -- Reference Clock Frequency                                                                    ; 50.0 MHz                  ;
 ;     -- Reference Clock Sourced by                                                                   ; Dedicated Pin             ;
-;     -- PLL VCO Frequency                                                                            ; 500.0 MHz                 ;
+;     -- PLL VCO Frequency                                                                            ; 700.0 MHz                 ;
 ;     -- PLL Operation Mode                                                                           ; Direct                    ;
-;     -- PLL Freq Min Lock                                                                            ; 30.000000 MHz             ;
-;     -- PLL Freq Max Lock                                                                            ; 80.000000 MHz             ;
+;     -- PLL Freq Min Lock                                                                            ; 42.857143 MHz             ;
+;     -- PLL Freq Max Lock                                                                            ; 114.285714 MHz            ;
 ;     -- PLL Enable                                                                                   ; On                        ;
 ;     -- PLL Fractional Division                                                                      ; N/A                       ;
-;     -- M Counter                                                                                    ; 20                        ;
+;     -- M Counter                                                                                    ; 28                        ;
 ;     -- N Counter                                                                                    ; 2                         ;
 ;     -- IOPLL Self RST                                                                               ; Off                       ;
 ;     -- PLL Refclk Select                                                                            ;                           ;
@@ -1446,7 +1504,7 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ;             -- CLKIN(3) source                                                                      ; N/A                       ;
 ;     -- PLL Output Counter                                                                           ;                           ;
 ;         -- fclk:fclk|fclk_0002:fclk_inst|altera_pll:altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER ;                           ;
-;             -- Output Clock Frequency                                                               ; 500.0 MHz                 ;
+;             -- Output Clock Frequency                                                               ; 700.0 MHz                 ;
 ;             -- Output Clock Location                                                                ; PLLOUTPUTCOUNTER_X0_Y5_N1 ;
 ;             -- C Counter Odd Divider Even Duty Enable                                               ; Off                       ;
 ;             -- Duty Cycle                                                                           ; 50.0000                   ;
@@ -1463,13 +1521,151 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+------------------------------------------------------------+-------------+--------------+
 ; Compilation Hierarchy Node         ; ALMs needed [=A-B+C] ; [A] ALMs used in final placement ; [B] Estimate of ALMs recoverable by dense packing ; [C] Estimate of ALMs unavailable ; ALMs used for memory ; Combinational ALUTs ; Dedicated Logic Registers ; I/O Registers ; Block Memory Bits ; M10Ks ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                        ; Entity Name ; Library Name ;
 +------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+------------------------------------------------------------+-------------+--------------+
-; |top                               ; 2.0 (0.5)            ; 2.5 (0.5)                        ; 0.5 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 4 (1)               ; 3 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 25   ; 0            ; |top                                                       ; top         ; work         ;
+; |top                               ; 60.5 (0.5)           ; 74.5 (0.5)                       ; 14.0 (0.0)                                        ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 113 (1)             ; 175 (0)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 25   ; 0            ; |top                                                       ; top         ; work         ;
 ;    |fclk:fclk|                     ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|fclk:fclk                                             ; fclk        ; fclk         ;
 ;       |fclk_0002:fclk_inst|        ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|fclk:fclk|fclk_0002:fclk_inst                         ; fclk_0002   ; fclk         ;
 ;          |altera_pll:altera_pll_i| ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|fclk:fclk|fclk_0002:fclk_inst|altera_pll:altera_pll_i ; altera_pll  ; work         ;
-;    |redstone:redstone|             ; 1.5 (0.0)            ; 2.0 (0.0)                        ; 0.5 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 3 (0)               ; 3 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone                                     ; redstone    ; work         ;
-;       |repeater:c011|              ; 0.5 (0.5)            ; 0.7 (0.7)                        ; 0.2 (0.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c011                       ; repeater    ; work         ;
-;       |repeater:c111|              ; 1.0 (1.0)            ; 1.3 (1.3)                        ; 0.3 (0.3)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 2 (2)               ; 2 (2)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c111                       ; repeater    ; work         ;
+;    |redstone:redstone|             ; 60.0 (11.0)          ; 74.0 (11.2)                      ; 14.0 (0.2)                                        ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 112 (37)            ; 175 (0)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone                                     ; redstone    ; work         ;
+;       |repeater:c1084|             ; 0.2 (0.2)            ; 0.2 (0.2)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c1084                      ; repeater    ; work         ;
+;       |repeater:c1085|             ; 0.5 (0.5)            ; 0.6 (0.6)                        ; 0.1 (0.1)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 2 (2)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c1085                      ; repeater    ; work         ;
+;       |repeater:c1086|             ; 0.4 (0.4)            ; 0.4 (0.4)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c1086                      ; repeater    ; work         ;
+;       |repeater:c1177|             ; 0.0 (0.0)            ; 0.2 (0.2)                        ; 0.2 (0.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c1177                      ; repeater    ; work         ;
+;       |repeater:c1304|             ; 0.2 (0.2)            ; 0.2 (0.2)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c1304                      ; repeater    ; work         ;
+;       |repeater:c1305|             ; 0.5 (0.5)            ; 0.5 (0.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c1305                      ; repeater    ; work         ;
+;       |repeater:c1306|             ; 0.5 (0.5)            ; 0.5 (0.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c1306                      ; repeater    ; work         ;
+;       |repeater:c1397|             ; 0.2 (0.2)            ; 0.2 (0.2)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c1397                      ; repeater    ; work         ;
+;       |repeater:c1524|             ; 0.2 (0.2)            ; 0.2 (0.2)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c1524                      ; repeater    ; work         ;
+;       |repeater:c1525|             ; 0.2 (0.2)            ; 0.5 (0.5)                        ; 0.2 (0.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c1525                      ; repeater    ; work         ;
+;       |repeater:c1526|             ; 0.5 (0.5)            ; 0.5 (0.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c1526                      ; repeater    ; work         ;
+;       |repeater:c1617|             ; 0.2 (0.2)            ; 0.2 (0.2)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c1617                      ; repeater    ; work         ;
+;       |repeater:c1686|             ; 1.1 (1.1)            ; 1.1 (1.1)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 2 (2)               ; 3 (3)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c1686                      ; repeater    ; work         ;
+;       |repeater:c1696|             ; -0.2 (-0.2)          ; 0.3 (0.3)                        ; 0.5 (0.5)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c1696                      ; repeater    ; work         ;
+;       |repeater:c1744|             ; 0.2 (0.2)            ; 0.2 (0.2)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c1744                      ; repeater    ; work         ;
+;       |repeater:c1745|             ; 0.8 (0.8)            ; 0.8 (0.8)                        ; 0.1 (0.1)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 2 (2)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c1745                      ; repeater    ; work         ;
+;       |repeater:c1746|             ; 0.6 (0.6)            ; 0.6 (0.6)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c1746                      ; repeater    ; work         ;
+;       |repeater:c1952|             ; 0.2 (0.2)            ; 0.4 (0.4)                        ; 0.2 (0.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 2 (2)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c1952                      ; repeater    ; work         ;
+;       |repeater:c1964|             ; 0.5 (0.5)            ; 0.5 (0.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c1964                      ; repeater    ; work         ;
+;       |repeater:c1965|             ; 0.5 (0.5)            ; 0.5 (0.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c1965                      ; repeater    ; work         ;
+;       |repeater:c1966|             ; 0.5 (0.5)            ; 0.5 (0.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c1966                      ; repeater    ; work         ;
+;       |repeater:c199|              ; 0.0 (0.0)            ; 0.2 (0.2)                        ; 0.2 (0.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c199                       ; repeater    ; work         ;
+;       |repeater:c204|              ; 0.2 (0.2)            ; 0.2 (0.2)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c204                       ; repeater    ; work         ;
+;       |repeater:c205|              ; 0.5 (0.5)            ; 0.6 (0.6)                        ; 0.1 (0.1)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 2 (2)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c205                       ; repeater    ; work         ;
+;       |repeater:c2057|             ; 0.2 (0.2)            ; 0.4 (0.4)                        ; 0.2 (0.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 2 (2)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c2057                      ; repeater    ; work         ;
+;       |repeater:c206|              ; 0.4 (0.4)            ; 0.4 (0.4)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c206                       ; repeater    ; work         ;
+;       |repeater:c207|              ; 0.2 (0.2)            ; 0.5 (0.5)                        ; 0.2 (0.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c207                       ; repeater    ; work         ;
+;       |repeater:c2184|             ; 0.2 (0.2)            ; 0.2 (0.2)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c2184                      ; repeater    ; work         ;
+;       |repeater:c2185|             ; 0.5 (0.5)            ; 0.5 (0.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c2185                      ; repeater    ; work         ;
+;       |repeater:c2186|             ; 0.5 (0.5)            ; 0.5 (0.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c2186                      ; repeater    ; work         ;
+;       |repeater:c2277|             ; 0.0 (0.0)            ; 0.3 (0.3)                        ; 0.3 (0.3)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 2 (2)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c2277                      ; repeater    ; work         ;
+;       |repeater:c2404|             ; 0.2 (0.2)            ; 0.2 (0.2)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c2404                      ; repeater    ; work         ;
+;       |repeater:c2405|             ; 0.5 (0.5)            ; 0.6 (0.6)                        ; 0.1 (0.1)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 2 (2)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c2405                      ; repeater    ; work         ;
+;       |repeater:c2406|             ; 0.5 (0.5)            ; 0.5 (0.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c2406                      ; repeater    ; work         ;
+;       |repeater:c2497|             ; 0.0 (0.0)            ; 0.5 (0.5)                        ; 0.5 (0.5)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 2 (2)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c2497                      ; repeater    ; work         ;
+;       |repeater:c2624|             ; 0.2 (0.2)            ; 0.2 (0.2)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c2624                      ; repeater    ; work         ;
+;       |repeater:c2625|             ; 0.4 (0.4)            ; 0.4 (0.4)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c2625                      ; repeater    ; work         ;
+;       |repeater:c2626|             ; 0.5 (0.5)            ; 0.7 (0.7)                        ; 0.2 (0.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c2626                      ; repeater    ; work         ;
+;       |repeater:c2717|             ; 0.0 (0.0)            ; 0.4 (0.4)                        ; 0.4 (0.4)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 2 (2)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c2717                      ; repeater    ; work         ;
+;       |repeater:c2844|             ; 0.2 (0.2)            ; 0.3 (0.3)                        ; 0.1 (0.1)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c2844                      ; repeater    ; work         ;
+;       |repeater:c2845|             ; 0.5 (0.5)            ; 0.6 (0.6)                        ; 0.1 (0.1)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 2 (2)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c2845                      ; repeater    ; work         ;
+;       |repeater:c2846|             ; 0.4 (0.4)            ; 0.4 (0.4)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c2846                      ; repeater    ; work         ;
+;       |repeater:c2937|             ; 0.0 (0.0)            ; 0.3 (0.3)                        ; 0.3 (0.3)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c2937                      ; repeater    ; work         ;
+;       |repeater:c297|              ; 0.2 (0.2)            ; 0.2 (0.2)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c297                       ; repeater    ; work         ;
+;       |repeater:c3064|             ; 0.2 (0.2)            ; 0.2 (0.2)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c3064                      ; repeater    ; work         ;
+;       |repeater:c3065|             ; 0.5 (0.5)            ; 0.5 (0.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c3065                      ; repeater    ; work         ;
+;       |repeater:c3066|             ; 0.5 (0.5)            ; 0.5 (0.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c3066                      ; repeater    ; work         ;
+;       |repeater:c3157|             ; 0.2 (0.2)            ; 0.3 (0.3)                        ; 0.1 (0.1)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c3157                      ; repeater    ; work         ;
+;       |repeater:c3284|             ; 0.2 (0.2)            ; 0.3 (0.3)                        ; 0.1 (0.1)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c3284                      ; repeater    ; work         ;
+;       |repeater:c3285|             ; 0.5 (0.5)            ; 0.7 (0.7)                        ; 0.2 (0.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c3285                      ; repeater    ; work         ;
+;       |repeater:c3286|             ; 0.2 (0.2)            ; 0.7 (0.7)                        ; 0.4 (0.4)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c3286                      ; repeater    ; work         ;
+;       |repeater:c3377|             ; 0.2 (0.2)            ; 0.2 (0.2)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c3377                      ; repeater    ; work         ;
+;       |repeater:c3446|             ; 1.0 (1.0)            ; 1.0 (1.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 2 (2)               ; 3 (3)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c3446                      ; repeater    ; work         ;
+;       |repeater:c3456|             ; -0.2 (-0.2)          ; 0.5 (0.5)                        ; 0.7 (0.7)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 2 (2)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c3456                      ; repeater    ; work         ;
+;       |repeater:c3504|             ; 0.2 (0.2)            ; 0.2 (0.2)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c3504                      ; repeater    ; work         ;
+;       |repeater:c3505|             ; 0.7 (0.7)            ; 0.7 (0.7)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 2 (2)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c3505                      ; repeater    ; work         ;
+;       |repeater:c3506|             ; 0.8 (0.8)            ; 0.8 (0.8)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c3506                      ; repeater    ; work         ;
+;       |repeater:c3712|             ; 0.2 (0.2)            ; 0.3 (0.3)                        ; 0.1 (0.1)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 2 (2)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c3712                      ; repeater    ; work         ;
+;       |repeater:c3724|             ; 0.5 (0.5)            ; 1.0 (1.0)                        ; 0.5 (0.5)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c3724                      ; repeater    ; work         ;
+;       |repeater:c3725|             ; 0.5 (0.5)            ; 0.5 (0.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c3725                      ; repeater    ; work         ;
+;       |repeater:c3726|             ; 0.5 (0.5)            ; 0.5 (0.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c3726                      ; repeater    ; work         ;
+;       |repeater:c3817|             ; 0.2 (0.2)            ; 0.2 (0.2)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c3817                      ; repeater    ; work         ;
+;       |repeater:c3944|             ; 0.2 (0.2)            ; 0.2 (0.2)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c3944                      ; repeater    ; work         ;
+;       |repeater:c3945|             ; 0.5 (0.5)            ; 0.6 (0.6)                        ; 0.1 (0.1)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 2 (2)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c3945                      ; repeater    ; work         ;
+;       |repeater:c3946|             ; 0.4 (0.4)            ; 0.4 (0.4)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c3946                      ; repeater    ; work         ;
+;       |repeater:c4037|             ; -0.2 (-0.2)          ; 0.2 (0.2)                        ; 0.5 (0.5)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c4037                      ; repeater    ; work         ;
+;       |repeater:c4164|             ; 0.2 (0.2)            ; 0.2 (0.2)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c4164                      ; repeater    ; work         ;
+;       |repeater:c4165|             ; 0.5 (0.5)            ; 0.5 (0.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c4165                      ; repeater    ; work         ;
+;       |repeater:c4166|             ; 0.5 (0.5)            ; 0.5 (0.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c4166                      ; repeater    ; work         ;
+;       |repeater:c424|              ; 0.2 (0.2)            ; 0.2 (0.2)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c424                       ; repeater    ; work         ;
+;       |repeater:c425|              ; 0.5 (0.5)            ; 0.6 (0.6)                        ; 0.1 (0.1)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 2 (2)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c425                       ; repeater    ; work         ;
+;       |repeater:c4257|             ; 0.0 (0.0)            ; 0.2 (0.2)                        ; 0.2 (0.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c4257                      ; repeater    ; work         ;
+;       |repeater:c426|              ; 0.4 (0.4)            ; 0.4 (0.4)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c426                       ; repeater    ; work         ;
+;       |repeater:c4384|             ; 0.2 (0.2)            ; 0.5 (0.5)                        ; 0.2 (0.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c4384                      ; repeater    ; work         ;
+;       |repeater:c4385|             ; 0.5 (0.5)            ; 0.5 (0.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c4385                      ; repeater    ; work         ;
+;       |repeater:c4386|             ; 0.5 (0.5)            ; 0.5 (0.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c4386                      ; repeater    ; work         ;
+;       |repeater:c4477|             ; 0.0 (0.0)            ; 0.2 (0.2)                        ; 0.2 (0.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c4477                      ; repeater    ; work         ;
+;       |repeater:c4604|             ; 0.2 (0.2)            ; 0.5 (0.5)                        ; 0.2 (0.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c4604                      ; repeater    ; work         ;
+;       |repeater:c4605|             ; 0.5 (0.5)            ; 0.6 (0.6)                        ; 0.1 (0.1)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 2 (2)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c4605                      ; repeater    ; work         ;
+;       |repeater:c4606|             ; 0.4 (0.4)            ; 0.4 (0.4)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c4606                      ; repeater    ; work         ;
+;       |repeater:c4697|             ; 0.2 (0.2)            ; 0.4 (0.4)                        ; 0.2 (0.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 2 (2)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c4697                      ; repeater    ; work         ;
+;       |repeater:c4824|             ; 0.2 (0.2)            ; 0.5 (0.5)                        ; 0.2 (0.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c4824                      ; repeater    ; work         ;
+;       |repeater:c4825|             ; 0.6 (0.6)            ; 0.6 (0.6)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 2 (2)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c4825                      ; repeater    ; work         ;
+;       |repeater:c4826|             ; 0.4 (0.4)            ; 0.4 (0.4)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c4826                      ; repeater    ; work         ;
+;       |repeater:c4917|             ; 0.2 (0.2)            ; 0.2 (0.2)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c4917                      ; repeater    ; work         ;
+;       |repeater:c5044|             ; 0.2 (0.2)            ; 0.2 (0.2)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c5044                      ; repeater    ; work         ;
+;       |repeater:c5045|             ; 0.5 (0.5)            ; 0.5 (0.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 2 (2)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c5045                      ; repeater    ; work         ;
+;       |repeater:c5046|             ; 0.2 (0.2)            ; 0.5 (0.5)                        ; 0.2 (0.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c5046                      ; repeater    ; work         ;
+;       |repeater:c5134|             ; -0.2 (-0.2)          ; 0.5 (0.5)                        ; 0.7 (0.7)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 2 (2)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c5134                      ; repeater    ; work         ;
+;       |repeater:c5137|             ; 0.5 (0.5)            ; 0.5 (0.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 2 (2)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c5137                      ; repeater    ; work         ;
+;       |repeater:c517|              ; 0.0 (0.0)            ; 0.2 (0.2)                        ; 0.2 (0.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c517                       ; repeater    ; work         ;
+;       |repeater:c5206|             ; 1.0 (1.0)            ; 1.0 (1.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 2 (2)               ; 2 (2)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c5206                      ; repeater    ; work         ;
+;       |repeater:c5216|             ; -0.2 (-0.2)          ; 0.5 (0.5)                        ; 0.7 (0.7)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c5216                      ; repeater    ; work         ;
+;       |repeater:c5264|             ; 0.2 (0.2)            ; 0.2 (0.2)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c5264                      ; repeater    ; work         ;
+;       |repeater:c5265|             ; 0.8 (0.8)            ; 0.8 (0.8)                        ; 0.1 (0.1)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 2 (2)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c5265                      ; repeater    ; work         ;
+;       |repeater:c5266|             ; 0.8 (0.8)            ; 0.8 (0.8)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c5266                      ; repeater    ; work         ;
+;       |repeater:c5267|             ; 0.2 (0.2)            ; 0.2 (0.2)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c5267                      ; repeater    ; work         ;
+;       |repeater:c5472|             ; 0.2 (0.2)            ; 0.4 (0.4)                        ; 0.2 (0.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 2 (2)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c5472                      ; repeater    ; work         ;
+;       |repeater:c5484|             ; 0.5 (0.5)            ; 0.5 (0.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c5484                      ; repeater    ; work         ;
+;       |repeater:c5485|             ; 0.5 (0.5)            ; 0.5 (0.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c5485                      ; repeater    ; work         ;
+;       |repeater:c5486|             ; 0.5 (0.5)            ; 0.5 (0.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c5486                      ; repeater    ; work         ;
+;       |repeater:c5577|             ; 0.2 (0.2)            ; 0.2 (0.2)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c5577                      ; repeater    ; work         ;
+;       |repeater:c5704|             ; 0.2 (0.2)            ; 0.2 (0.2)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c5704                      ; repeater    ; work         ;
+;       |repeater:c5705|             ; 0.5 (0.5)            ; 0.5 (0.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c5705                      ; repeater    ; work         ;
+;       |repeater:c5706|             ; 0.4 (0.4)            ; 0.4 (0.4)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c5706                      ; repeater    ; work         ;
+;       |repeater:c5797|             ; 0.2 (0.2)            ; 0.5 (0.5)                        ; 0.2 (0.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c5797                      ; repeater    ; work         ;
+;       |repeater:c5924|             ; 0.3 (0.3)            ; 0.5 (0.5)                        ; 0.2 (0.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c5924                      ; repeater    ; work         ;
+;       |repeater:c5925|             ; 0.5 (0.5)            ; 0.5 (0.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c5925                      ; repeater    ; work         ;
+;       |repeater:c5926|             ; 0.5 (0.5)            ; 0.5 (0.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c5926                      ; repeater    ; work         ;
+;       |repeater:c6017|             ; -0.2 (-0.2)          ; 0.5 (0.5)                        ; 0.7 (0.7)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c6017                      ; repeater    ; work         ;
+;       |repeater:c6144|             ; 0.2 (0.2)            ; 0.2 (0.2)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c6144                      ; repeater    ; work         ;
+;       |repeater:c6145|             ; 0.5 (0.5)            ; 0.6 (0.6)                        ; 0.1 (0.1)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 2 (2)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c6145                      ; repeater    ; work         ;
+;       |repeater:c6146|             ; 0.4 (0.4)            ; 0.4 (0.4)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c6146                      ; repeater    ; work         ;
+;       |repeater:c6237|             ; 0.0 (0.0)            ; 0.5 (0.5)                        ; 0.5 (0.5)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 2 (2)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c6237                      ; repeater    ; work         ;
+;       |repeater:c6364|             ; 0.2 (0.2)            ; 0.3 (0.3)                        ; 0.1 (0.1)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c6364                      ; repeater    ; work         ;
+;       |repeater:c6365|             ; 0.5 (0.5)            ; 0.5 (0.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c6365                      ; repeater    ; work         ;
+;       |repeater:c6366|             ; 0.5 (0.5)            ; 0.5 (0.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c6366                      ; repeater    ; work         ;
+;       |repeater:c644|              ; 0.2 (0.2)            ; 0.2 (0.2)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c644                       ; repeater    ; work         ;
+;       |repeater:c645|              ; 0.5 (0.5)            ; 0.5 (0.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c645                       ; repeater    ; work         ;
+;       |repeater:c6457|             ; 0.0 (0.0)            ; 0.5 (0.5)                        ; 0.5 (0.5)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c6457                      ; repeater    ; work         ;
+;       |repeater:c646|              ; 0.5 (0.5)            ; 0.5 (0.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c646                       ; repeater    ; work         ;
+;       |repeater:c6584|             ; 0.2 (0.2)            ; 0.2 (0.2)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c6584                      ; repeater    ; work         ;
+;       |repeater:c6585|             ; 0.5 (0.5)            ; 0.6 (0.6)                        ; 0.1 (0.1)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 2 (2)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c6585                      ; repeater    ; work         ;
+;       |repeater:c6586|             ; 0.4 (0.4)            ; 0.4 (0.4)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c6586                      ; repeater    ; work         ;
+;       |repeater:c6677|             ; 0.2 (0.2)            ; 0.2 (0.2)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c6677                      ; repeater    ; work         ;
+;       |repeater:c6804|             ; 0.2 (0.2)            ; 0.3 (0.3)                        ; 0.1 (0.1)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c6804                      ; repeater    ; work         ;
+;       |repeater:c6805|             ; 0.5 (0.5)            ; 0.8 (0.8)                        ; 0.2 (0.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 2 (2)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c6805                      ; repeater    ; work         ;
+;       |repeater:c6806|             ; 0.5 (0.5)            ; 0.5 (0.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c6806                      ; repeater    ; work         ;
+;       |repeater:c6897|             ; -0.2 (-0.2)          ; 0.2 (0.2)                        ; 0.4 (0.4)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c6897                      ; repeater    ; work         ;
+;       |repeater:c7024|             ; 0.2 (0.2)            ; 0.2 (0.2)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c7024                      ; repeater    ; work         ;
+;       |repeater:c7025|             ; 0.5 (0.5)            ; 0.8 (0.8)                        ; 0.3 (0.3)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 2 (2)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c7025                      ; repeater    ; work         ;
+;       |repeater:c7026|             ; 0.5 (0.5)            ; 0.5 (0.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c7026                      ; repeater    ; work         ;
+;       |repeater:c737|              ; -0.2 (-0.2)          ; 0.4 (0.4)                        ; 0.6 (0.6)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 2 (2)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c737                       ; repeater    ; work         ;
+;       |repeater:c864|              ; 0.2 (0.2)            ; 0.5 (0.5)                        ; 0.2 (0.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c864                       ; repeater    ; work         ;
+;       |repeater:c865|              ; 0.5 (0.5)            ; 0.5 (0.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c865                       ; repeater    ; work         ;
+;       |repeater:c866|              ; 0.5 (0.5)            ; 0.5 (0.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c866                       ; repeater    ; work         ;
+;       |repeater:c957|              ; 0.0 (0.0)            ; 0.4 (0.4)                        ; 0.4 (0.4)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 2 (2)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|repeater:c957                       ; repeater    ; work         ;
+;       |torch:c121|                 ; -0.2 (-0.2)          ; 0.3 (0.3)                        ; 0.5 (0.5)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c121                          ; torch       ; work         ;
+;       |torch:c132|                 ; 0.3 (0.3)            ; 0.3 (0.3)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 1 (1)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c132                          ; torch       ; work         ;
+;       |torch:c154|                 ; -0.2 (-0.2)          ; 0.7 (0.7)                        ; 0.8 (0.8)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 2 (2)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top|redstone:redstone|torch:c154                          ; torch       ; work         ;
 +------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+------------------------------------------------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -1501,9 +1697,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; o_LEDs[7]     ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
 ; o_LEDs[8]     ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
 ; o_LEDs[9]     ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
-; i_switches[0] ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 ; i_clk         ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 ; i_buttons[0]  ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
+; i_switches[0] ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 +---------------+----------+----+------+------+----+------+-------+--------+------------------------+--------------------------+
 
 
@@ -1524,23 +1720,25 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; i_buttons[1]                                                                                ;                   ;         ;
 ; i_buttons[2]                                                                                ;                   ;         ;
 ; i_buttons[3]                                                                                ;                   ;         ;
-; i_switches[0]                                                                               ;                   ;         ;
-;      - redstone:redstone|repeater:c111|o_out                                                ; 0                 ; 0       ;
-;      - redstone:redstone|repeater:c011|buffer[0]~0                                          ; 0                 ; 0       ;
-;      - redstone:redstone|repeater:c111|buffer~0                                             ; 0                 ; 0       ;
 ; i_clk                                                                                       ;                   ;         ;
 ; i_buttons[0]                                                                                ;                   ;         ;
 ;      - fclk:fclk|fclk_0002:fclk_inst|altera_pll:altera_pll_i|general[0].gpll~FRACTIONAL_PLL ; 0                 ; 0       ;
+; i_switches[0]                                                                               ;                   ;         ;
+;      - redstone:redstone|torch:c121|buffer                                                  ; 0                 ; 0       ;
 +---------------------------------------------------------------------------------------------+-------------------+---------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                                                                                                                   ;
-+----------------------------------------------------------------------+---------------------------+---------+-------+--------+----------------------+------------------+---------------------------+
-; Name                                                                 ; Location                  ; Fan-Out ; Usage ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+----------------------------------------------------------------------+---------------------------+---------+-------+--------+----------------------+------------------+---------------------------+
-; fclk:fclk|fclk_0002:fclk_inst|altera_pll:altera_pll_i|outclk_wire[0] ; PLLOUTPUTCOUNTER_X0_Y5_N1 ; 3       ; Clock ; yes    ; Global Clock         ; GCLK6            ; --                        ;
-+----------------------------------------------------------------------+---------------------------+---------+-------+--------+----------------------+------------------+---------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                                                                                                          ;
++----------------------------------------------------------------------+---------------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
+; Name                                                                 ; Location                  ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++----------------------------------------------------------------------+---------------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
+; fclk:fclk|fclk_0002:fclk_inst|altera_pll:altera_pll_i|outclk_wire[0] ; PLLOUTPUTCOUNTER_X0_Y5_N1 ; 175     ; Clock        ; yes    ; Global Clock         ; GCLK6            ; --                        ;
+; redstone:redstone|repeater:c1964|o_out                               ; LABCELL_X40_Y2_N36        ; 2       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; redstone:redstone|repeater:c204|o_out                                ; LABCELL_X43_Y2_N6         ; 3       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; redstone:redstone|repeater:c3724|o_out                               ; LABCELL_X46_Y4_N30        ; 2       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; redstone:redstone|repeater:c5484|o_out                               ; LABCELL_X56_Y4_N36        ; 2       ; Clock enable ; no     ; --                   ; --               ; --                        ;
++----------------------------------------------------------------------+---------------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1548,87 +1746,87 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------------------------------+---------------------------+---------+----------------------+------------------+---------------------------+
 ; Name                                                                 ; Location                  ; Fan-Out ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +----------------------------------------------------------------------+---------------------------+---------+----------------------+------------------+---------------------------+
-; fclk:fclk|fclk_0002:fclk_inst|altera_pll:altera_pll_i|outclk_wire[0] ; PLLOUTPUTCOUNTER_X0_Y5_N1 ; 3       ; Global Clock         ; GCLK6            ; --                        ;
+; fclk:fclk|fclk_0002:fclk_inst|altera_pll:altera_pll_i|outclk_wire[0] ; PLLOUTPUTCOUNTER_X0_Y5_N1 ; 175     ; Global Clock         ; GCLK6            ; --                        ;
 +----------------------------------------------------------------------+---------------------------+---------+----------------------+------------------+---------------------------+
 
 
-+---------------------------------------------------------------------+
-; Routing Usage Summary                                               ;
-+---------------------------------------------+-----------------------+
-; Routing Resource Type                       ; Usage                 ;
-+---------------------------------------------+-----------------------+
-; Block interconnects                         ; 3 / 289,320 ( < 1 % ) ;
-; C12 interconnects                           ; 1 / 13,420 ( < 1 % )  ;
-; C2 interconnects                            ; 2 / 119,108 ( < 1 % ) ;
-; C4 interconnects                            ; 1 / 56,300 ( < 1 % )  ;
-; DQS bus muxes                               ; 0 / 25 ( 0 % )        ;
-; DQS-18 I/O buses                            ; 0 / 25 ( 0 % )        ;
-; DQS-9 I/O buses                             ; 0 / 25 ( 0 % )        ;
-; Direct links                                ; 0 / 289,320 ( 0 % )   ;
-; Global clocks                               ; 1 / 16 ( 6 % )        ;
-; HPS SDRAM PLL inputs                        ; 0 / 1 ( 0 % )         ;
-; HPS SDRAM PLL outputs                       ; 0 / 1 ( 0 % )         ;
-; HPS_INTERFACE_BOOT_FROM_FPGA_INPUTs         ; 0 / 9 ( 0 % )         ;
-; HPS_INTERFACE_CLOCKS_RESETS_INPUTs          ; 0 / 7 ( 0 % )         ;
-; HPS_INTERFACE_CLOCKS_RESETS_OUTPUTs         ; 0 / 6 ( 0 % )         ;
-; HPS_INTERFACE_CROSS_TRIGGER_INPUTs          ; 0 / 18 ( 0 % )        ;
-; HPS_INTERFACE_CROSS_TRIGGER_OUTPUTs         ; 0 / 24 ( 0 % )        ;
-; HPS_INTERFACE_DBG_APB_INPUTs                ; 0 / 37 ( 0 % )        ;
-; HPS_INTERFACE_DBG_APB_OUTPUTs               ; 0 / 55 ( 0 % )        ;
-; HPS_INTERFACE_DMA_INPUTs                    ; 0 / 16 ( 0 % )        ;
-; HPS_INTERFACE_DMA_OUTPUTs                   ; 0 / 8 ( 0 % )         ;
-; HPS_INTERFACE_FPGA2HPS_INPUTs               ; 0 / 287 ( 0 % )       ;
-; HPS_INTERFACE_FPGA2HPS_OUTPUTs              ; 0 / 154 ( 0 % )       ;
-; HPS_INTERFACE_FPGA2SDRAM_INPUTs             ; 0 / 852 ( 0 % )       ;
-; HPS_INTERFACE_FPGA2SDRAM_OUTPUTs            ; 0 / 408 ( 0 % )       ;
-; HPS_INTERFACE_HPS2FPGA_INPUTs               ; 0 / 165 ( 0 % )       ;
-; HPS_INTERFACE_HPS2FPGA_LIGHT_WEIGHT_INPUTs  ; 0 / 67 ( 0 % )        ;
-; HPS_INTERFACE_HPS2FPGA_LIGHT_WEIGHT_OUTPUTs ; 0 / 156 ( 0 % )       ;
-; HPS_INTERFACE_HPS2FPGA_OUTPUTs              ; 0 / 282 ( 0 % )       ;
-; HPS_INTERFACE_INTERRUPTS_INPUTs             ; 0 / 64 ( 0 % )        ;
-; HPS_INTERFACE_INTERRUPTS_OUTPUTs            ; 0 / 42 ( 0 % )        ;
-; HPS_INTERFACE_JTAG_OUTPUTs                  ; 0 / 5 ( 0 % )         ;
-; HPS_INTERFACE_LOAN_IO_INPUTs                ; 0 / 142 ( 0 % )       ;
-; HPS_INTERFACE_LOAN_IO_OUTPUTs               ; 0 / 85 ( 0 % )        ;
-; HPS_INTERFACE_MPU_EVENT_STANDBY_INPUTs      ; 0 / 1 ( 0 % )         ;
-; HPS_INTERFACE_MPU_EVENT_STANDBY_OUTPUTs     ; 0 / 5 ( 0 % )         ;
-; HPS_INTERFACE_MPU_GENERAL_PURPOSE_INPUTs    ; 0 / 32 ( 0 % )        ;
-; HPS_INTERFACE_MPU_GENERAL_PURPOSE_OUTPUTs   ; 0 / 32 ( 0 % )        ;
-; HPS_INTERFACE_PERIPHERAL_CAN_INPUTs         ; 0 / 2 ( 0 % )         ;
-; HPS_INTERFACE_PERIPHERAL_CAN_OUTPUTs        ; 0 / 2 ( 0 % )         ;
-; HPS_INTERFACE_PERIPHERAL_EMAC_INPUTs        ; 0 / 32 ( 0 % )        ;
-; HPS_INTERFACE_PERIPHERAL_EMAC_OUTPUTs       ; 0 / 34 ( 0 % )        ;
-; HPS_INTERFACE_PERIPHERAL_I2C_INPUTs         ; 0 / 8 ( 0 % )         ;
-; HPS_INTERFACE_PERIPHERAL_I2C_OUTPUTs        ; 0 / 8 ( 0 % )         ;
-; HPS_INTERFACE_PERIPHERAL_NAND_INPUTs        ; 0 / 12 ( 0 % )        ;
-; HPS_INTERFACE_PERIPHERAL_NAND_OUTPUTs       ; 0 / 18 ( 0 % )        ;
-; HPS_INTERFACE_PERIPHERAL_QSPI_INPUTs        ; 0 / 4 ( 0 % )         ;
-; HPS_INTERFACE_PERIPHERAL_QSPI_OUTPUTs       ; 0 / 13 ( 0 % )        ;
-; HPS_INTERFACE_PERIPHERAL_SDMMC_INPUTs       ; 0 / 13 ( 0 % )        ;
-; HPS_INTERFACE_PERIPHERAL_SDMMC_OUTPUTs      ; 0 / 22 ( 0 % )        ;
-; HPS_INTERFACE_PERIPHERAL_SPI_MASTER_INPUTs  ; 0 / 4 ( 0 % )         ;
-; HPS_INTERFACE_PERIPHERAL_SPI_MASTER_OUTPUTs ; 0 / 14 ( 0 % )        ;
-; HPS_INTERFACE_PERIPHERAL_SPI_SLAVE_INPUTs   ; 0 / 6 ( 0 % )         ;
-; HPS_INTERFACE_PERIPHERAL_SPI_SLAVE_OUTPUTs  ; 0 / 4 ( 0 % )         ;
-; HPS_INTERFACE_PERIPHERAL_UART_INPUTs        ; 0 / 10 ( 0 % )        ;
-; HPS_INTERFACE_PERIPHERAL_UART_OUTPUTs       ; 0 / 10 ( 0 % )        ;
-; HPS_INTERFACE_PERIPHERAL_USB_INPUTs         ; 0 / 22 ( 0 % )        ;
-; HPS_INTERFACE_PERIPHERAL_USB_OUTPUTs        ; 0 / 34 ( 0 % )        ;
-; HPS_INTERFACE_STM_EVENT_INPUTs              ; 0 / 28 ( 0 % )        ;
-; HPS_INTERFACE_TEST_INPUTs                   ; 0 / 610 ( 0 % )       ;
-; HPS_INTERFACE_TEST_OUTPUTs                  ; 0 / 513 ( 0 % )       ;
-; HPS_INTERFACE_TPIU_TRACE_INPUTs             ; 0 / 2 ( 0 % )         ;
-; HPS_INTERFACE_TPIU_TRACE_OUTPUTs            ; 0 / 33 ( 0 % )        ;
-; Horizontal periphery clocks                 ; 0 / 72 ( 0 % )        ;
-; Local interconnects                         ; 3 / 84,580 ( < 1 % )  ;
-; Quadrant clocks                             ; 0 / 66 ( 0 % )        ;
-; R14 interconnects                           ; 3 / 12,676 ( < 1 % )  ;
-; R14/C12 interconnect drivers                ; 3 / 20,720 ( < 1 % )  ;
-; R3 interconnects                            ; 3 / 130,992 ( < 1 % ) ;
-; R6 interconnects                            ; 6 / 266,960 ( < 1 % ) ;
-; Spine clocks                                ; 1 / 360 ( < 1 % )     ;
-; Wire stub REs                               ; 0 / 15,858 ( 0 % )    ;
-+---------------------------------------------+-----------------------+
++-----------------------------------------------------------------------+
+; Routing Usage Summary                                                 ;
++---------------------------------------------+-------------------------+
+; Routing Resource Type                       ; Usage                   ;
++---------------------------------------------+-------------------------+
+; Block interconnects                         ; 159 / 289,320 ( < 1 % ) ;
+; C12 interconnects                           ; 1 / 13,420 ( < 1 % )    ;
+; C2 interconnects                            ; 9 / 119,108 ( < 1 % )   ;
+; C4 interconnects                            ; 6 / 56,300 ( < 1 % )    ;
+; DQS bus muxes                               ; 0 / 25 ( 0 % )          ;
+; DQS-18 I/O buses                            ; 0 / 25 ( 0 % )          ;
+; DQS-9 I/O buses                             ; 0 / 25 ( 0 % )          ;
+; Direct links                                ; 46 / 289,320 ( < 1 % )  ;
+; Global clocks                               ; 1 / 16 ( 6 % )          ;
+; HPS SDRAM PLL inputs                        ; 0 / 1 ( 0 % )           ;
+; HPS SDRAM PLL outputs                       ; 0 / 1 ( 0 % )           ;
+; HPS_INTERFACE_BOOT_FROM_FPGA_INPUTs         ; 0 / 9 ( 0 % )           ;
+; HPS_INTERFACE_CLOCKS_RESETS_INPUTs          ; 0 / 7 ( 0 % )           ;
+; HPS_INTERFACE_CLOCKS_RESETS_OUTPUTs         ; 0 / 6 ( 0 % )           ;
+; HPS_INTERFACE_CROSS_TRIGGER_INPUTs          ; 0 / 18 ( 0 % )          ;
+; HPS_INTERFACE_CROSS_TRIGGER_OUTPUTs         ; 0 / 24 ( 0 % )          ;
+; HPS_INTERFACE_DBG_APB_INPUTs                ; 0 / 37 ( 0 % )          ;
+; HPS_INTERFACE_DBG_APB_OUTPUTs               ; 0 / 55 ( 0 % )          ;
+; HPS_INTERFACE_DMA_INPUTs                    ; 0 / 16 ( 0 % )          ;
+; HPS_INTERFACE_DMA_OUTPUTs                   ; 0 / 8 ( 0 % )           ;
+; HPS_INTERFACE_FPGA2HPS_INPUTs               ; 0 / 287 ( 0 % )         ;
+; HPS_INTERFACE_FPGA2HPS_OUTPUTs              ; 0 / 154 ( 0 % )         ;
+; HPS_INTERFACE_FPGA2SDRAM_INPUTs             ; 0 / 852 ( 0 % )         ;
+; HPS_INTERFACE_FPGA2SDRAM_OUTPUTs            ; 0 / 408 ( 0 % )         ;
+; HPS_INTERFACE_HPS2FPGA_INPUTs               ; 0 / 165 ( 0 % )         ;
+; HPS_INTERFACE_HPS2FPGA_LIGHT_WEIGHT_INPUTs  ; 0 / 67 ( 0 % )          ;
+; HPS_INTERFACE_HPS2FPGA_LIGHT_WEIGHT_OUTPUTs ; 0 / 156 ( 0 % )         ;
+; HPS_INTERFACE_HPS2FPGA_OUTPUTs              ; 0 / 282 ( 0 % )         ;
+; HPS_INTERFACE_INTERRUPTS_INPUTs             ; 0 / 64 ( 0 % )          ;
+; HPS_INTERFACE_INTERRUPTS_OUTPUTs            ; 0 / 42 ( 0 % )          ;
+; HPS_INTERFACE_JTAG_OUTPUTs                  ; 0 / 5 ( 0 % )           ;
+; HPS_INTERFACE_LOAN_IO_INPUTs                ; 0 / 142 ( 0 % )         ;
+; HPS_INTERFACE_LOAN_IO_OUTPUTs               ; 0 / 85 ( 0 % )          ;
+; HPS_INTERFACE_MPU_EVENT_STANDBY_INPUTs      ; 0 / 1 ( 0 % )           ;
+; HPS_INTERFACE_MPU_EVENT_STANDBY_OUTPUTs     ; 0 / 5 ( 0 % )           ;
+; HPS_INTERFACE_MPU_GENERAL_PURPOSE_INPUTs    ; 0 / 32 ( 0 % )          ;
+; HPS_INTERFACE_MPU_GENERAL_PURPOSE_OUTPUTs   ; 0 / 32 ( 0 % )          ;
+; HPS_INTERFACE_PERIPHERAL_CAN_INPUTs         ; 0 / 2 ( 0 % )           ;
+; HPS_INTERFACE_PERIPHERAL_CAN_OUTPUTs        ; 0 / 2 ( 0 % )           ;
+; HPS_INTERFACE_PERIPHERAL_EMAC_INPUTs        ; 0 / 32 ( 0 % )          ;
+; HPS_INTERFACE_PERIPHERAL_EMAC_OUTPUTs       ; 0 / 34 ( 0 % )          ;
+; HPS_INTERFACE_PERIPHERAL_I2C_INPUTs         ; 0 / 8 ( 0 % )           ;
+; HPS_INTERFACE_PERIPHERAL_I2C_OUTPUTs        ; 0 / 8 ( 0 % )           ;
+; HPS_INTERFACE_PERIPHERAL_NAND_INPUTs        ; 0 / 12 ( 0 % )          ;
+; HPS_INTERFACE_PERIPHERAL_NAND_OUTPUTs       ; 0 / 18 ( 0 % )          ;
+; HPS_INTERFACE_PERIPHERAL_QSPI_INPUTs        ; 0 / 4 ( 0 % )           ;
+; HPS_INTERFACE_PERIPHERAL_QSPI_OUTPUTs       ; 0 / 13 ( 0 % )          ;
+; HPS_INTERFACE_PERIPHERAL_SDMMC_INPUTs       ; 0 / 13 ( 0 % )          ;
+; HPS_INTERFACE_PERIPHERAL_SDMMC_OUTPUTs      ; 0 / 22 ( 0 % )          ;
+; HPS_INTERFACE_PERIPHERAL_SPI_MASTER_INPUTs  ; 0 / 4 ( 0 % )           ;
+; HPS_INTERFACE_PERIPHERAL_SPI_MASTER_OUTPUTs ; 0 / 14 ( 0 % )          ;
+; HPS_INTERFACE_PERIPHERAL_SPI_SLAVE_INPUTs   ; 0 / 6 ( 0 % )           ;
+; HPS_INTERFACE_PERIPHERAL_SPI_SLAVE_OUTPUTs  ; 0 / 4 ( 0 % )           ;
+; HPS_INTERFACE_PERIPHERAL_UART_INPUTs        ; 0 / 10 ( 0 % )          ;
+; HPS_INTERFACE_PERIPHERAL_UART_OUTPUTs       ; 0 / 10 ( 0 % )          ;
+; HPS_INTERFACE_PERIPHERAL_USB_INPUTs         ; 0 / 22 ( 0 % )          ;
+; HPS_INTERFACE_PERIPHERAL_USB_OUTPUTs        ; 0 / 34 ( 0 % )          ;
+; HPS_INTERFACE_STM_EVENT_INPUTs              ; 0 / 28 ( 0 % )          ;
+; HPS_INTERFACE_TEST_INPUTs                   ; 0 / 610 ( 0 % )         ;
+; HPS_INTERFACE_TEST_OUTPUTs                  ; 0 / 513 ( 0 % )         ;
+; HPS_INTERFACE_TPIU_TRACE_INPUTs             ; 0 / 2 ( 0 % )           ;
+; HPS_INTERFACE_TPIU_TRACE_OUTPUTs            ; 0 / 33 ( 0 % )          ;
+; Horizontal periphery clocks                 ; 0 / 72 ( 0 % )          ;
+; Local interconnects                         ; 101 / 84,580 ( < 1 % )  ;
+; Quadrant clocks                             ; 0 / 66 ( 0 % )          ;
+; R14 interconnects                           ; 5 / 12,676 ( < 1 % )    ;
+; R14/C12 interconnect drivers                ; 5 / 20,720 ( < 1 % )    ;
+; R3 interconnects                            ; 56 / 130,992 ( < 1 % )  ;
+; R6 interconnects                            ; 69 / 266,960 ( < 1 % )  ;
+; Spine clocks                                ; 2 / 360 ( < 1 % )       ;
+; Wire stub REs                               ; 0 / 15,858 ( 0 % )      ;
++---------------------------------------------+-------------------------+
 
 
 +------------------------------------------+
@@ -1712,9 +1910,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; o_LEDs[7]          ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
 ; o_LEDs[8]          ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
 ; o_LEDs[9]          ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
-; i_switches[0]      ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
 ; i_clk              ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
 ; i_buttons[0]       ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
+; i_switches[0]      ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
 +--------------------+-----------+--------------+-----------+--------------+--------------+-----------+-----------+--------------+-----------+-----------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
 
 
@@ -1756,30 +1954,129 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Setting                   ; Value  ;
 +---------------------------+--------+
 ; Nominal Core Voltage      ; 1.10 V ;
-; Low Junction Temperature  ; 0 °C   ;
-; High Junction Temperature ; 85 °C  ;
+; Low Junction Temperature  ; -40 °C ;
+; High Junction Temperature ; 125 °C ;
 +---------------------------+--------+
 
 
-+------------------------------------------------------------+
-; Estimated Delay Added for Hold Timing Summary              ;
-+-----------------+----------------------+-------------------+
-; Source Clock(s) ; Destination Clock(s) ; Delay Added in ns ;
-+-----------------+----------------------+-------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Estimated Delay Added for Hold Timing Summary                                                                                                                     ;
++-----------------------------------------------------------------------+-----------------------------------------------------------------------+-------------------+
+; Source Clock(s)                                                       ; Destination Clock(s)                                                  ; Delay Added in ns ;
++-----------------------------------------------------------------------+-----------------------------------------------------------------------+-------------------+
+; fclk|fclk_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; fclk|fclk_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 65.8              ;
++-----------------------------------------------------------------------+-----------------------------------------------------------------------+-------------------+
 Note: For more information on problematic transfers, consider running the Fitter again with the Optimize hold timing option (Settings Menu) turned off.
 This will disable optimization of problematic paths and expose them for further analysis using the Timing Analyzer.
 
 
-+-----------------------------------------------------------------------------------------------------------+
-; Estimated Delay Added for Hold Timing Details                                                             ;
-+-------------------------------------------+-------------------------------------------+-------------------+
-; Source Register                           ; Destination Register                      ; Delay Added in ns ;
-+-------------------------------------------+-------------------------------------------+-------------------+
-; redstone:redstone|repeater:c111|buffer[1] ; redstone:redstone|repeater:c111|buffer[0] ; 0.216             ;
-; redstone:redstone|repeater:c111|buffer[0] ; redstone:redstone|repeater:c011|buffer[0] ; 0.167             ;
-; i_switches[0]                             ; redstone:redstone|repeater:c011|buffer[0] ; 0.143             ;
-+-------------------------------------------+-------------------------------------------+-------------------+
-Note: This table only shows the top 3 path(s) that have the largest delay added for hold.
++-------------------------------------------------------------------------------------------------------------+
+; Estimated Delay Added for Hold Timing Details                                                               ;
++--------------------------------------------+--------------------------------------------+-------------------+
+; Source Register                            ; Destination Register                       ; Delay Added in ns ;
++--------------------------------------------+--------------------------------------------+-------------------+
+; redstone:redstone|repeater:c2497|buffer[0] ; redstone:redstone|repeater:c3506|buffer[0] ; 0.410             ;
+; redstone:redstone|repeater:c2277|buffer[0] ; redstone:redstone|repeater:c3506|buffer[0] ; 0.405             ;
+; redstone:redstone|repeater:c737|buffer[0]  ; redstone:redstone|repeater:c1746|buffer[0] ; 0.398             ;
+; redstone:redstone|repeater:c517|buffer[0]  ; redstone:redstone|repeater:c1746|buffer[0] ; 0.393             ;
+; redstone:redstone|repeater:c3284|buffer[0] ; redstone:redstone|repeater:c3286|buffer[0] ; 0.392             ;
+; redstone:redstone|repeater:c3377|buffer[0] ; redstone:redstone|repeater:c3505|buffer[0] ; 0.392             ;
+; redstone:redstone|repeater:c1617|buffer[0] ; redstone:redstone|repeater:c1746|buffer[0] ; 0.392             ;
+; redstone:redstone|repeater:c3504|buffer[0] ; redstone:redstone|repeater:c3505|buffer[0] ; 0.387             ;
+; redstone:redstone|repeater:c1744|buffer[0] ; redstone:redstone|repeater:c1746|buffer[0] ; 0.387             ;
+; redstone:redstone|repeater:c2937|buffer[0] ; redstone:redstone|repeater:c3066|buffer[0] ; 0.386             ;
+; redstone:redstone|torch:c154|buffer        ; redstone:redstone|torch:c132|buffer        ; 0.382             ;
+; redstone:redstone|repeater:c7024|buffer[0] ; redstone:redstone|repeater:c7025|buffer[0] ; 0.376             ;
+; redstone:redstone|repeater:c1966|buffer[0] ; redstone:redstone|repeater:c1965|buffer[0] ; 0.370             ;
+; redstone:redstone|repeater:c1745|buffer[0] ; redstone:redstone|repeater:c1746|buffer[0] ; 0.370             ;
+; redstone:redstone|repeater:c1177|buffer[0] ; redstone:redstone|repeater:c1746|buffer[0] ; 0.369             ;
+; redstone:redstone|repeater:c206|buffer[0]  ; redstone:redstone|repeater:c205|buffer[0]  ; 0.368             ;
+; redstone:redstone|repeater:c3505|buffer[0] ; redstone:redstone|repeater:c3506|buffer[0] ; 0.368             ;
+; redstone:redstone|repeater:c5472|buffer[0] ; redstone:redstone|repeater:c5706|buffer[0] ; 0.366             ;
+; redstone:redstone|repeater:c2844|buffer[0] ; redstone:redstone|repeater:c2846|buffer[0] ; 0.363             ;
+; redstone:redstone|repeater:c2404|buffer[0] ; redstone:redstone|repeater:c2406|buffer[0] ; 0.363             ;
+; redstone:redstone|repeater:c2184|buffer[0] ; redstone:redstone|repeater:c2186|buffer[0] ; 0.363             ;
+; redstone:redstone|repeater:c2624|buffer[0] ; redstone:redstone|repeater:c2625|buffer[0] ; 0.361             ;
+; redstone:redstone|repeater:c1524|buffer[0] ; redstone:redstone|repeater:c1526|buffer[0] ; 0.361             ;
+; redstone:redstone|repeater:c1084|buffer[0] ; redstone:redstone|repeater:c1085|buffer[0] ; 0.361             ;
+; redstone:redstone|repeater:c864|buffer[0]  ; redstone:redstone|repeater:c865|buffer[0]  ; 0.361             ;
+; redstone:redstone|repeater:c644|buffer[0]  ; redstone:redstone|repeater:c645|buffer[0]  ; 0.361             ;
+; redstone:redstone|repeater:c424|buffer[0]  ; redstone:redstone|repeater:c425|buffer[0]  ; 0.361             ;
+; redstone:redstone|repeater:c1304|buffer[0] ; redstone:redstone|repeater:c1305|buffer[0] ; 0.361             ;
+; redstone:redstone|repeater:c6804|buffer[0] ; redstone:redstone|repeater:c6806|buffer[0] ; 0.359             ;
+; redstone:redstone|repeater:c3726|buffer[0] ; redstone:redstone|repeater:c3725|buffer[0] ; 0.358             ;
+; redstone:redstone|repeater:c5704|buffer[0] ; redstone:redstone|repeater:c5705|buffer[0] ; 0.357             ;
+; redstone:redstone|repeater:c6585|buffer[0] ; redstone:redstone|repeater:c6586|buffer[0] ; 0.357             ;
+; redstone:redstone|repeater:c1965|buffer[0] ; redstone:redstone|repeater:c1966|buffer[0] ; 0.355             ;
+; redstone:redstone|repeater:c2717|buffer[0] ; redstone:redstone|repeater:c3066|buffer[0] ; 0.355             ;
+; redstone:redstone|repeater:c6365|buffer[0] ; redstone:redstone|repeater:c6366|buffer[0] ; 0.354             ;
+; redstone:redstone|repeater:c205|buffer[0]  ; redstone:redstone|repeater:c206|buffer[0]  ; 0.353             ;
+; redstone:redstone|repeater:c4604|buffer[0] ; redstone:redstone|repeater:c4605|buffer[0] ; 0.350             ;
+; redstone:redstone|repeater:c4384|buffer[0] ; redstone:redstone|repeater:c4385|buffer[0] ; 0.350             ;
+; redstone:redstone|repeater:c3286|buffer[0] ; redstone:redstone|repeater:c3285|buffer[0] ; 0.350             ;
+; redstone:redstone|repeater:c3506|buffer[0] ; redstone:redstone|repeater:c3505|buffer[0] ; 0.349             ;
+; redstone:redstone|repeater:c3285|buffer[0] ; redstone:redstone|repeater:c3286|buffer[0] ; 0.349             ;
+; redstone:redstone|repeater:c1746|buffer[0] ; redstone:redstone|repeater:c1745|buffer[0] ; 0.349             ;
+; redstone:redstone|repeater:c4824|buffer[0] ; redstone:redstone|repeater:c4826|buffer[0] ; 0.349             ;
+; redstone:redstone|repeater:c3944|buffer[0] ; redstone:redstone|repeater:c3945|buffer[0] ; 0.347             ;
+; redstone:redstone|repeater:c5705|buffer[0] ; redstone:redstone|repeater:c5706|buffer[0] ; 0.345             ;
+; redstone:redstone|repeater:c3446|buffer[1] ; redstone:redstone|repeater:c3446|buffer[0] ; 0.343             ;
+; redstone:redstone|repeater:c5485|buffer[0] ; redstone:redstone|repeater:c5486|buffer[0] ; 0.342             ;
+; redstone:redstone|repeater:c5265|buffer[0] ; redstone:redstone|repeater:c5266|buffer[0] ; 0.341             ;
+; redstone:redstone|repeater:c6805|buffer[0] ; redstone:redstone|repeater:c6806|buffer[0] ; 0.341             ;
+; redstone:redstone|repeater:c5206|buffer[1] ; redstone:redstone|repeater:c5206|buffer[0] ; 0.340             ;
+; redstone:redstone|repeater:c5797|buffer[0] ; redstone:redstone|repeater:c6146|buffer[0] ; 0.340             ;
+; redstone:redstone|repeater:c7026|buffer[0] ; redstone:redstone|repeater:c7025|buffer[0] ; 0.338             ;
+; redstone:redstone|repeater:c7025|buffer[0] ; redstone:redstone|repeater:c7026|buffer[0] ; 0.337             ;
+; redstone:redstone|repeater:c957|buffer[0]  ; redstone:redstone|repeater:c1746|buffer[0] ; 0.337             ;
+; redstone:redstone|repeater:c2845|buffer[0] ; redstone:redstone|repeater:c2846|buffer[0] ; 0.337             ;
+; redstone:redstone|repeater:c2626|buffer[0] ; redstone:redstone|repeater:c2625|buffer[0] ; 0.337             ;
+; redstone:redstone|repeater:c2405|buffer[0] ; redstone:redstone|repeater:c2406|buffer[0] ; 0.337             ;
+; redstone:redstone|repeater:c2185|buffer[0] ; redstone:redstone|repeater:c2186|buffer[0] ; 0.337             ;
+; redstone:redstone|repeater:c1306|buffer[0] ; redstone:redstone|repeater:c1305|buffer[0] ; 0.337             ;
+; redstone:redstone|repeater:c1086|buffer[0] ; redstone:redstone|repeater:c1085|buffer[0] ; 0.337             ;
+; redstone:redstone|repeater:c866|buffer[0]  ; redstone:redstone|repeater:c865|buffer[0]  ; 0.337             ;
+; redstone:redstone|repeater:c646|buffer[0]  ; redstone:redstone|repeater:c645|buffer[0]  ; 0.337             ;
+; redstone:redstone|repeater:c426|buffer[0]  ; redstone:redstone|repeater:c425|buffer[0]  ; 0.337             ;
+; redstone:redstone|repeater:c3065|buffer[0] ; redstone:redstone|repeater:c3066|buffer[0] ; 0.337             ;
+; redstone:redstone|repeater:c1525|buffer[0] ; redstone:redstone|repeater:c1526|buffer[0] ; 0.335             ;
+; redstone:redstone|repeater:c5925|buffer[0] ; redstone:redstone|repeater:c5926|buffer[0] ; 0.335             ;
+; redstone:redstone|repeater:c5577|buffer[0] ; redstone:redstone|repeater:c5706|buffer[0] ; 0.334             ;
+; redstone:redstone|repeater:c3725|buffer[0] ; redstone:redstone|repeater:c3726|buffer[0] ; 0.334             ;
+; redstone:redstone|torch:c121|buffer        ; redstone:redstone|torch:c132|buffer        ; 0.333             ;
+; redstone:redstone|repeater:c6145|buffer[0] ; redstone:redstone|repeater:c6146|buffer[0] ; 0.332             ;
+; redstone:redstone|repeater:c6017|buffer[0] ; redstone:redstone|repeater:c6146|buffer[0] ; 0.332             ;
+; redstone:redstone|repeater:c5044|buffer[0] ; redstone:redstone|repeater:c5046|buffer[0] ; 0.332             ;
+; redstone:redstone|repeater:c4164|buffer[0] ; redstone:redstone|repeater:c4165|buffer[0] ; 0.332             ;
+; redstone:redstone|repeater:c199|buffer[0]  ; redstone:redstone|repeater:c1085|buffer[0] ; 0.329             ;
+; redstone:redstone|repeater:c6584|buffer[0] ; redstone:redstone|repeater:c6586|buffer[0] ; 0.326             ;
+; redstone:redstone|repeater:c6364|buffer[0] ; redstone:redstone|repeater:c6365|buffer[0] ; 0.326             ;
+; redstone:redstone|repeater:c5264|buffer[0] ; redstone:redstone|repeater:c5265|buffer[0] ; 0.326             ;
+; redstone:redstone|repeater:c4606|buffer[0] ; redstone:redstone|repeater:c4605|buffer[0] ; 0.326             ;
+; redstone:redstone|repeater:c4386|buffer[0] ; redstone:redstone|repeater:c4385|buffer[0] ; 0.326             ;
+; redstone:redstone|repeater:c3946|buffer[0] ; redstone:redstone|repeater:c3945|buffer[0] ; 0.326             ;
+; redstone:redstone|repeater:c6806|buffer[0] ; redstone:redstone|repeater:c6805|buffer[0] ; 0.324             ;
+; redstone:redstone|repeater:c6366|buffer[0] ; redstone:redstone|repeater:c6365|buffer[0] ; 0.324             ;
+; redstone:redstone|repeater:c6146|buffer[0] ; redstone:redstone|repeater:c6145|buffer[0] ; 0.324             ;
+; redstone:redstone|repeater:c5924|buffer[0] ; redstone:redstone|repeater:c5925|buffer[0] ; 0.324             ;
+; redstone:redstone|repeater:c3066|buffer[0] ; redstone:redstone|repeater:c3065|buffer[0] ; 0.324             ;
+; redstone:redstone|repeater:c2846|buffer[0] ; redstone:redstone|repeater:c2845|buffer[0] ; 0.324             ;
+; redstone:redstone|repeater:c2406|buffer[0] ; redstone:redstone|repeater:c2405|buffer[0] ; 0.324             ;
+; redstone:redstone|repeater:c2186|buffer[0] ; redstone:redstone|repeater:c2185|buffer[0] ; 0.324             ;
+; redstone:redstone|repeater:c5266|buffer[0] ; redstone:redstone|repeater:c5265|buffer[0] ; 0.323             ;
+; redstone:redstone|repeater:c1526|buffer[0] ; redstone:redstone|repeater:c1525|buffer[0] ; 0.322             ;
+; redstone:redstone|repeater:c5926|buffer[0] ; redstone:redstone|repeater:c5925|buffer[0] ; 0.322             ;
+; redstone:redstone|repeater:c2625|buffer[0] ; redstone:redstone|repeater:c2626|buffer[0] ; 0.320             ;
+; redstone:redstone|repeater:c5706|buffer[0] ; redstone:redstone|repeater:c5705|buffer[0] ; 0.320             ;
+; redstone:redstone|repeater:c865|buffer[0]  ; redstone:redstone|repeater:c866|buffer[0]  ; 0.320             ;
+; redstone:redstone|repeater:c645|buffer[0]  ; redstone:redstone|repeater:c646|buffer[0]  ; 0.320             ;
+; redstone:redstone|repeater:c425|buffer[0]  ; redstone:redstone|repeater:c426|buffer[0]  ; 0.320             ;
+; redstone:redstone|repeater:c1305|buffer[0] ; redstone:redstone|repeater:c1306|buffer[0] ; 0.320             ;
+; redstone:redstone|repeater:c4257|buffer[0] ; redstone:redstone|repeater:c5046|buffer[0] ; 0.318             ;
+; redstone:redstone|repeater:c6237|buffer[0] ; redstone:redstone|repeater:c7026|buffer[0] ; 0.318             ;
+; redstone:redstone|repeater:c4825|buffer[0] ; redstone:redstone|repeater:c4826|buffer[0] ; 0.316             ;
++--------------------------------------------+--------------------------------------------+-------------------+
+Note: This table only shows the top 100 path(s) that have the largest delay added for hold.
 
 
 +-----------------+
@@ -1787,16 +2084,16 @@ Note: This table only shows the top 3 path(s) that have the largest delay added 
 +-----------------+
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
-Info (119006): Selected device 5CSEMA5F31C6 for design "FPGA-MCHPRS"
-Info (21077): Low junction temperature is 0 degrees C
-Info (21077): High junction temperature is 85 degrees C
+Info (119006): Selected device 5CSEMA5F31A7 for design "FPGA-MCHPRS"
+Info (21077): Low junction temperature is -40 degrees C
+Info (21077): High junction temperature is 125 degrees C
 Warning (21300): LOCKED port on the PLL is not properly connected on instance "fclk:fclk|fclk_0002:fclk_inst|altera_pll:altera_pll_i|general[0].gpll". The LOCKED port on the PLL should be connected when the FBOUTCLK port is connected. Although it is unnecessary to connect the LOCKED signal, any logic driven off of an output clock of the PLL will not know when the PLL is locked and ready.
 Info (171003): Fitter is performing an Auto Fit compilation, which may decrease Fitter effort to reduce compilation time
 Warning (292013): Feature LogicLock is only available with a valid subscription license. You can purchase a software subscription to gain full access to this feature.
 Warning (15714): Some pins have incomplete I/O assignments. Refer to the I/O Assignment Warnings report for details
 Info (184020): Starting Fitter periphery placement operations
 Info (11178): Promoted 1 clock (1 global)
-    Info (11162): fclk:fclk|fclk_0002:fclk_inst|altera_pll:altera_pll_i|outclk_wire[0]~CLKENA0 with 3 fanout uses global clock CLKCTRL_G6
+    Info (11162): fclk:fclk|fclk_0002:fclk_inst|altera_pll:altera_pll_i|outclk_wire[0]~CLKENA0 with 142 fanout uses global clock CLKCTRL_G6
 Info (184021): Fitter periphery placement operations ending: elapsed time is 00:00:00
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'FPGA-MCHPRS.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332144): No user constrained generated clocks found in the design
@@ -1814,7 +2111,7 @@ Info (176235): Finished register packing
     Extra Info (176219): No registers were packed into other blocks
 Info (128000): Starting physical synthesis optimizations for speed
 Info (128002): Starting physical synthesis algorithm combinational resynthesis using boolean division
-Info (128003): Physical synthesis algorithm combinational resynthesis using boolean division complete: estimated slack improvement of 0 ps
+Info (128003): Physical synthesis algorithm combinational resynthesis using boolean division complete: estimated slack improvement of 947 ps
 Info (128002): Starting physical synthesis algorithm combinational resynthesis using boolean division
 Info (128003): Physical synthesis algorithm combinational resynthesis using boolean division complete: estimated slack improvement of 0 ps
 Info (128001): Physical synthesis optimizations for speed complete: elapsed time is 00:00:00
@@ -1824,29 +2121,28 @@ Info (176235): Finished register packing
 Info (11798): Fitter preparation operations ending: elapsed time is 00:00:07
 Info (170189): Fitter placement preparation operations beginning
 Info (14951): The Fitter is using Advanced Physical Optimization.
-Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:15
+Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:04
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
 Info (170192): Fitter placement operations ending: elapsed time is 00:00:02
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 0% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 0% of the available device resources in the region that extends from location X22_Y0 to location X32_Y10
+    Info (170196): Router estimated peak interconnect usage is 0% of the available device resources in the region that extends from location X33_Y0 to location X44_Y10
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-    Info (170200): Optimizations that may affect the design's timing were skipped
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
-Info (11888): Total time spent on timing analysis during the Fitter is 0.29 seconds.
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:02
+Info (11888): Total time spent on timing analysis during the Fitter is 0.37 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:01
+Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:03
 Info (144001): Generated suppressed messages file C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/FPGA-MCHPRS.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 7351 megabytes
-    Info: Processing ended: Mon Dec  2 21:45:42 2024
-    Info: Elapsed time: 00:00:36
-    Info: Total CPU time (on all processors): 00:01:05
+    Info: Peak virtual memory: 7368 megabytes
+    Info: Processing ended: Sat Dec 28 15:38:12 2024
+    Info: Elapsed time: 00:00:33
+    Info: Total CPU time (on all processors): 00:01:01
 
 
 +----------------------------+

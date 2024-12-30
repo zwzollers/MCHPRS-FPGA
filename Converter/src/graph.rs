@@ -208,6 +208,12 @@ impl Node
         {
             // get next redstone data
             let (redstone_pos, weight) = redstone.pop_back().unwrap();
+
+            if weight >= 15
+            {
+                continue;
+            }
+            
             // list of offsets that the redstone is redirected to
             let mut redstone_connections: Vec<[i32; 3]> = Vec::new();
             // list of solid blocks that the redstone is soft powering
@@ -490,9 +496,9 @@ impl Pos
     {
         Pos::from_index(idx, size).get_relative_index(offset, size)
     }
-    pub fn to_string(&self) -> String
+    pub fn to_string(&self, size: &Size) -> String
     {
-        format!("{}{}{}", self.x, self.y, self.z)
+        format!("{}", self.to_index(size))
     }
 }
 

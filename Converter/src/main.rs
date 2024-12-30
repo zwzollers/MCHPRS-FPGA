@@ -1,5 +1,9 @@
 
 use std::time::Instant;
+use std::fs::File;
+use std::io::prelude::*;
+use std::process::{Command, Stdio};
+use std::io::{BufRead, BufReader, Error, ErrorKind};
 
 mod items;
 mod schem;
@@ -8,10 +12,10 @@ mod assembler;
 
 fn main() 
 {
-    let mut total = Instant::now();
+    let total = Instant::now();
     let mut start = Instant::now();
-    //let schem = schem::SchemData::from_file("./test_schems/test13_reg.schem");
-    let schem = schem::SchemData::from_file("./test_schems/c4AI1.schem");
+    let schem = schem::SchemData::from_file("./test_schems/counter2.schem");
+    //let schem = schem::SchemData::from_file("./test_schems/c4AI1.schem");
 
     println!("Loading Schem Took: {:?}", start.elapsed());
 
@@ -36,10 +40,44 @@ fn main()
 
     //println!("{graph:#?}");
 
+    let mut file = File::create("graph_out.txt").unwrap();
+    let _ = file.write_all(format!("{graph:#?}").as_bytes());
+
     start = Instant::now();
-    assembler::generate_verilog(&graph, "./../Quartus/Verilog/redstone.v");
+    assembler::generate_verilog(&graph, "./../Quartus/Verilog/redstone.v", &r_schem.size);
 
     println!("Generating Verilog Took: {:?}\n", start.elapsed());
 
     println!("Total Compilation Time: {:?}", total.elapsed());
+
+
+    let stdout = Command::new("cmd")
+        .args(&["/C", "compile"])
+        .stdout(Stdio::piped())
+        .spawn().unwrap()
+        .stdout
+        .ok_or_else(|| Error::new(ErrorKind::Other,"Could not capture standard output.")).unwrap();
+
+    let reader = BufReader::new(stdout);
+    
+    reader
+        .lines()
+        .filter_map(|line| line.ok())
+        .for_each(|line| println!("{}", line));
+
+
+    let stdout = Command::new("cmd")
+        .args(&["/C", "program"])
+        .stdout(Stdio::piped())
+        .spawn().unwrap()
+        .stdout
+        .ok_or_else(|| Error::new(ErrorKind::Other,"Could not capture standard output.")).unwrap();
+
+    let reader = BufReader::new(stdout);
+    
+    reader
+        .lines()
+        .filter_map(|line| line.ok())
+        .for_each(|line| println!("{}", line));
+
 }

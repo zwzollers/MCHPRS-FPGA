@@ -29,9 +29,13 @@ module repeater (i_clk, i_in, i_lock, o_out);
 		end
 		
 		else if (lock_out == 1 && t == 1) begin
-			assign o_out = i_in;
+			assign o_out = buffer[t-1] | i_in;
+			always @(posedge i_clk) begin
+				buffer = i_in;
+			end
 		end
 		
+		//fix
 		else if (lock_out == 1 && t > 1) begin
 			assign o_out = buffer[t-2] | (buffer[t-1] & i_in);
 			always @(posedge i_clk) begin
@@ -50,9 +54,9 @@ module repeater (i_clk, i_in, i_lock, o_out);
 			assign o_out = buffer[t-1];
 			always @(posedge i_clk) begin
 				if (i_lock)
-					buffer = {buffer[t-2:0] | {t-1{buffer[t-1] & i_in}}, i_in | (~buffer[t-1] & buffer[0])};
-				else
 					buffer = {t{buffer[t-1]}};
+				else
+					buffer = {buffer[t-2:0] | {t-1{buffer[t-1] & i_in}}, i_in | (~buffer[t-1] & buffer[0])};
 			end
 		end
 	endgenerate

@@ -9,6 +9,7 @@ mod items;
 mod schem;
 mod graph;
 mod assembler;
+mod LUT;
 
 fn main() 
 {

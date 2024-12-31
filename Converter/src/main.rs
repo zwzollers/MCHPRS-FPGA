@@ -2,6 +2,7 @@
 use std::time::Instant;
 use std::fs::File;
 use std::io::prelude::*;
+use serialport;
 use std::process::{Command, Stdio};
 use std::io::{BufRead, BufReader, Error, ErrorKind};
 
@@ -47,38 +48,38 @@ fn main()
     start = Instant::now();
     assembler::generate_verilog(&graph, "./../Quartus/Verilog/redstone.v", &r_schem.size);
 
-    println!("Generating Verilog Took: {:?}\n", start.elapsed());
+    // println!("Generating Verilog Took: {:?}\n", start.elapsed());
 
-    println!("Total Compilation Time: {:?}", total.elapsed());
+    // println!("Total Compilation Time: {:?}", total.elapsed());
 
 
-    let stdout = Command::new("cmd")
-        .args(&["/C", "compile"])
-        .stdout(Stdio::piped())
-        .spawn().unwrap()
-        .stdout
-        .ok_or_else(|| Error::new(ErrorKind::Other,"Could not capture standard output.")).unwrap();
+    // let stdout = Command::new("cmd")
+    //     .args(&["/C", "compile"])
+    //     .stdout(Stdio::piped())
+    //     .spawn().unwrap()
+    //     .stdout
+    //     .ok_or_else(|| Error::new(ErrorKind::Other,"Could not capture standard output.")).unwrap();
 
-    let reader = BufReader::new(stdout);
+    // let reader = BufReader::new(stdout);
     
-    reader
-        .lines()
-        .filter_map(|line| line.ok())
-        .for_each(|line| println!("{}", line));
+    // reader
+    //     .lines()
+    //     .filter_map(|line| line.ok())
+    //     .for_each(|line| println!("{}", line));
 
 
-    let stdout = Command::new("cmd")
-        .args(&["/C", "program"])
-        .stdout(Stdio::piped())
-        .spawn().unwrap()
-        .stdout
-        .ok_or_else(|| Error::new(ErrorKind::Other,"Could not capture standard output.")).unwrap();
+    // let stdout = Command::new("cmd")
+    //     .args(&["/C", "program"])
+    //     .stdout(Stdio::piped())
+    //     .spawn().unwrap()
+    //     .stdout
+    //     .ok_or_else(|| Error::new(ErrorKind::Other,"Could not capture standard output.")).unwrap();
 
-    let reader = BufReader::new(stdout);
+    // let reader = BufReader::new(stdout);
     
-    reader
-        .lines()
-        .filter_map(|line| line.ok())
-        .for_each(|line| println!("{}", line));
+    // reader
+    //     .lines()
+    //     .filter_map(|line| line.ok())
+    //     .for_each(|line| println!("{}", line));
 
 }

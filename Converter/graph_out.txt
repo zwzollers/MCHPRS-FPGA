@@ -10283,4 +10283,5 @@ Graph {
             outputs: [],
         },
     ],
+    luts: [],
 }

@@ -29,8 +29,9 @@
         "stack_size" : 64,
         "block_type" : "lamp"
     },
-    "minecraft:redstone": {
-        "stack_size" : 64
+    "minecraft:redstone_block": {
+        "stack_size" : 64,
+        "block_type" : "redblock"
     },
     "minecraft:barrel": {
         "stack_size" : 64,

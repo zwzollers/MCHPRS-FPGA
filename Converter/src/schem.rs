@@ -95,11 +95,13 @@ pub enum RBlock
     SContainer{ss: u8},
     TContainer{ss: u8},
     Redstone,
+    RedBlock,
     Repeater{delay: u8, dir: Direction, state: bool},
     Comparator{mode: CompMode,  dir: Direction, state: u8},
     Torch{dir: Direction, state: bool},
     Lever{dir: Direction, state: bool},
-    Lamp
+    Lamp,
+    HexLamp
 }
 
 impl RBlock
@@ -132,7 +134,19 @@ impl RBlock
                          ss: entity.unwrap()["ss"].as_number() as u8 },
                     "t_container" =>RBlock::TContainer {
                          ss: entity.unwrap()["ss"].as_number() as u8 },
-                    "redstone" =>RBlock::Redstone,
+                    "redstone" =>
+                    {
+                        let none = AttributeValueType::String("none");
+                        if p["north"] == none && p["east"] == none && p["south"] == none && p["west"] == none
+                        {
+                            RBlock::HexLamp
+                        }
+                        else 
+                        {
+                            RBlock::Redstone
+                        }
+                    }
+                    "redblock" =>RBlock::RedBlock,
                     "repeater" =>RBlock::Repeater { 
                         delay: p["delay"].as_number() as u8, 
                         dir: Direction::from_str(p["facing"].as_string(), None, true), 
@@ -151,6 +165,7 @@ impl RBlock
                         dir: Direction::from_str(p["facing"].as_string(), Some(p["face"].as_string()), true),
                         state: p["powered"].as_string() == "true"},
                     "lamp" =>RBlock::Lamp,
+                    "hex_lamp" =>RBlock::HexLamp,
                     _ => RBlock::Air
                 }
             }

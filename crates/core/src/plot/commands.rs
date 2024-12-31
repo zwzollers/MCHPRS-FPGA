@@ -403,6 +403,20 @@ impl Plot {
                 let command = args.remove(0);
                 self.handle_redpiler_command(player, command, &args);
             }
+            "roc" | "fpga" => {
+                if args.is_empty() {
+                    self.players[player].send_error_message("Invalid number of arguments!");
+                    return false;
+                }
+                let command = args.remove(0);
+
+                match command {
+                    "compile" | "c" => {
+                        println!("starting RoC compilation");
+                    }
+                    _ => self.players[player].send_error_message("Invalid argument for /roc")
+                }
+            }
             "speed" => {
                 if args.len() != 1 {
                     self.players[player].send_error_message("/speed <0-10>");
@@ -513,6 +527,19 @@ impl Plot {
                 self.players[player]
                     .send_system_message("The world send rate was successfully set.");
             }
+            // "place" => {
+            //     if args.len() != 1 {
+            //         self.players[player].send_error_message("Usage: /place <block_id>");
+            //         return false;
+            //     }
+
+            //     let Ok(id) = args[0].parse::<u32>() else {
+            //         self.players[player].send_error_message("Unable to parse send rate!");
+            //         return false;
+            //     };
+
+            //     mchprs_world::World::set_block(&mut self.world, mchprs_blocks::BlockPos{x: 130, y: 11, z: 130}, mchprs_blocks::blocks::Block::from_id(id));
+            // }
             _ => self.players[player].send_error_message("Command not found!"),
         }
         false

@@ -35,6 +35,7 @@ pub trait World {
     /// Returns true if the block was changed.
     fn set_block(&mut self, pos: BlockPos, block: Block) -> bool {
         let block_id = Block::get_id(block);
+        //println!("Placing Block {block_id}");
         self.set_block_raw(pos, block_id)
     }
 

@@ -1,0 +1,54 @@
+[workspace]
+members = ["crates/proc_macros", "crates/redpiler_graph"]
+
+[package]
+name = "mchprs"
+authors.workspace = true
+description.workspace = true
+edition.workspace = true
+homepage.workspace = true
+keywords.workspace = true
+readme.workspace = true
+version.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[workspace.package]
+authors = ["StackDoubleFlow <ojaslandge@gmail.com>"]
+description = "A multithreaded minecraft server built for redstone."
+edition = "2021"
+homepage = "https://github.com/MCHPR/MCHPRS"
+keywords = ["minecraft", "server", "redstone"]
+readme = "README.md"
+version = "0.4.1"
+license = "MIT"
+repository = "https://github.com/MCHPR/MCHPRS"
+
+include = [
+    "**/*.rs",
+    "Cargo.toml",
+]
+
+[profile.dev]
+# MCHPRS runs far too slow without any optimizations to even be usable for testing
+opt-level = 1
+
+[profile.release]
+# This seems to speed up Redpiler compile times
+lto = "fat"
+
+[dependencies]
+mchprs_core = { path = "./crates/core" }
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+tracing-appender = "0.2"
+tracing = "0.1"
+
+[dev-dependencies]
+mchprs_world ={ path = "./crates/world" }
+mchprs_blocks ={ path = "./crates/blocks" }
+mchprs_redpiler ={ path = "./crates/redpiler" }
+mchprs_redstone = { path = "./crates/redstone" }
+paste = "1.0"
+
+[patch.crates-io]
+hematite-nbt = { git = "https://github.com/StackDoubleFlow/hematite_nbt" }

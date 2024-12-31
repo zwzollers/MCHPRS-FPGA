@@ -1,0 +1,72 @@
+name: Build
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        target:
+          - x86_64-unknown-linux-gnu
+          - x86_64-pc-windows-msvc
+          - x86_64-apple-darwin
+          - aarch64-apple-darwin
+        include:
+          - target: x86_64-unknown-linux-gnu
+            os: ubuntu-latest
+          - target: x86_64-pc-windows-msvc
+            os: windows-latest
+            ext: .exe
+          - target: x86_64-apple-darwin
+            os: macos-latest
+          - target: aarch64-apple-darwin
+            os: macos-latest
+      fail-fast: false
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        target: ${{ matrix.target }}
+        profile: minimal
+    - uses: Swatinem/rust-cache@v2
+      with:
+        key: ${{ matrix.target }}
+
+    - name: Build
+      uses: actions-rs/cargo@v1
+      with:
+        command: build
+        args: --release --target ${{ matrix.target }}
+
+    - name: Upload
+      uses: actions/upload-artifact@v4
+      with:
+        name: mchprs-${{ matrix.target }}
+        path: target/${{ matrix.target }}/release/mchprs${{ matrix.ext }}
+
+  build-macos-universal:
+    needs: build
+    runs-on: macos-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: mchprs-x86_64-apple-darwin
+          path: x86_64
+      - uses: actions/download-artifact@v4
+        with:
+          name: mchprs-aarch64-apple-darwin
+          path: aarch64
+
+      - name: Build
+        run: lipo -create -output mchprs x86_64/mchprs aarch64/mchprs
+
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: mchprs-universal-apple-darwin
+          path: mchprs

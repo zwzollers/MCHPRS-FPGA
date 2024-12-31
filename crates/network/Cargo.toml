@@ -1,0 +1,22 @@
+[package]
+name = "mchprs_network"
+authors.workspace = true
+description.workspace = true
+edition.workspace = true
+homepage.workspace = true
+keywords.workspace = true
+readme.workspace = true
+version.workspace = true
+license.workspace = true
+repository.workspace = true
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+hematite-nbt = "0.5"
+flate2 = "1"
+serde = "1"
+byteorder = "1.4"
+tracing = "0.1"
+bitvec = "1"
+mchprs_text = { path = "../text" }

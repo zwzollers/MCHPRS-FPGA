@@ -1,0 +1,18 @@
+[package]
+name = "mchprs_proc_macros"
+authors.workspace = true
+description.workspace = true
+edition.workspace = true
+homepage.workspace = true
+keywords.workspace = true
+readme.workspace = true
+version.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[lib]
+proc-macro = true
+
+[dependencies]
+syn = { version = "1", features = ["full", "extra-traits"] }
+quote = "1"

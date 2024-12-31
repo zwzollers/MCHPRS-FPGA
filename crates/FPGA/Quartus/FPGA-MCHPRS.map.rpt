@@ -1,0 +1,457 @@
+Analysis & Synthesis report for FPGA-MCHPRS
+Tue Dec 31 00:29:36 2024
+Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |top|uart_transmit:transmitter|state
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Source assignments for Top-level Entity: |top
+ 14. Parameter Settings for User Entity Instance: clk_div:refresh_clk
+ 15. Parameter Settings for User Entity Instance: clk_div:baud_clk
+ 16. Parameter Settings for User Entity Instance: uart_transmit:transmitter
+ 17. Post-Synthesis Netlist Statistics for Top Partition
+ 18. Elapsed Time Per Partition
+ 19. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2024  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++---------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Tue Dec 31 00:29:36 2024          ;
+; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
+; Revision Name                   ; FPGA-MCHPRS                                    ;
+; Top-level Entity Name           ; top                                            ;
+; Family                          ; Cyclone V                                      ;
+; Logic utilization (in ALMs)     ; N/A                                            ;
+; Total registers                 ; 44                                             ;
+; Total pins                      ; 27                                             ;
+; Total virtual pins              ; 0                                              ;
+; Total block memory bits         ; 0                                              ;
+; Total DSP Blocks                ; 0                                              ;
+; Total HSSI RX PCSs              ; 0                                              ;
+; Total HSSI PMA RX Deserializers ; 0                                              ;
+; Total HSSI TX PCSs              ; 0                                              ;
+; Total HSSI PMA TX Serializers   ; 0                                              ;
+; Total PLLs                      ; 0                                              ;
+; Total DLLs                      ; 0                                              ;
++---------------------------------+------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31A7       ;                    ;
+; Top-level entity name                                                           ; top                ; FPGA-MCHPRS        ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Optimization Technique                                                          ; Area               ; Balanced           ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 12          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 12          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-12        ;   0.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                          ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                            ; Library ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------+---------+
+; Verilog/uart.v                   ; yes             ; User Verilog HDL File  ; C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/Verilog/uart.v    ;         ;
+; Verilog/top.v                    ; yes             ; User Verilog HDL File  ; C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v     ;         ;
+; Verilog/clk_div.v                ; yes             ; User Verilog HDL File  ; C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/Verilog/clk_div.v ;         ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------+---------+
+
+
++------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                      ;
++---------------------------------------------+--------------------+
+; Resource                                    ; Usage              ;
++---------------------------------------------+--------------------+
+; Estimate of Logic utilization (ALMs needed) ; 33                 ;
+;                                             ;                    ;
+; Combinational ALUT usage for logic          ; 58                 ;
+;     -- 7 input functions                    ; 2                  ;
+;     -- 6 input functions                    ; 5                  ;
+;     -- 5 input functions                    ; 7                  ;
+;     -- 4 input functions                    ; 6                  ;
+;     -- <=3 input functions                  ; 38                 ;
+;                                             ;                    ;
+; Dedicated logic registers                   ; 44                 ;
+;                                             ;                    ;
+; I/O pins                                    ; 27                 ;
+;                                             ;                    ;
+; Total DSP Blocks                            ; 0                  ;
+;                                             ;                    ;
+; Maximum fan-out node                        ; i_buttons[0]~input ;
+; Maximum fan-out                             ; 44                 ;
+; Total fan-out                               ; 370                ;
+; Average fan-out                             ; 2.37               ;
++---------------------------------------------+--------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                     ;
++--------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------+---------------+--------------+
+; Compilation Hierarchy Node     ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name            ; Entity Name   ; Library Name ;
++--------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------+---------------+--------------+
+; |top                           ; 58 (0)              ; 44 (0)                    ; 0                 ; 0          ; 27   ; 0            ; |top                           ; top           ; work         ;
+;    |clk_div:baud_clk|          ; 16 (16)             ; 13 (13)                   ; 0                 ; 0          ; 0    ; 0            ; |top|clk_div:baud_clk          ; clk_div       ; work         ;
+;    |clk_div:refresh_clk|       ; 28 (28)             ; 22 (22)                   ; 0                 ; 0          ; 0    ; 0            ; |top|clk_div:refresh_clk       ; clk_div       ; work         ;
+;    |uart_transmit:transmitter| ; 14 (14)             ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |top|uart_transmit:transmitter ; uart_transmit ; work         ;
++--------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------+---------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------+
+; State Machine - |top|uart_transmit:transmitter|state                      ;
++---------------+-------------+--------------+---------------+--------------+
+; Name          ; state.s_end ; state.s_data ; state.s_start ; state.s_idle ;
++---------------+-------------+--------------+---------------+--------------+
+; state.s_idle  ; 0           ; 0            ; 0             ; 0            ;
+; state.s_start ; 0           ; 0            ; 1             ; 1            ;
+; state.s_data  ; 0           ; 1            ; 0             ; 1            ;
+; state.s_end   ; 1           ; 0            ; 0             ; 1            ;
++---------------+-------------+--------------+---------------+--------------+
+
+
++------------------------------------------------------------+
+; Registers Removed During Synthesis                         ;
++---------------------------------------+--------------------+
+; Register name                         ; Reason for Removal ;
++---------------------------------------+--------------------+
+; uart_transmit:transmitter|state~8     ; Lost fanout        ;
+; uart_transmit:transmitter|state~9     ; Lost fanout        ;
+; Total Number of Removed Registers = 2 ;                    ;
++---------------------------------------+--------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 44    ;
+; Number of registers using Synchronous Clear  ; 33    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 44    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; uart_transmit:transmitter|tx           ; 2       ;
+; Total number of inverted registers = 1 ;         ;
++----------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------+
+; 7:1                ; 4 bits    ; 16 LEs        ; 12 LEs               ; 4 LEs                  ; No         ; |top|uart_transmit:transmitter|Selector0 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------+
+
+
++-----------------------------------------------+
+; Source assignments for Top-level Entity: |top ;
++------------+----------+------+----------------+
+; Assignment ; Value    ; From ; To             ;
++------------+----------+------+----------------+
+; LOCATION   ; Pin_Y21  ; -    ; o_LEDs[9]      ;
+; LOCATION   ; Pin_W21  ; -    ; o_LEDs[8]      ;
+; LOCATION   ; Pin_W20  ; -    ; o_LEDs[7]      ;
+; LOCATION   ; Pin_Y19  ; -    ; o_LEDs[6]      ;
+; LOCATION   ; Pin_W19  ; -    ; o_LEDs[5]      ;
+; LOCATION   ; Pin_W17  ; -    ; o_LEDs[4]      ;
+; LOCATION   ; Pin_V18  ; -    ; o_LEDs[3]      ;
+; LOCATION   ; Pin_V17  ; -    ; o_LEDs[2]      ;
+; LOCATION   ; Pin_W16  ; -    ; o_LEDs[1]      ;
+; LOCATION   ; Pin_V16  ; -    ; o_LEDs[0]      ;
+; LOCATION   ; Pin_AF14 ; -    ; i_clk          ;
++------------+----------+------+----------------+
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: clk_div:refresh_clk ;
++----------------+---------+---------------------------------------+
+; Parameter Name ; Value   ; Type                                  ;
++----------------+---------+---------------------------------------+
+; n              ; 21      ; Signed Integer                        ;
+; limit          ; 1250000 ; Signed Integer                        ;
++----------------+---------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: clk_div:baud_clk ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; n              ; 12    ; Signed Integer                       ;
+; limit          ; 9     ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: uart_transmit:transmitter ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; data_bits      ; 1000  ; Unsigned Binary                               ;
+; s_idle         ; 00    ; Unsigned Binary                               ;
+; s_start        ; 01    ; Unsigned Binary                               ;
+; s_data         ; 10    ; Unsigned Binary                               ;
+; s_end          ; 11    ; Unsigned Binary                               ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 44                          ;
+;     CLR               ; 11                          ;
+;     CLR SCLR          ; 33                          ;
+; arriav_lcell_comb     ; 60                          ;
+;     arith             ; 33                          ;
+;         1 data inputs ; 33                          ;
+;     extend            ; 2                           ;
+;         7 data inputs ; 2                           ;
+;     normal            ; 25                          ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 5                           ;
+;         4 data inputs ; 6                           ;
+;         5 data inputs ; 7                           ;
+;         6 data inputs ; 5                           ;
+; boundary_port         ; 27                          ;
+;                       ;                             ;
+; Max LUT depth         ; 4.00                        ;
+; Average LUT depth     ; 2.43                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+    Info: Processing started: Tue Dec 31 00:29:30 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FPGA-MCHPRS -c FPGA-MCHPRS
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file verilog/uart.v
+    Info (12023): Found entity 1: uart_transmit File: C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/Verilog/uart.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file verilog/redstone.v
+    Info (12023): Found entity 1: redstone File: C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/Verilog/redstone.v Line: 1
+Info (12021): Found 2 design units, including 2 entities, in source file verilog/components.v
+    Info (12023): Found entity 1: repeater File: C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/Verilog/components.v Line: 1
+    Info (12023): Found entity 2: torch File: C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/Verilog/components.v Line: 65
+Info (12021): Found 1 design units, including 1 entities, in source file verilog/sevseg_dec.v
+    Info (12023): Found entity 1: sevseg_dec File: C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/Verilog/sevseg_dec.v Line: 7
+Info (12021): Found 1 design units, including 1 entities, in source file verilog/top.v
+    Info (12023): Found entity 1: top File: C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file verilog/clk_div.v
+    Info (12023): Found entity 1: clk_div File: C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/Verilog/clk_div.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file fclk.v
+    Info (12023): Found entity 1: fclk File: C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/fclk.v Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file fclk/fclk_0002.v
+    Info (12023): Found entity 1: fclk_0002 File: C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/fclk/fclk_0002.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file ramtest.v
+    Info (12023): Found entity 1: ramtest File: C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/ramtest.v Line: 40
+Info (12127): Elaborating entity "top" for the top level hierarchy
+Warning (10306): Invalid value "1" for synthesis attribute "chip_pin" at Verilog/top.v(6) File: C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 6
+Warning (10306): Invalid value "1" for synthesis attribute "chip_pin" at Verilog/top.v(7) File: C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 7
+Warning (10034): Output port "o_LEDs" at top.v(5) has no driver File: C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 5
+Warning (10021): Ignored chip_pin synthesis attribute for port "i_switches" because the synthesis attribute's pin assignment list contains 1 assignment(s), which does not match port width of 10 bit(s) File: C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 3
+Warning (10021): Ignored chip_pin synthesis attribute for port "i_buttons" because the synthesis attribute's pin assignment list contains 1 assignment(s), which does not match port width of 4 bit(s) File: C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 4
+Info (12128): Elaborating entity "clk_div" for hierarchy "clk_div:refresh_clk" File: C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 12
+Warning (10230): Verilog HDL assignment warning at clk_div.v(29): truncated value with size 32 to match size of target (21) File: C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/Verilog/clk_div.v Line: 29
+Info (12128): Elaborating entity "clk_div" for hierarchy "clk_div:baud_clk" File: C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 16
+Warning (10230): Verilog HDL assignment warning at clk_div.v(29): truncated value with size 32 to match size of target (12) File: C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/Verilog/clk_div.v Line: 29
+Info (12128): Elaborating entity "uart_transmit" for hierarchy "uart_transmit:transmitter" File: C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 22
+Info (13014): Ignored 10 buffer(s)
+    Info (13019): Ignored 10 SOFT buffer(s)
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "o_LEDs[0]" is stuck at GND File: C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 5
+    Warning (13410): Pin "o_LEDs[1]" is stuck at GND File: C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 5
+    Warning (13410): Pin "o_LEDs[2]" is stuck at GND File: C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 5
+    Warning (13410): Pin "o_LEDs[3]" is stuck at GND File: C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 5
+    Warning (13410): Pin "o_LEDs[4]" is stuck at GND File: C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 5
+    Warning (13410): Pin "o_LEDs[5]" is stuck at GND File: C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 5
+    Warning (13410): Pin "o_LEDs[6]" is stuck at GND File: C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 5
+    Warning (13410): Pin "o_LEDs[7]" is stuck at GND File: C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 5
+    Warning (13410): Pin "o_LEDs[8]" is stuck at GND File: C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 5
+    Warning (13410): Pin "o_LEDs[9]" is stuck at GND File: C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 5
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 2 registers lost all their fanouts during netlist optimizations.
+Warning (20013): Ignored 16 assignments for entity "fclk" -- entity does not exist in design
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_NAME altera_pll -entity fclk -sip fclk.sip -library lib_fclk was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_VERSION 23.1 -entity fclk -sip fclk.sip -library lib_fclk was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_ENV mwpim -entity fclk -sip fclk.sip -library lib_fclk was ignored
+Warning (20013): Ignored 317 assignments for entity "fclk_0002" -- entity does not exist in design
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 6 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "i_switches[8]" File: C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 3
+    Warning (15610): No output dependent on input pin "i_switches[9]" File: C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 3
+    Warning (15610): No output dependent on input pin "i_buttons[1]" File: C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 4
+    Warning (15610): No output dependent on input pin "i_buttons[2]" File: C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 4
+    Warning (15610): No output dependent on input pin "i_buttons[3]" File: C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 4
+    Warning (15610): No output dependent on input pin "i_RX" File: C:/Users/zwzol/Documents/Code/GIT/MCHPRS-FPGA/Quartus/Verilog/top.v Line: 6
+Info (21057): Implemented 85 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 16 input pins
+    Info (21059): Implemented 11 output pins
+    Info (21061): Implemented 58 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 31 warnings
+    Info: Peak virtual memory: 4871 megabytes
+    Info: Processing ended: Tue Dec 31 00:29:36 2024
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:07
+
+

@@ -14,7 +14,6 @@ use crate::server::{BroadcastMessage, Message, PrivMessage};
 use crate::utils::HyphenatedUUID;
 use anyhow::Error;
 use bus::BusReader;
-use fpga_interface::serial;
 use mchprs_blocks::block_entities::BlockEntity;
 use mchprs_blocks::blocks::Block;
 use mchprs_blocks::items::Item;
@@ -22,7 +21,7 @@ use mchprs_blocks::{BlockFace, BlockPos};
 use mchprs_network::packets::clientbound::*;
 use mchprs_network::packets::serverbound::SUseItemOn;
 use mchprs_network::PlayerPacketSender;
-use mchprs_redpiler::{Compiler, CompilerOptions};
+use mchprs_redpiler::{BackendVariant, Compiler, CompilerOptions};
 use mchprs_save_data::plot_data::{ChunkData, PlotData, Tps, WorldSendRate};
 use mchprs_text::TextComponent;
 use mchprs_world::storage::Chunk;
@@ -688,6 +687,7 @@ impl Plot {
             });
             while !handle.is_finished() {
                 // We'll update the players so that they don't time out.
+                println!("updated");
                 for player_idx in 0..self.players.len() {
                     if self.players[player_idx].update() {
                         // Unforunately we can't update a players view position
@@ -1049,18 +1049,6 @@ impl Plot {
                 self.running = false;
                 self.timings.stop();
             }
-        }
-
-        match serial::read_serial()
-        {
-            Some(d) =>
-            {
-                for i in 0..=7
-                {
-                    mchprs_world::World::set_block(&mut self.world, mchprs_blocks::BlockPos{x: 130+i, y: 11, z: 130}, mchprs_blocks::blocks::Block::from_id(7418-(((d >> i) as u32)&0x1_u32)));
-                }   
-            }
-            None => ()
         }
 
         self.update_players();

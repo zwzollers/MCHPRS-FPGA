@@ -1,7 +1,0 @@
-
-State Machine - |top|uart_transmit:transmitter|state
-Name state.s_end state.s_data state.s_start state.s_idle 
-state.s_idle 0 0 0 0 
-state.s_start 0 0 1 1 
-state.s_data 0 1 0 1 
-state.s_end 1 0 0 1 

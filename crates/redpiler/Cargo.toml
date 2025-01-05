@@ -17,3 +17,5 @@ mchprs_blocks = { path = "../blocks" }
 mchprs_world = { path = "../world" }
 mchprs_redstone = { path = "../redstone" }
 redpiler_graph = { path = "../redpiler_graph" }
+fpga_interface = {path = "../FPGA" }
+serialport = "4.6.1"

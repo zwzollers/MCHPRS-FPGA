@@ -1,3 +1,0 @@
-Multicorner Timing Analysis Total Negative Slack: Setup
-Exploration Point,clk_div:divider|count[27],fclk|fclk_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk
-dse1_base,-5.304,-5.863

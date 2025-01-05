@@ -22,7 +22,7 @@ pub fn convert_compile(file: String, outputs: &mut Vec<BlockPos>, inputs: &mut V
     //let schem = schem::SchemData::from_file("./test_schems/c4AI1.schem");
 
     println!("Loading Schem Took: {:?}", start.elapsed());
-
+ 
     //println!("{schem:#?}");
     
     start = Instant::now();

@@ -1,0 +1,1976 @@
+|top
+i_clk => comb.DATAIN
+i_switches[0] => comb.DATAIN
+i_switches[1] => comb.DATAIN
+i_switches[2] => comb.DATAIN
+i_switches[3] => comb.DATAIN
+i_switches[4] => comb.DATAIN
+i_switches[5] => comb.DATAIN
+i_switches[6] => comb.DATAIN
+i_switches[7] => comb.DATAIN
+i_switches[8] => comb.DATAIN
+i_switches[9] => comb.DATAIN
+i_buttons[0] => comb.DATAIN
+i_buttons[1] => ~NO_FANOUT~
+i_buttons[2] => ~NO_FANOUT~
+i_buttons[3] => ~NO_FANOUT~
+o_LEDs[0] << uart_receive:receiver.rx_data
+o_LEDs[1] << uart_receive:receiver.rx_data
+o_LEDs[2] << uart_receive:receiver.rx_data
+o_LEDs[3] << uart_receive:receiver.rx_data
+o_LEDs[4] << uart_receive:receiver.rx_data
+o_LEDs[5] << uart_receive:receiver.rx_data
+o_LEDs[6] << uart_receive:receiver.rx_data
+o_LEDs[7] << uart_receive:receiver.rx_data
+o_LEDs[8] << <GND>
+o_LEDs[9] << <GND>
+i_RX => comb.DATAIN
+o_TX << uart_transmit:transmitter.tx
+
+
+|top|clk_div:baud_clk
+ar => clk_out~reg0.ACLR
+ar => count[0].ACLR
+ar => count[1].ACLR
+ar => count[2].ACLR
+ar => count[3].ACLR
+ar => count[4].ACLR
+ar => count[5].ACLR
+ar => count[6].ACLR
+ar => count[7].ACLR
+ar => count[8].ACLR
+ar => count[9].ACLR
+ar => count[10].ACLR
+ar => count[11].ACLR
+clk_in => clk_out~reg0.CLK
+clk_in => count[0].CLK
+clk_in => count[1].CLK
+clk_in => count[2].CLK
+clk_in => count[3].CLK
+clk_in => count[4].CLK
+clk_in => count[5].CLK
+clk_in => count[6].CLK
+clk_in => count[7].CLK
+clk_in => count[8].CLK
+clk_in => count[9].CLK
+clk_in => count[10].CLK
+clk_in => count[11].CLK
+clk_out <= clk_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|uart_transmit:transmitter
+i_clk => o_done~reg0.CLK
+i_clk => o_ready~reg0.CLK
+i_clk => tx~reg0.CLK
+i_clk => bit_count[0].CLK
+i_clk => bit_count[1].CLK
+i_clk => bit_count[2].CLK
+i_clk => bit_count[3].CLK
+i_clk => state~5.DATAIN
+i_rst => o_done~reg0.ACLR
+i_rst => o_ready~reg0.ACLR
+i_rst => tx~reg0.PRESET
+i_rst => bit_count[0].ACLR
+i_rst => bit_count[1].ACLR
+i_rst => bit_count[2].ACLR
+i_rst => bit_count[3].ACLR
+i_rst => state~7.DATAIN
+i_start => state.OUTPUTSELECT
+i_start => state.OUTPUTSELECT
+i_start => state.OUTPUTSELECT
+i_start => state.OUTPUTSELECT
+i_start => tx.OUTPUTSELECT
+i_start => o_done.OUTPUTSELECT
+i_start => o_ready.OUTPUTSELECT
+i_start => state.OUTPUTSELECT
+i_start => state.OUTPUTSELECT
+i_start => state.OUTPUTSELECT
+i_start => state.OUTPUTSELECT
+i_start => Selector5.IN0
+o_ready <= o_ready~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_done <= o_done~reg0.DB_MAX_OUTPUT_PORT_TYPE
+tx_data[0] => Mux0.IN7
+tx_data[0] => Selector4.IN2
+tx_data[1] => Mux0.IN6
+tx_data[2] => Mux0.IN5
+tx_data[3] => Mux0.IN4
+tx_data[4] => Mux0.IN3
+tx_data[5] => Mux0.IN2
+tx_data[6] => Mux0.IN1
+tx_data[7] => Mux0.IN0
+tx <= tx~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|uart_receive:receiver
+i_clk => rx_data[0]~reg0.CLK
+i_clk => rx_data[1]~reg0.CLK
+i_clk => rx_data[2]~reg0.CLK
+i_clk => rx_data[3]~reg0.CLK
+i_clk => rx_data[4]~reg0.CLK
+i_clk => rx_data[5]~reg0.CLK
+i_clk => rx_data[6]~reg0.CLK
+i_clk => rx_data[7]~reg0.CLK
+i_clk => clock_count[0].CLK
+i_clk => clock_count[1].CLK
+i_clk => clock_count[2].CLK
+i_clk => clock_count[3].CLK
+i_clk => clock_count[4].CLK
+i_clk => o_done~reg0.CLK
+i_clk => bit_count[0].CLK
+i_clk => bit_count[1].CLK
+i_clk => bit_count[2].CLK
+i_clk => bit_count[3].CLK
+i_clk => rx_sync.CLK
+i_clk => syncr[0].CLK
+i_clk => syncr[1].CLK
+i_clk => state~5.DATAIN
+i_rst => clock_count[0].ACLR
+i_rst => clock_count[1].ACLR
+i_rst => clock_count[2].ACLR
+i_rst => clock_count[3].ACLR
+i_rst => clock_count[4].ACLR
+i_rst => o_done~reg0.ACLR
+i_rst => bit_count[0].ACLR
+i_rst => bit_count[1].ACLR
+i_rst => bit_count[2].ACLR
+i_rst => bit_count[3].ACLR
+i_rst => state~7.DATAIN
+i_rst => rx_data[0]~reg0.ENA
+i_rst => rx_data[7]~reg0.ENA
+i_rst => rx_data[6]~reg0.ENA
+i_rst => rx_data[5]~reg0.ENA
+i_rst => rx_data[4]~reg0.ENA
+i_rst => rx_data[3]~reg0.ENA
+i_rst => rx_data[2]~reg0.ENA
+i_rst => rx_data[1]~reg0.ENA
+o_done <= o_done~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rx_data[0] <= rx_data[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rx_data[1] <= rx_data[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rx_data[2] <= rx_data[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rx_data[3] <= rx_data[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rx_data[4] <= rx_data[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rx_data[5] <= rx_data[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rx_data[6] <= rx_data[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rx_data[7] <= rx_data[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rx => syncr[0].DATAIN
+
+
+|top|fclk:fclk
+refclk => refclk.IN1
+rst => rst.IN1
+outclk_0 <= fclk_0002:fclk_inst.outclk_0
+locked <= fclk_0002:fclk_inst.locked
+
+
+|top|fclk:fclk|fclk_0002:fclk_inst
+refclk => refclk.IN1
+rst => rst.IN1
+outclk_0 <= altera_pll:altera_pll_i.outclk
+locked <= altera_pll:altera_pll_i.locked
+
+
+|top|fclk:fclk|fclk_0002:fclk_inst|altera_pll:altera_pll_i
+refclk => general[0].gpll.I_REFCLK
+refclk1 => ~NO_FANOUT~
+fbclk => ~NO_FANOUT~
+rst => general[0].gpll.I_RST
+phase_en => ~NO_FANOUT~
+updn => ~NO_FANOUT~
+num_phase_shifts[0] => ~NO_FANOUT~
+num_phase_shifts[1] => ~NO_FANOUT~
+num_phase_shifts[2] => ~NO_FANOUT~
+scanclk => ~NO_FANOUT~
+cntsel[0] => ~NO_FANOUT~
+cntsel[1] => ~NO_FANOUT~
+cntsel[2] => ~NO_FANOUT~
+cntsel[3] => ~NO_FANOUT~
+cntsel[4] => ~NO_FANOUT~
+reconfig_to_pll[0] => ~NO_FANOUT~
+reconfig_to_pll[1] => ~NO_FANOUT~
+reconfig_to_pll[2] => ~NO_FANOUT~
+reconfig_to_pll[3] => ~NO_FANOUT~
+reconfig_to_pll[4] => ~NO_FANOUT~
+reconfig_to_pll[5] => ~NO_FANOUT~
+reconfig_to_pll[6] => ~NO_FANOUT~
+reconfig_to_pll[7] => ~NO_FANOUT~
+reconfig_to_pll[8] => ~NO_FANOUT~
+reconfig_to_pll[9] => ~NO_FANOUT~
+reconfig_to_pll[10] => ~NO_FANOUT~
+reconfig_to_pll[11] => ~NO_FANOUT~
+reconfig_to_pll[12] => ~NO_FANOUT~
+reconfig_to_pll[13] => ~NO_FANOUT~
+reconfig_to_pll[14] => ~NO_FANOUT~
+reconfig_to_pll[15] => ~NO_FANOUT~
+reconfig_to_pll[16] => ~NO_FANOUT~
+reconfig_to_pll[17] => ~NO_FANOUT~
+reconfig_to_pll[18] => ~NO_FANOUT~
+reconfig_to_pll[19] => ~NO_FANOUT~
+reconfig_to_pll[20] => ~NO_FANOUT~
+reconfig_to_pll[21] => ~NO_FANOUT~
+reconfig_to_pll[22] => ~NO_FANOUT~
+reconfig_to_pll[23] => ~NO_FANOUT~
+reconfig_to_pll[24] => ~NO_FANOUT~
+reconfig_to_pll[25] => ~NO_FANOUT~
+reconfig_to_pll[26] => ~NO_FANOUT~
+reconfig_to_pll[27] => ~NO_FANOUT~
+reconfig_to_pll[28] => ~NO_FANOUT~
+reconfig_to_pll[29] => ~NO_FANOUT~
+reconfig_to_pll[30] => ~NO_FANOUT~
+reconfig_to_pll[31] => ~NO_FANOUT~
+reconfig_to_pll[32] => ~NO_FANOUT~
+reconfig_to_pll[33] => ~NO_FANOUT~
+reconfig_to_pll[34] => ~NO_FANOUT~
+reconfig_to_pll[35] => ~NO_FANOUT~
+reconfig_to_pll[36] => ~NO_FANOUT~
+reconfig_to_pll[37] => ~NO_FANOUT~
+reconfig_to_pll[38] => ~NO_FANOUT~
+reconfig_to_pll[39] => ~NO_FANOUT~
+reconfig_to_pll[40] => ~NO_FANOUT~
+reconfig_to_pll[41] => ~NO_FANOUT~
+reconfig_to_pll[42] => ~NO_FANOUT~
+reconfig_to_pll[43] => ~NO_FANOUT~
+reconfig_to_pll[44] => ~NO_FANOUT~
+reconfig_to_pll[45] => ~NO_FANOUT~
+reconfig_to_pll[46] => ~NO_FANOUT~
+reconfig_to_pll[47] => ~NO_FANOUT~
+reconfig_to_pll[48] => ~NO_FANOUT~
+reconfig_to_pll[49] => ~NO_FANOUT~
+reconfig_to_pll[50] => ~NO_FANOUT~
+reconfig_to_pll[51] => ~NO_FANOUT~
+reconfig_to_pll[52] => ~NO_FANOUT~
+reconfig_to_pll[53] => ~NO_FANOUT~
+reconfig_to_pll[54] => ~NO_FANOUT~
+reconfig_to_pll[55] => ~NO_FANOUT~
+reconfig_to_pll[56] => ~NO_FANOUT~
+reconfig_to_pll[57] => ~NO_FANOUT~
+reconfig_to_pll[58] => ~NO_FANOUT~
+reconfig_to_pll[59] => ~NO_FANOUT~
+reconfig_to_pll[60] => ~NO_FANOUT~
+reconfig_to_pll[61] => ~NO_FANOUT~
+reconfig_to_pll[62] => ~NO_FANOUT~
+reconfig_to_pll[63] => ~NO_FANOUT~
+extswitch => ~NO_FANOUT~
+adjpllin => ~NO_FANOUT~
+cclk => ~NO_FANOUT~
+outclk[0] <= general[0].gpll.O_OUTCLK
+fboutclk <= general[0].gpll.O_FBOUTCLK
+locked <= general[0].gpll.LOCKED
+phase_done <= <GND>
+reconfig_from_pll[0] <= <GND>
+reconfig_from_pll[1] <= <GND>
+reconfig_from_pll[2] <= <GND>
+reconfig_from_pll[3] <= <GND>
+reconfig_from_pll[4] <= <GND>
+reconfig_from_pll[5] <= <GND>
+reconfig_from_pll[6] <= <GND>
+reconfig_from_pll[7] <= <GND>
+reconfig_from_pll[8] <= <GND>
+reconfig_from_pll[9] <= <GND>
+reconfig_from_pll[10] <= <GND>
+reconfig_from_pll[11] <= <GND>
+reconfig_from_pll[12] <= <GND>
+reconfig_from_pll[13] <= <GND>
+reconfig_from_pll[14] <= <GND>
+reconfig_from_pll[15] <= <GND>
+reconfig_from_pll[16] <= <GND>
+reconfig_from_pll[17] <= <GND>
+reconfig_from_pll[18] <= <GND>
+reconfig_from_pll[19] <= <GND>
+reconfig_from_pll[20] <= <GND>
+reconfig_from_pll[21] <= <GND>
+reconfig_from_pll[22] <= <GND>
+reconfig_from_pll[23] <= <GND>
+reconfig_from_pll[24] <= <GND>
+reconfig_from_pll[25] <= <GND>
+reconfig_from_pll[26] <= <GND>
+reconfig_from_pll[27] <= <GND>
+reconfig_from_pll[28] <= <GND>
+reconfig_from_pll[29] <= <GND>
+reconfig_from_pll[30] <= <GND>
+reconfig_from_pll[31] <= <GND>
+reconfig_from_pll[32] <= <GND>
+reconfig_from_pll[33] <= <GND>
+reconfig_from_pll[34] <= <GND>
+reconfig_from_pll[35] <= <GND>
+reconfig_from_pll[36] <= <GND>
+reconfig_from_pll[37] <= <GND>
+reconfig_from_pll[38] <= <GND>
+reconfig_from_pll[39] <= <GND>
+reconfig_from_pll[40] <= <GND>
+reconfig_from_pll[41] <= <GND>
+reconfig_from_pll[42] <= <GND>
+reconfig_from_pll[43] <= <GND>
+reconfig_from_pll[44] <= <GND>
+reconfig_from_pll[45] <= <GND>
+reconfig_from_pll[46] <= <GND>
+reconfig_from_pll[47] <= <GND>
+reconfig_from_pll[48] <= <GND>
+reconfig_from_pll[49] <= <GND>
+reconfig_from_pll[50] <= <GND>
+reconfig_from_pll[51] <= <GND>
+reconfig_from_pll[52] <= <GND>
+reconfig_from_pll[53] <= <GND>
+reconfig_from_pll[54] <= <GND>
+reconfig_from_pll[55] <= <GND>
+reconfig_from_pll[56] <= <GND>
+reconfig_from_pll[57] <= <GND>
+reconfig_from_pll[58] <= <GND>
+reconfig_from_pll[59] <= <GND>
+reconfig_from_pll[60] <= <GND>
+reconfig_from_pll[61] <= <GND>
+reconfig_from_pll[62] <= <GND>
+reconfig_from_pll[63] <= <GND>
+activeclk <= <GND>
+clkbad[0] <= <GND>
+clkbad[1] <= <GND>
+phout[0] <= <GND>
+phout[1] <= <GND>
+phout[2] <= <GND>
+phout[3] <= <GND>
+phout[4] <= <GND>
+phout[5] <= <GND>
+phout[6] <= <GND>
+phout[7] <= <GND>
+lvds_clk[0] <= <GND>
+lvds_clk[1] <= <GND>
+loaden[0] <= <GND>
+loaden[1] <= <GND>
+extclk_out[0] <= <GND>
+extclk_out[1] <= <GND>
+cascade_out[0] <= <GND>
+zdbfbclk <> <GND>
+
+
+|top|redstone:redstone
+tick => tick.IN210
+inputs[0] => w350.IN1
+outputs[0] <= w306.DB_MAX_OUTPUT_PORT_TYPE
+outputs[1] <= w670.DB_MAX_OUTPUT_PORT_TYPE
+outputs[2] <= w1034.DB_MAX_OUTPUT_PORT_TYPE
+outputs[3] <= w1398.DB_MAX_OUTPUT_PORT_TYPE
+outputs[4] <= w1762.DB_MAX_OUTPUT_PORT_TYPE
+outputs[5] <= w2126.DB_MAX_OUTPUT_PORT_TYPE
+outputs[6] <= w2490.DB_MAX_OUTPUT_PORT_TYPE
+outputs[7] <= w2854.DB_MAX_OUTPUT_PORT_TYPE
+outputs[8] <= w3218.DB_MAX_OUTPUT_PORT_TYPE
+outputs[9] <= w3582.DB_MAX_OUTPUT_PORT_TYPE
+outputs[10] <= w3946.DB_MAX_OUTPUT_PORT_TYPE
+outputs[11] <= w4310.DB_MAX_OUTPUT_PORT_TYPE
+outputs[12] <= w4674.DB_MAX_OUTPUT_PORT_TYPE
+outputs[13] <= w5038.DB_MAX_OUTPUT_PORT_TYPE
+outputs[14] <= w5402.DB_MAX_OUTPUT_PORT_TYPE
+outputs[15] <= w5766.DB_MAX_OUTPUT_PORT_TYPE
+outputs[16] <= w6130.DB_MAX_OUTPUT_PORT_TYPE
+outputs[17] <= w6494.DB_MAX_OUTPUT_PORT_TYPE
+outputs[18] <= w6858.DB_MAX_OUTPUT_PORT_TYPE
+outputs[19] <= w7222.DB_MAX_OUTPUT_PORT_TYPE
+outputs[20] <= w7586.DB_MAX_OUTPUT_PORT_TYPE
+outputs[21] <= w7950.DB_MAX_OUTPUT_PORT_TYPE
+outputs[22] <= w8314.DB_MAX_OUTPUT_PORT_TYPE
+outputs[23] <= w8678.DB_MAX_OUTPUT_PORT_TYPE
+outputs[24] <= w9042.DB_MAX_OUTPUT_PORT_TYPE
+outputs[25] <= w9406.DB_MAX_OUTPUT_PORT_TYPE
+outputs[26] <= w9770.DB_MAX_OUTPUT_PORT_TYPE
+outputs[27] <= w10134.DB_MAX_OUTPUT_PORT_TYPE
+outputs[28] <= w10498.DB_MAX_OUTPUT_PORT_TYPE
+outputs[29] <= w10862.DB_MAX_OUTPUT_PORT_TYPE
+outputs[30] <= w11226.DB_MAX_OUTPUT_PORT_TYPE
+outputs[31] <= w11590.DB_MAX_OUTPUT_PORT_TYPE
+outputs[32] <= <GND>
+
+
+|top|redstone:redstone|torch:c197
+i_clk => buffer.CLK
+i_in => buffer.DATAIN
+o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c199
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|torch:c211
+i_clk => buffer.CLK
+i_in => buffer.DATAIN
+o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c224
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|torch:c239
+i_clk => buffer.CLK
+i_in => buffer.DATAIN
+o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c285
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c289
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c296
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c304
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c305
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c306
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c307
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c460
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c463
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c668
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c669
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c670
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c671
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c824
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c827
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c1032
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c1033
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c1034
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c1035
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c1188
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c1191
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c1396
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c1397
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c1398
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c1399
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c1552
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c1555
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c1760
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c1761
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c1762
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c1763
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c1916
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c1919
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c2124
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c2125
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c2126
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c2127
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c2280
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c2283
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c2488
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c2489
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c2490
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c2491
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c2644
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c2647
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|torch:c2775
+i_clk => buffer.CLK
+i_in => buffer.DATAIN
+o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c2776
+i_clk => buffer[0].CLK
+i_clk => buffer[1].CLK
+i_in => buffer.IN1
+i_in => buffer.IN1
+i_lock => ~NO_FANOUT~
+o_out <= buffer[1].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c2789
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|torch:c2814
+i_clk => buffer.CLK
+i_in => buffer.DATAIN
+o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c2852
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c2853
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c2854
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c2855
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c3201
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c3208
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c3216
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c3217
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c3218
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c3219
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c3372
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c3375
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c3580
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c3581
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c3582
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c3583
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c3736
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c3739
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c3944
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c3945
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c3946
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c3947
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c4100
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c4103
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c4308
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c4309
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c4310
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c4311
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c4464
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c4467
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c4672
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c4673
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c4674
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c4675
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c4828
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c4831
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c5036
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c5037
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c5038
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c5039
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c5192
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c5195
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c5400
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c5401
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c5402
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c5403
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c5556
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c5559
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|torch:c5687
+i_clk => buffer.CLK
+i_in => buffer.DATAIN
+o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c5688
+i_clk => buffer[0].CLK
+i_clk => buffer[1].CLK
+i_in => buffer.IN1
+i_in => buffer.IN1
+i_lock => ~NO_FANOUT~
+o_out <= buffer[1].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c5701
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|torch:c5726
+i_clk => buffer.CLK
+i_in => buffer.DATAIN
+o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c5764
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c5765
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c5766
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c5767
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c6113
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c6120
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c6128
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c6129
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c6130
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c6131
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c6284
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c6287
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c6492
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c6493
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c6494
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c6495
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c6648
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c6651
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c6856
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c6857
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c6858
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c6859
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c7012
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c7015
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c7220
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c7221
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c7222
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c7223
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c7376
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c7379
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c7584
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c7585
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c7586
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c7587
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c7740
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c7743
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c7948
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c7949
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c7950
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c7951
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c8104
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c8107
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c8312
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c8313
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c8314
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c8315
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c8468
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c8471
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|torch:c8599
+i_clk => buffer.CLK
+i_in => buffer.DATAIN
+o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c8600
+i_clk => buffer[0].CLK
+i_clk => buffer[1].CLK
+i_in => buffer.IN1
+i_in => buffer.IN1
+i_lock => ~NO_FANOUT~
+o_out <= buffer[1].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c8613
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|torch:c8638
+i_clk => buffer.CLK
+i_in => buffer.DATAIN
+o_out <= buffer.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c8676
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c8677
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c8678
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c8679
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c9025
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c9032
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c9040
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c9041
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c9042
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c9043
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c9196
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c9199
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c9404
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c9405
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c9406
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c9407
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c9560
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c9563
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c9768
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c9769
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c9770
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c9771
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c9924
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c9927
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c10132
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c10133
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c10134
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c10135
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c10288
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c10291
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c10496
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c10497
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c10498
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c10499
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c10652
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c10655
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c10860
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c10861
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c10862
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c10863
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c11016
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c11019
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c11224
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c11225
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c11226
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c11227
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c11380
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c11383
+i_clk => buffer[0].CLK
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c11588
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c11589
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c11590
+i_clk => buffer[0].CLK
+i_in => buffer.IN0
+i_lock => buffer.IN1
+i_lock => buffer.IN1
+o_out <= buffer[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|redstone:redstone|repeater:c11591
+i_clk => buffer[0].CLK
+i_in => o_out.IN1
+i_in => buffer[0].DATAIN
+i_lock => ~NO_FANOUT~
+o_out <= o_out.DB_MAX_OUTPUT_PORT_TYPE
+
+

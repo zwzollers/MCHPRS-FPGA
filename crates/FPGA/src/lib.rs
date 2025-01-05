@@ -48,7 +48,7 @@ pub fn convert_compile(file: String, outputs: &mut Vec<BlockPos>, inputs: &mut V
     let _ = file.write_all(format!("{graph:#?}").as_bytes());
 
     start = Instant::now();
-    assembler::generate_verilog(&graph, "Quartus/Verilog/redstone.v", &r_schem.size);
+    assembler::generate_verilog(&graph, "../../Quartus/Verilog/redstone.v", &r_schem.size);
 
     println!("Generating Verilog Took: {:?}\n", start.elapsed());
 

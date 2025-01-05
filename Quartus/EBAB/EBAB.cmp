@@ -1,0 +1,18 @@
+	component EBAB is
+		port (
+			clk_clk                    : in  std_logic                     := 'X';             -- clk
+			ebab_address               : in  std_logic_vector(11 downto 0) := (others => 'X'); -- address
+			ebab_byte_enable           : in  std_logic_vector(1 downto 0)  := (others => 'X'); -- byte_enable
+			ebab_read                  : in  std_logic                     := 'X';             -- read
+			ebab_write                 : in  std_logic                     := 'X';             -- write
+			ebab_write_data            : in  std_logic_vector(15 downto 0) := (others => 'X'); -- write_data
+			ebab_acknowledge           : out std_logic;                                        -- acknowledge
+			ebab_read_data             : out std_logic_vector(15 downto 0);                    -- read_data
+			hps_io_reset_n             : out std_logic;                                        -- reset_n
+			reset_reset_n              : in  std_logic                     := 'X';             -- reset_n
+			sdram_clk_clk              : out std_logic;                                        -- clk
+			system_pll_ref_clk_clk     : in  std_logic                     := 'X';             -- clk
+			system_pll_ref_reset_reset : in  std_logic                     := 'X'              -- reset
+		);
+	end component EBAB;
+

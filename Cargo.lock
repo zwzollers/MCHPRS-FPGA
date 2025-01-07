@@ -677,19 +677,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "fpga_interface"
-version = "0.4.1"
-dependencies = [
- "fastnbt",
- "flate2",
- "mchprs_blocks",
- "mchprs_world",
- "regex",
- "serde",
- "serde_json",
-]
-
-[[package]]
 name = "frunk"
 version = "0.4.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1285,7 +1272,6 @@ dependencies = [
  "byteorder",
  "chrono",
  "ctrlc",
- "fpga_interface",
  "hematite-nbt",
  "hmac",
  "impls",
@@ -1342,14 +1328,17 @@ name = "mchprs_redpiler"
 version = "0.1.0"
 dependencies = [
  "enum_dispatch",
- "fpga_interface",
+ "fastnbt",
+ "flate2",
  "itertools 0.13.0",
  "mchprs_blocks",
  "mchprs_redstone",
  "mchprs_world",
  "petgraph",
  "redpiler_graph",
+ "regex",
  "rustc-hash 2.0.0",
+ "serde",
  "serde_json",
  "serialport",
  "smallvec",

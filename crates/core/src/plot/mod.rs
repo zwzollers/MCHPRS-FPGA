@@ -687,7 +687,6 @@ impl Plot {
             });
             while !handle.is_finished() {
                 // We'll update the players so that they don't time out.
-                println!("updated");
                 for player_idx in 0..self.players.len() {
                     if self.players[player_idx].update() {
                         // Unforunately we can't update a players view position

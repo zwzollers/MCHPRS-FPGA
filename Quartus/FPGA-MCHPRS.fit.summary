@@ -1,12 +1,12 @@
-Fitter Status : Successful - Sun Jan  5 02:38:03 2025
+Fitter Status : Successful - Tue Jan  7 00:29:39 2025
 Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 Revision Name : FPGA-MCHPRS
 Top-level Entity Name : top
 Family : Cyclone V
 Device : 5CSEMA5F31A7
 Timing Models : Final
-Logic utilization (in ALMs) : 124 / 32,070 ( < 1 % )
-Total registers : 309
+Logic utilization (in ALMs) : 116 / 32,070 ( < 1 % )
+Total registers : 264
 Total pins : 27 / 457 ( 6 % )
 Total virtual pins : 0
 Total block memory bits : 0 / 4,065,280 ( 0 % )
